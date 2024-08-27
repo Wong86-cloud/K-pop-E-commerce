@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Overlock+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+body {
+    background-color: #d0d8e4;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.navbar-logo {
+    width: 80px;
+    height: auto;
+}
+
+.navbar-brand {
+    font-family: 'Overlock SC', sans-serif;
+    font-size: 30px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px rgba(113, 204, 253, 0.61); 
+    margin-left: 20px;
+    background: linear-gradient(45deg, #0070d8, #39caff, #0079EA, #005aae ); /* Define the gradient colors */
+    background-clip: text;
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text color transparent to show the gradient */
+}
+
+.language-label, .currency-label {
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #0174df;
+}
+
+/* Style for the dropdown select element */
+.language-selector, .currency-selector {
+    font-size: 16px;
+    color: #0e85db;
+    background-color: #eef9ff; /* Light background color */
+    border: 1px solid #3db9f7; /* Border color matching the text */
+    border-radius: 8px; /* Rounded corners */
+    padding: 4px 10px; /* Padding inside the dropdown */
+    outline: none; /* Remove default outline */
+    cursor: pointer; /* Pointer cursor for a clickable effect */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Navbar Options */
+.navbar-nav .nav-item .nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px; 
+    color: #33363a; 
+    text-decoration: none; 
+    display: flex; /* Align text and icon horizontally */
+    align-items: center; /* Center items vertically */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.navbar-nav .nav-item .nav-link i {
+    margin-left: 8px; /* Space between text and icon */
+    cursor: pointer;
+}
+
+#search_bar {
+    height: 60px;
+    background: linear-gradient(130deg, #0070d8, #34c6fb, #0079EA, #005aae );
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    color: #d9dfeb;
+}
+
+#search_bar div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    margin: auto;
+    font-size: 30px;
+}
+
+/*Style of Discussion Forum*/
+#search_bar div span.forum-title {
+    font-family: 'Audiowide', cursive;
+    font-size: 30px;
+    margin-top: 5px;
+    color: #fff;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#search_box {
+    width: 400px;
+    height: 40px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    padding: 4px;
+    font-size: 14px;
+    background-image: url('https://purepng.com/public/uploads/thumbnail/search-icon-ngl.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.sidebar-container {
+    width: 220px;
+    height: 490px;
+    margin-top: 10px;
+    margin-left: 0;
+    background: linear-gradient(130deg, #0070d8, #51d1ff);
+    position: absolute; /* Fixed position on the left */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* General Sidebar Styling */
+.sidebar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.sidebar-title {
+    font-family: 'Ysabeau Office', sans-serif;
+    font-size: 30px;
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+/* Profile section */
+.personal-profile {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-bottom: 10px; /* Space between profile and menu */
+}
+
+#sidebar-profile-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: white;
+    letter-spacing: 2px;
+    margin-left: 20px; /* Space between photo and name */
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Sidebar Menu Items */
+.sidebar-menu {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0; /* Remove default margin */
+    width: 100%;
+}
+
+.sidebar-menu li {
+    margin: 10px 0; /* Adjust spacing as needed */
+}
+
+.sidebar-menu li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'MuSeoModerno', sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+    background-color: #34495e; /* Darker shade on hover */
+}
+
+.sidebar-menu li a i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 20px;
+}
