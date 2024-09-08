@@ -5,16 +5,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
-body {
-    background-color: #d0d8e4;
-}
-
 /* General Profile Container */
 .profile-container {
     margin-top: 10px;
     margin-left: 230px;
     margin-right: 10px;
-    background-color: white;
+    background-image: url('https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
     min-height: 400px;
     padding-bottom: 20px;
 }
@@ -188,7 +187,10 @@ body {
     height: 800px;
     margin-top: 10px;
     margin-left: 0;
-    background: white;
+    background-image: url('https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
     position: absolute; /* Fixed position on the left */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
@@ -252,8 +254,9 @@ textarea {
 .post-buttons {
     display: flex;
     align-items: center;
-    gap: 724px;
+    justify-content: space-between;
     margin-top: 10px;
+    position: relative; 
 }
 
 #upload-post-photo {
@@ -272,6 +275,7 @@ textarea {
     margin-left: 20px;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 #upload-post-photo-button i {
@@ -290,13 +294,18 @@ textarea {
     font-size: 16px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
+    position: absolute; /* Position the button absolutely */
+    right: 20px; /* Fix to the right side */
 }
 
 .post-bar-container {
     margin-top: 10px;
     margin-left: 230px;
     margin-right: 10px;
-    background: white;
+    background-image: url('https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
     min-height: 250px;
     padding-bottom: 20px;
     border-radius: 20px;

@@ -26,24 +26,26 @@
                 
                 <!-- Language Selector -->
                 <div class="dropdown ms-4 me-2">
-                    <label for="language" class="language-label">Language |</label>
+                    <label for="language" class="language-label">
+                        <span data-translate="Language">Language</span> |</label></label>
                     <select name="language" id="language" class="language-selector">
-                        <option value="en">English</option>
-                        <option value="ko">Korean</option>
-                        <option value="zh-CN">Chinese</option>
-                        <option value="ms">Malay</option>
+                        <option value="en" data-translate="English">English</option>
+                        <option value="ko" data-translate="Korean">Korean</option>
+                        <option value="zh-CN" data-translate="Chinese">Chinese</option>
+                        <option value="ms" data-translate="Malay">Malay</option>
                     </select>
                 </div>
 
                 <!-- Currency Selector -->
                 <div class="dropdown ms-4 me-2">
-                    <label for="currency" class="currency-label">Currency |</label>
+                    <label for="currency" class="currency-label">
+                        <span data-translate="Currency">Currency</span> |</label>
                     <select name="currency" id="currency" class="currency-selector">
-                        <option value="USD">US Dollar (USD)</option>
-                        <option value="EUR">Euro (EUR)</option>
-                        <option value="KRW">Korean Won (KRW)</option>
-                        <option value="CNY">Chinese Yuan (CNY)</option>
-                        <option value="MYR">Malaysian Ringgit (MYR)</option>
+                        <option value="USD" data-translate="US Dollar (USD)">US Dollar (USD)</option>
+                        <option value="EUR" data-translate="Euro (Euro)">Euro (EUR)</option>
+                        <option value="KRW" data-translate="Korean Won (KRW)">Korean Won (KRW)</option>
+                        <option value="CNY" data-translate="Chinese Yuan (CNY)">Chinese Yuan (CNY)</option>
+                        <option value="MYR" data-translate="Malaysian Ringgit (MYR)">Malaysian Ringgit (MYR)</option>
                     </select>
                 </div>
             </div>
@@ -53,19 +55,19 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            Notifications
+                            <span data-translate="Notifications">Notifications</span>
                             <i class="far fa-bell"></i>     
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Cart
+                        <a class="nav-link" href="cart.html">
+                            <span data-translate="Cart">Cart</span>
                             <i class="fas fa-cart-arrow-down"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Log Out
+                        <a class="nav-link" href="login.html">
+                            <span data-translate="Log Out">Log Out</span>
                             <i class="fas fa-sign-out-alt"></i>
                         </a>
                     </li>
@@ -77,15 +79,15 @@
     <!--Search Bar-->
     <div id="search_bar">
         <div>
-            <span class="forum-title">K-POP Forum</span>
-            <input type="text" id="search_box" placeholder="Search for people">
+            <span class="forum-title" data-translate="K-POP Forum">K-POP Forum</span>
+            <input type="text" id="search_box" data-translate="Search for people" placeholder="Search for people">
         </div>
     </div>
 
     <!--Side Bar-->
     <div class="sidebar-container">  
         <div class="sidebar">
-            <span class="sidebar-title">Profile</span>
+            <span class="sidebar-title" data-translate="Profile">Profile</span>
             <a href="profile.html">
                 <div class="personal-profile">
                     <img src="assets/images/profile/ella.jpg" id="sidebar-profile-photo">
@@ -93,10 +95,10 @@
                 </div>
             </a>
             <ul class="sidebar-menu">
-                <li><a href="#home"><i class="fas fa-home"></i>Home</a></li>
-                <li><a href="#shop"><i class="fas fa-store"></i>Shop</a></li>
-                <li><a href="#"><i class="fas fa-video"></i>Video Chat</a></li>
-                <li><a href="#message"><i class="fas fa-envelope"></i>Message</a></li>
+                <li><a href="home.html"><i class="fas fa-home"></i><span data-translate="Home">Home</span></a></li>
+                <li><a href="shop.html"><i class="fas fa-store"></i><span data-translate="Shop">Shop</span></a></li>
+                <li><a href="lobby.html"><i class="fas fa-video"></i><span data-translate="Video Chat">Video Chat</span></a></li>
+                <li><a href="message.html"><i class="fas fa-envelope"></i><span data-translate="Message">Message</span></a></li>
             </ul>
         </div>
     </div>
@@ -127,17 +129,17 @@
         <div class="profile-menu">
             <br>
             <!--Menu Buttons-->
-            <div id="menu-buttons" onclick="location.href='timeline.html'">Timeline</div>
-            <div id="menu-buttons">About</div>
-            <div id="menu-buttons">Friends</div>
-            <div id="menu-buttons">Photos</div>
-            <div id="menu-buttons">Groups</div>
+            <div id="menu-buttons" onclick="location.href='timeline.html'" data-translate="Timeline">Timeline</div>
+            <div id="menu-buttons" data-translate="About">About</div>
+            <div id="menu-buttons" data-translate="Friends">Friends</div>
+            <div id="menu-buttons" data-translate="Photos">Photos</div>
+            <div id="menu-buttons" data-translate="Groups">Groups</div>
         </div>
     </div>
 
     <!--Friends Bar-->
     <div class="friends-bar-container">  
-        <div class="friends-title">Friends</div>
+        <div class="friends-title" data-translate="Friends">Friends</div>
         <div class="friends-bar">
             <img class="friends-img" src="assets/images/profile/gawon.jpg">
             <span class="friends-name">Lee Gawon</span>
@@ -154,12 +156,12 @@
 
     <!--Post Area-->
     <div class="post-area-container">
-        <textarea placeholder="What's on your mind?"></textarea>
+        <textarea placeholder="What's on your mind?" data-translate="What's on your mind?"></textarea>
         <div class="post-buttons">
             <input type="file" id="upload-post-photo">
             <label for="upload-post-photo"  id="upload-post-photo-button">
-                Upload Photo <i class="fas fa-upload"></i></label>
-            <button id="post-button">Post</button>
+                <span data-translate="Upload Photo">Upload Photo</span><i class="fas fa-upload"></i></label>
+            <button id="post-button" data-translate="Post">Post</button>
         </div>
     </div>
 

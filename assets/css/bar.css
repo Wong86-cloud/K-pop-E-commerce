@@ -6,13 +6,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 body {
-    background-color: #d0d8e4;
+    background-color: white;
 }
 
 .navbar {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    background-image: url('https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    box-shadow: #92989e 0 2px 4px; /* Add shadow to the navbar */
 }
 
 .navbar-logo {
@@ -43,7 +49,7 @@ body {
 .language-selector, .currency-selector {
     font-size: 16px;
     color: #0e85db;
-    background-color: #eef9ff; /* Light background color */
+    background-color: #e6f0ff; /* Light background color */
     border: 1px solid #3db9f7; /* Border color matching the text */
     border-radius: 8px; /* Rounded corners */
     padding: 4px 10px; /* Padding inside the dropdown */
@@ -193,7 +199,7 @@ a {
 }
 
 .sidebar-menu li a:hover {
-    background-color: #34495e; /* Darker shade on hover */
+    background-color: #0178dad1; /* Darker shade on hover */
 }
 
 .sidebar-menu li a i {

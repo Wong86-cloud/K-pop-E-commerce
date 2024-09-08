@@ -2,156 +2,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.home-container {
+    height: 490px;
+    margin-top: 10px;
+    margin-left: 230px;
+    margin-right: 10px;
+    background: white;
+    padding-bottom: 20px;
+    position: relative;
 }
 
-body{
-    font-family: 'Poppins', sans-serif;
-}
-
-/*Heading Styles */
-h1{
-    font-size: 2.5rem;
-    font-weight: 700;
-}
-
-h2{
-    font-size: 1.8rem;
-    font-weight: 600;
-}
-
-h3{
-    font-size: 1.5rem;
-    font-weight: 800;
-}
-
-h4{
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-h5{
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-h6{
-    color:#D8D8D8;
-}
-
-/* Navbar Styles */
-.navbar-logo {
-    width: 60px;
-    height: auto;
-    margin-right: 15px;
-}
-
-.zipzap {
-    font-family: 'Michroma', sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    background: linear-gradient(0deg, #42F2FF, #327AFF, #023C60);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-}
-
-.navbar {
-    font-size: 16px;
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-    top: 0;
-    left: 0;
-}
-
-.navbar-light .navbar-nav .nav-link{
-
-    padding: 0 10px;
-    color: #05131E;
-    transition: 0.4s ease;
-}
-
-.navbar-light .navbar-nav .nav-link:hover,
-.navbar i:hover,
-.navbar-light .navbar-nav .nav-link.active
-.navbar i:hover{
-    color: #327AFF
-}
-
-.navbar i {
-    font-size: 1.2rem;
-    padding: 0 0.7px;
-    transition: 0.4s ease;
-    font-weight: 600;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-/* Align navbar items */
-.navbar-nav .nav-item{
-    margin-left: 10px;
-}
-
-/* Dropdown Menu Styles */
-.navbar-nav .dropdown-menu{
-    background-color: #05131E;
-    color: #fff;
-}
-
-.navbar-nav .dropdown-menu a{
-    color: #fff;
-}
-
-.navbar-nav .dropdown-menu a:hover{
-    background-color: #327AFF;
-}
-
-.navbar-nav .dropdown-menu::after{
-    border-bottom-color: #05131E;
-}
-
-/* Language and Currency Dropdowns */
-.dropdown .dropdown-toggle::after{
-    margin-left: 10px;
-    vertical-align: middle;
-}
-
-/* Adjusts alignment of dropdown menu */
-.d-flex{
-    margin-left: 20px;
-}
-
-#home{
-    background-image: url('https://images.unsplash.com/photo-1588420343618-6141b3784bce?q=80&w=1712&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+#home {
+    position: relative;
+    height: 490px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
     text-align: center;
+    background: url('https://media-cdn-v2.laodong.vn/storage/newsportal/2023/7/20/1219236/Kpop100-List-Taegeuk.jpeg') no-repeat center center/cover; /* Background image */
+    background-size: cover;
+    background-position: center;
 }
 
-#home h5{
-    margin-top: 100px;
+/* Overlay to darken the background */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0); /* Darkens the background */
+    z-index: 1;
 }
 
-.home-image{
-    display: block;
-    margin:0 auto;
-    max-width: 20%;
-    max-height: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+.home-content {
+    z-index: 2; /* Puts text and button above the background and overlay */
 }
 
-.custom-btn{
-    background: linear-gradient(0deg, #266FAB, #05131E);
+.custom-btn {
+    background: linear-gradient(130deg, #0070d8, #51d1ff);
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -160,8 +50,12 @@ h6{
     transition: 0.4s ease;
 }
 
-.custom-btn:hover{
-    background: linear-gradient(0deg, #A3A4A5, #457EAC);
+.custom-btn:hover {
+    background: linear-gradient(130deg, #055fb3, #46b4dc);
+}
+
+#home h5 {
+    margin-top: 10px;
 }
 
 .brands{
@@ -284,12 +178,13 @@ footer{
 
 .footer-logo {
     width: 80px;
-    height: auto;
+    height: 75px;
     background-color: #fff;
+    background-position: center;
     display: inline-block;
     text-align: center;
     line-height: 38px;
-    border-radius: 50%;
+    border-radius: 20%;
     margin: 0.5px;
     
 }

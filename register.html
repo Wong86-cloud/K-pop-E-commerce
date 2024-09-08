@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    
+    <link rel="stylesheet" href="assets/css/bar.css">
+
+    <link rel="stylesheet" href="assets/css/register.css">
+
+</head>
+
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <img src="assets/images/navbar/logo.png" class="navbar-logo">
+                <a class="navbar-brand">KIVORIA</a>
+                <div class="dropdown ms-4">
+                    <label for="language" class="language-label">
+                        <span data-translate="Language">Language</span> |
+                    </label>
+                    <select name="language" id="language" class="language-selector">
+                        <option value="en" data-translate="English">English</option>
+                        <option value="ko" data-translate="Korean">Korean</option>
+                        <option value="zh-CN" data-translate="Chinese">Chinese</option>
+                        <option value="ms" data-translate="Malay">Malay</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Right Side: Register Button -->
+            <div class="navbar-options ms-auto" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">
+                            <i class="fas fa-step-backward"></i> 
+                            <span data-translate="Return">Return</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Register Container -->
+    <div class="register-container">
+        <span class="register-title" data-translate="Sign up to KIVORIA">Sign up to KIVORIA</span>
+        <form class="register-form">
+            <!-- Name Fields in One Row -->
+            <div class="row">
+                <!-- First Name -->
+                <div class="col-md-6 mb-3">
+                    <label for="first-name" class="form-label" data-translate="First name">First name</label>
+                    <input type="text" class="form-control" id="first-name" aria-describedby="first-name">
+                </div>
+                <!-- Last Name -->
+                <div class="col-md-6 mb-3">
+                    <label for="last-name" class="form-label" data-translate="Last name">Last name</label>
+                    <input type="text" class="form-control" id="last-name" aria-describedby="last-name">
+                </div>
+            </div>
+    
+            <!-- Gender and Email Fields in One Row -->
+            <div class="row">
+                <!-- Gender Dropdown -->
+                <div class="col-md-6 mb-3">
+                    <label for="gender" class="form-label" data-translate="Gender">Gender</label>
+                    <select name="gender" id="gender" class="form-select gender-selector">
+                        <option value="male" data-translate="Male">Male</option>
+                        <option value="female" data-translate="Female">Female</option>
+                    </select>
+                </div>
+                <!-- Email -->
+                <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label" data-translate="Email address">Email address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                </div>
+            </div>
+    
+            <!-- Password Fields in One Row -->
+            <div class="row">
+                <!-- Password -->
+                <div class="col-md-6 mb-3">
+                    <label for="password" class="form-label" data-translate="Password">Password</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <!-- Confirmed Password -->
+                <div class="col-md-6 mb-3">
+                    <label for="confirmed-password" class="form-label" data-translate="Confirmed Password">Confirmed Password</label>
+                    <input type="password" class="form-control" id="confirmed-password">
+                </div>
+            </div>
+    
+            <!-- Sign Up Button -->
+            <div class="d-grid gap-2">
+                <button type="submit" class="register-button" data-translate="Sign up">Sign up</button>
+            </div>
+        </form>
+    </div>
+    
+
+    </body>
+    <script src="assets/js/language.js"></script>
+   
+
+
+
+
+
+</body>
+<script src="assets/js/.js"></script>
+</html>

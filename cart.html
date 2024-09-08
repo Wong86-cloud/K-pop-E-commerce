@@ -11,7 +11,7 @@
     
     <link rel="stylesheet" href="assets/css/bar.css">
 
-    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/cart.css">
 
 </head>
 <body>
@@ -79,7 +79,7 @@
     <!--Search Bar-->
     <div id="search_bar">
         <div>
-            <span class="forum-title" data-translate="K-POP Hometown">K-POP Hometown</span>
+            <span class="forum-title" data-translate="K-POP Shop">K-POP Shop</span>
             <input type="text" id="search_box" data-translate="Search for product" placeholder="Search for product">
         </div>
     </div>
@@ -103,128 +103,90 @@
         </div>
     </div>
        
-
-    <!-- Home -->
-    <div class="home-container">
-      <section id="home">
-        
-      </section>
-    </div>
-
-
-      <!--Brands-->
-      <section id="brands">
-        <div class="container d-flex justify-content-between align-items-center">
-            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/images/brands/yg.png">
-            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/images/brands/jyp.jpg">
-            <img class="img-fluid col-lg-2 col-md-6 col-sm-12" src="assets/images/brands/sm.jpg">
-            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/images/brands/hybe.jpg">
-        </div>
-      </section>
-
-      <!--Recommended Artist-->
-      <section id="recommended-artist">
+    <!--Cart Container-->
+    <section class="cart-container">     
         <div class="container">
-            <h1>Recommended Artist</h1>
-            <div class="artist-carousel">
-                <button class="carousel-btn left-btn"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel inner">
-                    <div class="artist">
-                        <img src="assets/images/artists/bts.jpeg" alt="bts-logo">
-                        <h4>BTS</h4>
-                        <button class="btn artist-btn">Shop Now</button> 
+            <span class="cart-title" data-translate="Your Cart">Your Cart</span>
+        </div>
+        <table class="mt-4 pt-4">
+            <tr>
+                <th data-translate="Product">Product</th>
+                <th data-translate="Quantity">Quantity</th>
+                <th data-translate="Price">Price</th>
+                <th data-translate="Total">Total</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="assets/images/shop/album1.png" alt="Product Image">
+                        <div>
+                            <p data-translate="V (BTS) 'Layover' LP">V (BTS) 'Layover' LP</p>
+                            <small class="product-price" data-price="40.18">USD 40.18</small>
+                        </div>
                     </div>
-                    <div class="artist">
-                        <img src="assets/images/artists/blackpink.jpg" alt="blackpink-logo">
-                        <h4>Blackpink</h4>
-                        <button class="btn artist-btn">Shop Now</button>
+                </td>
+                <td>
+                    <input type="number" value="1">
+                    <a class="edit-button" href="#" data-translate="Edit">Edit</a>
+                    <a class="remove-button" href="#" data-translate="Remove">Remove</a>
+                </td>
+                <td>
+                    <span class="product-price" data-price="40.18">USD 40.18</span>
+                </td>
+                <td>
+                    <span class="total-price" data-price="40.18">USD 40.18</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="assets/images/shop/album1.png" alt="Product Image">
+                        <div>
+                            <p data-translate="V (BTS) 'Layover' LP">V (BTS) 'Layover' LP</p>
+                            <small class="product-price" data-price="40.18">USD 40.18</small>
+                        </div>
                     </div>
-                    <div class="artist">
-                        <img src="assets/images/artists/twice.jpg" alt="twice-logo">
-                        <h4>Twice</h4>
-                        <button class="btn artist-btn">Shop Now</button>
-                    </div>
-                    <!--Add more artists-->
-                </div>
-                <button class="carousel-btn right-btn"><i class="fas fa-chevron-right"></i></button>
+                </td>
+                <td>
+                    <input type="number" value="1">
+                    <a class="edit-button" href="#" data-translate="Edit">Edit</a>
+                    <a class="remove-button" href="#" data-translate="Remove">Remove</a>
+                </td>
+                <td>
+                    <span class="product-price" data-price="40.18">USD 40.18</span>
+                </td>
+                <td>
+                    <span class="total-price" data-price="40.18">USD 40.18</span>
+                </td>
+            </tr>
+        </table>
+        <div class="cart-footer">
+            <div class="total-price-container">
+                <table>
+                    <tr>
+                        <td data-translate="Subtotal">Subtotal</td>
+                        <td class="subtotal-price" data-price="40.18">USD 40.18</td>
+                    </tr>
+                    <tr>
+                        <td data-translate="Tax">Tax</td>
+                        <td class="tax-price" data-price="0.00">USD 0.00</td>
+                    </tr>
+                    <tr>
+                        <td data-translate="Total">Total</td>
+                        <td class="total-price" data-price="40.18">USD 40.18</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="checkout-container">
+                <a href="checkout.html" class="checkout-button" data-translate="Checkout">Checkout</a>
             </div>
         </div>
     </section>
-  
-  
-
-  
-
-  
-
-  <!--Footer-->
-  <footer class="mt-5 py-5">
-    <div class="container">
-      <div class="row">
-        <div class="footer-one col-lg-3 col-md-6 col-sm-12">
-          <img src="assets/images/navbar/logo.png" alt="logo" class="footer-logo">
-          <p class="pyb-2">KIVORIA will provide the best products for the most affordable prices</p>
-        </div>
-        <div class="footer-two col-lg-3 col-md-6 col-sm-12">
-          <h5 class="pb-2">Featured</h5>
-          <ul class="text-uppercase">
-            <li><a href="#">Merch</a></li>
-            <li><a href="#">Album</a></li>
-            <li><a href="#">Photobook</a></li>
-            <li><a href="#">Photocard</a></li>
-          </ul>
-        </div>
-        <div class="footer-three col-lg-3 col-md-6 col-sm-12">
-          <h5 class="pb-2">Contact Us</h5>
-          <div>
-             <h6 class="text-uppercase">Address</h6>
-             <p>1234 Main Street</p>
-          </div>
-          <div>
-            <h6 class="text-uppercase">Phone</h6>
-            <p>857 574 9687</p>
-          </div>
-          <div>
-            <h6 class="text-uppercase">Email</h6>
-            <p>zipzap.customerservice@gmail.com</p>
-          </div>
-        </div>
-        <div class="footer-four col-lg-3 col-md-6 col-sm-12">
-          <h5 class="pb-2">Instagram</h5>
-          <div class="row">
-            <img src="assets/images/instagram/insta1.png" class="img-fluid w-25 h-100 m-2">
-            <img src="assets/images/instagram/insta2.png" class="img-fluid w-25 h-100 m-2">
-            <img src="assets/images/instagram/insta3.png" class="img-fluid w-25 h-100 m-2">
-            <img src="assets/images/instagram/insta4.jpg" class="img-fluid w-25 h-100 m-2">
-            <img src="assets/images/instagram/insta5.png" class="img-fluid w-25 h-100 m-2">
-            <img src="assets/images/instagram/insta6.png" class="img-fluid w-25 h-100 m-2">
-          </div>
-        </div>
-   
-        <div class="copyright mt-5">
-          <div class="container mx-auto">
-            <div class="row d-flex align-items-center justify-content-between">
-              <div class="col-lg-3 col-md-5 col-sm-12 mb-4">
-                <img src="assets/images/footer/payment.png">
-              </div>
-              <div class="col-lg-3 col-md-5 col-sm-12 mb-4 text-center">
-                <p> KIVORIA &copy; 2024 All Rights Reserved</p>
-              </div>
-              <div class="col-lg-3 col-md-5 col-sm-12 mb-4 text-end">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>       
-  </footer>
-
 
 </body>
-  <script src="assets/js/language.js"></script>
-  <script src="assets/js/currency.js"></script>
+    <script src="assets/js/language.js"></script>
+    <script src="assets/js/currency.js"></script>
 </html>
+
+
+
