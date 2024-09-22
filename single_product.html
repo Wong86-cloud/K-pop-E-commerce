@@ -11,7 +11,7 @@
     
     <link rel="stylesheet" href="assets/css/bar.css">
 
-    <link rel="stylesheet" href="assets/css/cart.css">
+    <link rel="stylesheet" href="assets/css/single_product.css">
 
 </head>
 <body>
@@ -76,6 +76,15 @@
         </div>
     </nav>
 
+    <!--Search Bar-->
+    <div id="search_bar">
+        <div>
+            <span class="forum-title" data-translate="K-POP Shop">K-POP Shop</span>
+            <input type="text" id="search_box" data-translate="Search for product" placeholder="Search for product">
+            <button id="search_button"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+
     <!--Side Bar-->
     <div class="sidebar-container">  
         <div class="sidebar">
@@ -96,50 +105,38 @@
         </div>
     </div>
        
-    <!--Cart Container-->
-    <section class="cart-container">     
-        <h2 data-translate="Your Cart">Your Cart</h2>
+    <!--Single Product Container-->
+    <section class="single-product-container">     
+        <div class="row mt-5">
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <img class="img-fluid w-100 pb-1" src="assets/images/shop/merch1.png">
+                <div class="small-img-group">
+                    <div class="small-img-col">
+                        <img src="assets/images/shop/merch2.png" width="100%" class="small-img"/>
+                    </div>
+                    <div class="small-img-col"></div>
+                        <img src="assets/images/shop/merch3.png" width="100%" class="small-img"/>
+                    </div>
+                    <div class="small-img-col"></div>
+                        <img src="assets/images/shop/photobook1.png" width="100%" class="small-img"/>
+                    </div>
+                    <div class="small-img-col"></div>
+                        <img src="assets/images/shop/photocard1.png" width="100%" class="small-img"/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
         
-        <table class="mt-4 pt-4">
-            <thead>
-                <tr>
-                    <th data-translate="Product">Product</th>
-                    <th data-translate="Quantity">Quantity</th>
-                    <th data-translate="Price">Price</th>
-                    <th data-translate="Total">Total</th>
-                </tr>
-            </thead>
-            <tbody id="cart-items">
-                <!-- Dynamic content will be inserted here by JavaScript -->
-            </tbody>
-        </table>
-        <div class="cart-footer">
-            <div class="total-price-container">
-                <table>
-                    <tr>
-                        <td data-translate="Subtotal">Subtotal</td>
-                        <td class="subtotal-price" data-price="0.00">USD 0.00</td>
-                    </tr>
-                    <tr>
-                        <td data-translate="Tax">Tax</td>
-                        <td class="tax-price" data-price="0.00">USD 0.00</td>
-                    </tr>
-                    <tr>
-                        <td data-translate="Total">Total</td>
-                        <td class="total-price" data-price="0.00">USD 0.00</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="checkout-container">
-                <a href="checkout.html" class="checkout-button" data-translate="Checkout">Checkout</a>
-            </div>
+    
         </div>
     </section>
     
+
 </body>
     <script src="assets/js/language.js"></script>
     <script src="assets/js/currency.js"></script>
-    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/.js"></script>
 </html>
 
 

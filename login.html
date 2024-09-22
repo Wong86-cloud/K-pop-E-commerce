@@ -11,12 +11,12 @@
     
     <link rel="stylesheet" href="assets/css/bar.css">
 
-    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/form.css">
 
 </head>
 
     <!--Navigation Bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <div class="d-flex align-items-center">
                 <img src="assets/images/navbar/logo.png" class="navbar-logo">
@@ -48,26 +48,31 @@
         </div>
     </nav>
 
-    <!--Login Container-->
-    <div class="login-container">
-        <picture>
-            <img src="assets/images/login/symbol.png" alt="Login Image" class="login-image">
-        </picture>
-        <span class="login-title" data-translate="Login in to KIVORIA">Login in to KIVORIA</span>
-        <form class="login-form">
-            <div class="mb-3">
-                <label for="email" class="form-label" data-translate="Email address">Email address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label" data-translate="Password">Password</label>
-                <input type="password" class="form-control" id="password">
-            </div>
-            <div class="d-grid gap-2">
-                <button type="submit" class="login-button" data-translate="Login">Login</button>
-            </div>
-        </form>
+    <!-- Login Container -->
+    <div class="login-form">
+        <div class="form-container">
+            <section class="form login">
+                <header>Login</header>
+                <form action="#">
+                    <div class="error-txt">This is an error message!</div>
+                    <div class="field input">
+                        <label>Email Address</label>
+                        <input type="text" placeholder="Enter your email">
+                    </div>
+                    <div class="field input">
+                        <label>Password</label>
+                        <input type="text" placeholder="Enter your password">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="field button">
+                        <input type="submit">
+                    </div>
+                </form>
+                <div class="link">Not yet signed up? <a href="#">Signup now</a></div>
+            </section>
+        </div>
     </div>
+
 </body>
 <script src="assets/js/language.js"></script>
 </html>

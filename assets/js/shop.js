@@ -1,63 +1,59 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const filterProductCheckboxes = document.querySelectorAll('input[type="checkbox"][name="filter"]');
-    const filterPriceRadios = document.querySelectorAll('input[type="radio"][name="filter"]');
-    const productItems = document.querySelectorAll('.shop-items li');
-    
-    // Function to filter the products
-    function filterProducts() {
-        let selectedCategories = [];
-        let selectedPriceFilter = 'Default';
+// Function to format currency
+function formatCurrency(amount) {
+    return `USD ${parseFloat(amount).toFixed(2)}`;
+}
 
-        // Get selected categories
-        filterProductCheckboxes.forEach(checkbox => {
-            if (checkbox.checked) {
-                selectedCategories.push(checkbox.value);
-            }
-        });
-
-        // Get selected price filter
-        filterPriceRadios.forEach(radio => {
-            if (radio.checked) {
-                selectedPriceFilter = radio.value;
-            }
-        });
-
-        // Filter products based on category
-        productItems.forEach(item => {
-            const category = item.getAttribute('data-category');
-            const price = parseFloat(item.querySelector('.product-price').getAttribute('data-price'));
-
-            // Show or hide items based on category
-            if (selectedCategories.includes('all') || selectedCategories.includes(category)) {
-                item.style.display = '';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-
-        // Sort products based on price filter
-        let sortedItems = Array.from(productItems).filter(item => item.style.display !== 'none');
-        if (selectedPriceFilter === 'LowToHigh') {
-            sortedItems.sort((a, b) => parseFloat(a.querySelector('.product-price').getAttribute('data-price')) - parseFloat(b.querySelector('.product-price').getAttribute('data-price')));
-        } else if (selectedPriceFilter === 'HighToLow') {
-            sortedItems.sort((a, b) => parseFloat(b.querySelector('.product-price').getAttribute('data-price')) - parseFloat(a.querySelector('.product-price').getAttribute('data-price')));
-        }
-
-        // Re-append sorted items to the container
-        const shopItemsContainer = document.querySelector('.shop-items ul');
-        shopItemsContainer.innerHTML = '';
-        sortedItems.forEach(item => shopItemsContainer.appendChild(item));
+// Toggle like button color
+function likeButton(button) {
+    if (button.style.color === "red") {
+        button.style.color = "#33363a"; // Default color
+    } else {
+        button.style.color = "red";
     }
+}
 
-    // Add event listeners to checkboxes and radio buttons
-    filterProductCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', filterProducts);
+// Add to wishlist
+function addToWishlist(item) {
+    const product = {
+        name: item.closest('li').querySelector('strong').innerText,
+        price: item.closest('li').querySelector('.product-price').innerText.replace('USD ', ''),
+        image: item.closest('li').querySelector('img').src,
+        category: item.closest('li').dataset.category
+    };
+
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    wishlist.push(product);
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+    alert('Item added to wishlist');
+}
+
+// Add to cart
+function addToCart(item) {
+    const product = {
+        name: item.closest('li').querySelector('strong').innerText,
+        price: item.closest('li').querySelector('.product-price').innerText.replace('USD ', ''),
+        image: item.closest('li').querySelector('img').src,
+        quantity: 1
+    };
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert('Item added to cart');
+}
+
+// Attach event listeners
+document.querySelectorAll('.fas.fa-heart').forEach((heartIcon) => {
+    heartIcon.addEventListener('click', function () {
+        likeButton(this);
+        addToWishlist(this);
     });
-    filterPriceRadios.forEach(radio => {
-        radio.addEventListener('change', filterProducts);
-    });
-    
-    // Initial filter
-    filterProducts();
 });
 
+document.querySelectorAll('.fas.fa-cart-plus').forEach((cartIcon) => {
+    cartIcon.addEventListener('click', function () {
+        addToCart(this);
+    });
+});

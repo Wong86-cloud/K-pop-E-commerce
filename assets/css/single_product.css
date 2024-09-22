@@ -1,0 +1,18 @@
+/* General Profile Container */
+.single-product-container {
+    margin: 10px 10px 0 230px;
+    background: white;
+    width: 1020px;
+    height: 1900px;
+    padding-bottom: 20px;
+}
+
+.small-img-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-img-col {
+    flex-basis: 24%;
+    cursor: pointer;
+}

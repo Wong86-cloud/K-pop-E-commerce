@@ -11,12 +11,12 @@
     
     <link rel="stylesheet" href="assets/css/bar.css">
 
-    <link rel="stylesheet" href="assets/css/register.css">
+    <link rel="stylesheet" href="assets/css/form.css">
 
 </head>
 
     <!--Navigation Bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <div class="d-flex align-items-center">
                 <img src="assets/images/navbar/logo.png" class="navbar-logo">
@@ -49,61 +49,43 @@
     </nav>
 
     <!-- Register Container -->
-    <div class="register-container">
-        <span class="register-title" data-translate="Sign up to KIVORIA">Sign up to KIVORIA</span>
-        <form class="register-form">
-            <!-- Name Fields in One Row -->
-            <div class="row">
-                <!-- First Name -->
-                <div class="col-md-6 mb-3">
-                    <label for="first-name" class="form-label" data-translate="First name">First name</label>
-                    <input type="text" class="form-control" id="first-name" aria-describedby="first-name">
-                </div>
-                <!-- Last Name -->
-                <div class="col-md-6 mb-3">
-                    <label for="last-name" class="form-label" data-translate="Last name">Last name</label>
-                    <input type="text" class="form-control" id="last-name" aria-describedby="last-name">
-                </div>
-            </div>
-    
-            <!-- Gender and Email Fields in One Row -->
-            <div class="row">
-                <!-- Gender Dropdown -->
-                <div class="col-md-6 mb-3">
-                    <label for="gender" class="form-label" data-translate="Gender">Gender</label>
-                    <select name="gender" id="gender" class="form-select gender-selector">
-                        <option value="male" data-translate="Male">Male</option>
-                        <option value="female" data-translate="Female">Female</option>
-                    </select>
-                </div>
-                <!-- Email -->
-                <div class="col-md-6 mb-3">
-                    <label for="email" class="form-label" data-translate="Email address">Email address</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                </div>
-            </div>
-    
-            <!-- Password Fields in One Row -->
-            <div class="row">
-                <!-- Password -->
-                <div class="col-md-6 mb-3">
-                    <label for="password" class="form-label" data-translate="Password">Password</label>
-                    <input type="password" class="form-control" id="password">
-                </div>
-                <!-- Confirmed Password -->
-                <div class="col-md-6 mb-3">
-                    <label for="confirmed-password" class="form-label" data-translate="Confirmed Password">Confirmed Password</label>
-                    <input type="password" class="form-control" id="confirmed-password">
-                </div>
-            </div>
-    
-            <!-- Sign Up Button -->
-            <div class="d-grid gap-2">
-                <button type="submit" class="register-button" data-translate="Sign up">Sign up</button>
-            </div>
-        </form>
+    <div class="register-form">
+        <div class="form-container">
+            <section class="form signup">
+                <header>Register</header>
+                <form action="#">
+                    <div class="error-txt">This is an error message!</div>
+                    <div class="name-details">
+                        <div class="field input">
+                            <label>First Name</label>
+                            <input type="text" placeholder="First Name">
+                        </div>
+                        <div class="field input">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="field input">
+                        <label>Email Address</label>
+                        <input type="text" placeholder="Enter your email">
+                    </div>
+                    <div class="field input">
+                        <label>Password</label>
+                        <input type="text" placeholder="Enter your password">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="field image">
+                        <label>Select Image</label>
+                        <input type="file">
+                    </div>
+                    <div class="field button">
+                        <input type="submit">
+                    </div>
+                </form>
+                <div class="link">Already signed up? <a href="#">Login now</a></div>
+            </section>
+        </div>
     </div>
-    
 
     </body>
     <script src="assets/js/language.js"></script>

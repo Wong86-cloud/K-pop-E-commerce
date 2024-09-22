@@ -1,0 +1,255 @@
+
+
+.sidebar-container {
+    height: 600px;
+}
+
+.users-container {
+    display: flex; /* Use flexbox to align items horizontally */
+    width: 1020px; /* Make sure the container takes up the full width */
+    height: 600px; /* Define a fixed height */
+    margin: 10px 10px 0 230px;
+    overflow-x: hidden;
+}
+
+.users {
+    width: 30%;
+    height: 100%;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #cccccc;
+}
+
+.users header, 
+.users-list a{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+}
+
+.users img {
+    object-fit:cover;
+    border-radius: 50%;
+}
+
+.users header .content {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.users header .content img{
+    width: 80px;
+    height: 80px;
+}
+
+:is(.users, .users-list) .details {
+    margin-top: 10px;
+    margin-left: 20px;
+    color: #33363a;
+}
+
+:is(.users, .users-list) .details span {
+    font-size: 20px;
+    font-weight: 500;
+    color: #33363a;
+}
+
+.users .search {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px; 
+}
+
+.users .search input {
+    height: 40px;
+    width: 100%; /* Let the width occupy the available space */
+    border: 1px solid #73767a;
+    padding: 0 10px;
+    font-size: 16px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    flex-grow: 1; /* Let the input grow to fill remaining space */
+}
+
+.users .search button {
+    background-color: #33363a;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.users-list {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.users-list img {
+    object-fit:cover;
+    border-radius: 50%;
+}
+
+.users-list a .content {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.users-list a .content img{
+    width: 80px;
+    height: 80px;
+}
+
+.users-list a .status-dot {
+    font-size: 12px;
+    color: #2ecc71;
+    margin-right: 20px;
+}
+
+/*Message*/
+.users-content {
+    width: 70%;
+    height: 100%;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #cccccc;
+}
+
+.users-content header{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+}
+
+.users-content img {
+    object-fit:cover;
+    border-radius: 50%;
+}
+
+.users-content header .content {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.users-content header .content img{
+    width: 80px;
+    height: 80px;
+}
+
+:is(.users-content, .users-list) .details {
+    margin-top: 10px;
+    margin-left: 20px;
+    color: #33363a;
+}
+
+:is(.users-content, .users-list) .details span {
+    font-size: 20px;
+    font-weight: 500;
+    color: #33363a;
+}
+
+.chat-box {
+    height: 100%;
+    overflow-y: auto;
+    background: linear-gradient(135deg, #99FEFF,#B983FF);
+}
+
+.chat-box .chat {
+    margin: 15px 0;
+}
+
+.chat-box .chat p{
+    word-wrap: break-word;
+    padding: 8px 16px;
+}
+
+.chat-box .outgoing{
+    display: flex;
+}
+
+.outgoing .details{
+    margin-right: 20px;
+    margin-left: auto;
+    max-width: calc(100% - 300px);
+}
+
+.outgoing .details p{
+    background:#33363a;
+    color:white;
+    border-radius: 18px 18px 0 18px;
+}
+
+.chat-box .incoming{
+    display: flex;
+    align-items: flex-end;
+}
+
+.chat-box .incoming img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+.incoming .details{
+    margin-left: 10px;
+    margin-right: auto;
+    max-width: calc(100% - 300px);
+}
+
+.incoming .details p{
+    background:white;
+    color:#33363a;
+    border-radius: 18px 18px 18px 0;
+}
+
+.users-content .typing-area {
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.typing-area input{
+    height: 45px;
+    width: calc(100% - 70px);
+    font-size: 17px;
+    border: 1px solid #cccccc;
+    padding: 0 13px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.typing-area button{
+    width: 50px;
+    border: none;
+    outline: none;
+    background: #33363a;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    margin-right: 20px;
+}
+
+
+
+

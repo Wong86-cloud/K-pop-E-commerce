@@ -17,7 +17,7 @@
 <body>
 
     <!--Navigation Bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <!--Logo and Name-->
             <div class="d-flex align-items-center">
@@ -76,14 +76,6 @@
         </div>
     </nav>
 
-    <!--Search Bar-->
-    <div id="search_bar">
-        <div>
-            <span class="forum-title" data-translate="K-POP Hometown">K-POP Hometown</span>
-            <input type="text" id="search_box" data-translate="Search for product" placeholder="Search for product">
-        </div>
-    </div>
-
     <!--Side Bar-->
     <div class="sidebar-container">  
         <div class="sidebar">
@@ -95,67 +87,102 @@
                 </div>
             </a>
             <ul class="sidebar-menu">
-                <li><a href="home.html"><i class="fas fa-home"></i><span data-translate="Home">Home</span></a></li>
-                <li><a href="shop.html"><i class="fas fa-store"></i><span data-translate="Shop">Shop</span></a></li>
-                <li><a href="lobby.html"><i class="fas fa-video"></i><span data-translate="Video Chat">Video Chat</span></a></li>
-                <li><a href="message.html"><i class="fas fa-envelope"></i><span data-translate="Message">Message</span></a></li>
-            </ul>
+              <li><a href="home.html"><i class="fas fa-home"></i><span data-translate="Home">Home</span></a></li>
+              <li><a href="shop.html"><i class="fas fa-store"></i><span data-translate="Shop">Shop</span></a></li>
+              <li><a href="wishlist.html"><i class="fas fa-heart"></i><span data-translate="Wishlist">Wishlist</span></a></li>
+              <li><a href="delivery.html"><i class="fas fa-truck-loading"></i><span data-translate="Delivery">Delivery</span></a></li>
+              <li><a href="message.html"><i class="fas fa-envelope"></i><span data-translate="Message">Message</span></a></li>
+          </ul>
         </div>
     </div>
        
-
-    <!-- Home -->
     <div class="home-container">
       <section id="home">
-        
+          <div id="homeCarousel" class="carousel-container">
+              <button class="carousel-slide-btn left-btn" onclick="prevSlideHome()"><i class="fas fa-chevron-left"></i></button>
+              <div class="carousel-slides">
+                  <div class="carousel-slide">
+                      <img src="assets/images/artists/kpop.jpg" alt="Promotion 1" class="banner-image">
+                      <div class="banner-content1">
+                          <h1>Summer Sale - Up to 50% Off!</h1>
+                          <p>Exclusive deals on all K-pop merchandise.</p>
+                          <button class="btn shop-btn">Shop Now</button>
+                      </div>
+                  </div>
+                  <div class="carousel-slide">
+                      <img src="assets/images/artists/aespa.jfif" alt="Promotion 2" class="banner-image">
+                      <div class="banner-content2">
+                          <h1>New Arrivals</h1>
+                          <p>Check out the latest collections from your favorite AESPA group.</p>
+                          <button class="btn shop-btn">Explore</button>
+                      </div>
+                  </div>
+                  <div class="carousel-slide">
+                      <img src="assets/images/artists/blacpink.jpg" alt="Promotion 3" class="banner-image">
+                      <div class="banner-content3">
+                          <h1>Exclusive Blacpink</h1>
+                          <h1>Merchandise</h1>
+                          <p>Limited-edition items available now!</p>
+                          <button class="btn shop-btn">Buy Now</button>
+                      </div>
+                      <div class="album-cover">
+                          <img src="assets/images/shop/album4.jpg" alt="album" class="album-image">
+                      </div>
+                  </div>
+              </div>
+              <button class="carousel-slide-btn right-btn" onclick="nextSlideHome()"><i class="fas fa-chevron-right"></i></button>
+          </div>
       </section>
+  </div>
+
+    <!--Brands-->
+  <section id="brands">
+    <div class="container">
+      <h1>Collaboration Brand</h1>
+      <div class="container d-flex justify-content-between align-items-center">
+        <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/images/brands/yg.png">
+        <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/images/brands/jyp.png">
+        <img class="img-fluid col-lg-2 col-md-6 col-sm-12" src="assets/images/brands/sm.png">
+        <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/images/brands/hybe.png">
+      </div>
     </div>
+  </section>
 
-
-      <!--Brands-->
-      <section id="brands">
-        <div class="container d-flex justify-content-between align-items-center">
-            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/images/brands/yg.png">
-            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/images/brands/jyp.jpg">
-            <img class="img-fluid col-lg-2 col-md-6 col-sm-12" src="assets/images/brands/sm.jpg">
-            <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/images/brands/hybe.jpg">
-        </div>
-      </section>
-
-      <!--Recommended Artist-->
-      <section id="recommended-artist">
-        <div class="container">
-            <h1>Recommended Artist</h1>
-            <div class="artist-carousel">
-                <button class="carousel-btn left-btn"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel inner">
-                    <div class="artist">
-                        <img src="assets/images/artists/bts.jpeg" alt="bts-logo">
-                        <h4>BTS</h4>
-                        <button class="btn artist-btn">Shop Now</button> 
-                    </div>
-                    <div class="artist">
-                        <img src="assets/images/artists/blackpink.jpg" alt="blackpink-logo">
-                        <h4>Blackpink</h4>
-                        <button class="btn artist-btn">Shop Now</button>
-                    </div>
-                    <div class="artist">
-                        <img src="assets/images/artists/twice.jpg" alt="twice-logo">
-                        <h4>Twice</h4>
-                        <button class="btn artist-btn">Shop Now</button>
-                    </div>
-                    <!--Add more artists-->
-                </div>
-                <button class="carousel-btn right-btn"><i class="fas fa-chevron-right"></i></button>
+  <!--Recommended Artist-->
+  <section id="recommended-artist">
+    <div class="container">
+        <h1>Recommended Artist</h1>
+        <div class="artist-carousel">
+            <!-- Left Button -->
+            <button class="carousel-btn left-btn" onclick="prevSlideArtist()"><i class="fas fa-chevron-left"></i></button>
+            <!-- Carousel Inner -->
+            <div class="carousel-inner">
+              <div class="artist">
+                <img src="assets/images/artists/bts.jpeg" alt="bts-logo">
+                <h4>BTS</h4>
+                <button class="btn artist-btn">Shop Now</button> 
+              </div>
+              <div class="artist">
+                <img src="assets/images/artists/blackpink2.jpg" alt="blackpink-logo">
+                <h4>Blackpink</h4>
+                <button class="btn artist-btn">Shop Now</button>
+              </div>
+              <div class="artist">
+                <img src="assets/images/artists/twice.jpg" alt="twice-logo">
+                <h4>Twice</h4>
+                <button class="btn artist-btn">Shop Now</button>
+              </div>
+              <div class="artist">
+                <img src="assets/images/artists/aespa2.jfif" alt="aespa-logo">
+                <h4>Aespa</h4>
+                <button class="btn artist-btn">Shop Now</button>
+              </div>
             </div>
-        </div>
-    </section>
-  
-  
-
-  
-
-  
+            <!-- Right Button -->
+            <button class="carousel-btn right-btn" onclick="nextSlideArtist()"><i class="fas fa-chevron-right"></i></button>
+          </div>
+    </div>
+  </section>
 
   <!--Footer-->
   <footer class="mt-5 py-5">
@@ -227,4 +254,5 @@
 </body>
   <script src="assets/js/language.js"></script>
   <script src="assets/js/currency.js"></script>
+  <script src="assets/js/home.js"></script>
 </html>

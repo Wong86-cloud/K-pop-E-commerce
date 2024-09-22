@@ -6,63 +6,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 body {
-    background-color: white;
+    background-color: #F6EACB;
 }
 
 .navbar {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-image: url('https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-size: cover; /* Ensures the image covers the entire background */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-attachment: fixed; /* Keeps the background fixed while scrolling */
-    box-shadow: #92989e 0 2px 4px; /* Add shadow to the navbar */
+    background: #33363a;
 }
 
 .navbar-logo {
-    width: 80px;
+    width: 60px;
     height: auto;
 }
 
 .navbar-brand {
-    font-family: 'Overlock SC', sans-serif;
     font-size: 30px;
     text-decoration: none;
-    text-shadow: 1px 1px 0px rgba(113, 204, 253, 0.61); 
     margin-left: 20px;
-    background: linear-gradient(45deg, #0070d8, #39caff, #0079EA, #005aae ); /* Define the gradient colors */
+    background: linear-gradient(45deg, #99FEFF, #94DAFF,#B983FF); /* Define the gradient colors */
     background-clip: text;
     -webkit-background-clip: text; /* Clip the background to the text */
     -webkit-text-fill-color: transparent; /* Make the text color transparent to show the gradient */
 }
 
 .language-label, .currency-label {
-    font-family: 'Gowun Dodum', sans-serif;
     font-size: 16px;
     font-weight: 500;
-    color: #0174df;
+    color: whitesmoke;
 }
 
 /* Style for the dropdown select element */
 .language-selector, .currency-selector {
     font-size: 16px;
-    color: #0e85db;
-    background-color: #e6f0ff; /* Light background color */
-    border: 1px solid #3db9f7; /* Border color matching the text */
+    color: #33363a;
+    background-color: whitesmoke; /* Light background color */
+    border: 1px solid whitesmoke; /* Border color matching the text */
     border-radius: 8px; /* Rounded corners */
     padding: 4px 10px; /* Padding inside the dropdown */
     outline: none; /* Remove default outline */
     cursor: pointer; /* Pointer cursor for a clickable effect */
     transition: background-color 0.3s ease; /* Smooth transition for background color */
+    margin-left: 5px;
 }
 
 /* Navbar Options */
 .navbar-nav .nav-item .nav-link {
-    font-family: 'Poppins', sans-serif;
     font-size: 16px; 
-    color: #33363a; 
+    font-weight: 500;
+    color: whitesmoke; 
     text-decoration: none; 
     display: flex; /* Align text and icon horizontally */
     align-items: center; /* Center items vertically */
@@ -76,9 +69,8 @@ body {
 
 #search_bar {
     height: 60px;
-    background: linear-gradient(130deg, #0070d8, #34c6fb, #0079EA, #005aae );
+    background: linear-gradient(130deg,#94DAFF,#94B3FD, #B983FF);
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    color: #d9dfeb;
 }
 
 #search_bar div {
@@ -95,23 +87,36 @@ body {
     font-family: 'Audiowide', cursive;
     font-size: 30px;
     margin-top: 5px;
-    color: #fff;
+    color: whitesmoke;
     letter-spacing: 2px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
 }
 
 #search_box {
-    width: 400px;
+    width: 420px;
     height: 40px;
     margin-top: 5px;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
     border: none;
     padding: 4px;
     font-size: 14px;
-    background-image: url('https://purepng.com/public/uploads/thumbnail/search-icon-ngl.png');
-    background-size: 20px 20px;
-    background-repeat: no-repeat;
-    background-position: right 10px center;
+    outline: none;
+}
+
+#search_button {
+    width: 45px;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: whitesmoke;
+    background: #333;
+    font-size:14px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left:-120px;
 }
 
 .sidebar-container {
@@ -119,9 +124,8 @@ body {
     height: 490px;
     margin-top: 10px;
     margin-left: 0;
-    background: linear-gradient(130deg, #0070d8, #51d1ff);
+    background-color: #33363a;
     position: absolute; /* Fixed position on the left */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
 /* General Sidebar Styling */
@@ -137,7 +141,7 @@ body {
 .sidebar-title {
     font-family: 'Ysabeau Office', sans-serif;
     font-size: 30px;
-    color: white;
+    color: whitesmoke;
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
@@ -148,7 +152,7 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid whitesmoke;
     display: flex;
     align-items: center;
     margin-left: 10px;
@@ -166,7 +170,7 @@ body {
 .profile-name {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
-    color: white;
+    color: whitesmoke;
     letter-spacing: 2px;
     margin-left: 20px; /* Space between photo and name */
 }
@@ -188,7 +192,7 @@ a {
 }
 
 .sidebar-menu li a {
-    color: white;
+    color: whitesmoke;
     text-decoration: none;
     font-family: 'MuSeoModerno', sans-serif;
     font-size: 16px;
@@ -199,10 +203,17 @@ a {
 }
 
 .sidebar-menu li a:hover {
-    background-color: #0178dad1; /* Darker shade on hover */
+    background: linear-gradient(135deg, #1ed7e8, #c658cb);/* Darker shade on hover */
 }
 
 .sidebar-menu li a i {
-    margin-right: 10px; /* Space between icon and text */
+    margin-right: 10px;
     font-size: 20px;
+    width: 24px; /* Set a fixed width for the icon */
+    text-align: center; /* Center the icon inside its width */
 }
+
+.sidebar-menu li a span {
+    flex-grow: 1; /* Ensure text grows to fill the available space */
+}
+

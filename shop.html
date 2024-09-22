@@ -17,7 +17,7 @@
 <body>
 
     <!--Navigation Bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <!--Logo and Name-->
             <div class="d-flex align-items-center">
@@ -81,6 +81,7 @@
         <div>
             <span class="forum-title" data-translate="K-POP Shop">K-POP Shop</span>
             <input type="text" id="search_box" data-translate="Search for product" placeholder="Search for product">
+            <button id="search_button"><i class="fas fa-search"></i></button>
         </div>
     </div>
 
@@ -97,7 +98,8 @@
             <ul class="sidebar-menu">
                 <li><a href="home.html"><i class="fas fa-home"></i><span data-translate="Home">Home</span></a></li>
                 <li><a href="shop.html"><i class="fas fa-store"></i><span data-translate="Shop">Shop</span></a></li>
-                <li><a href="lobby.html"><i class="fas fa-video"></i><span data-translate="Video Chat">Video Chat</span></a></li>
+                <li><a href="wishlist.html"><i class="fas fa-heart"></i><span data-translate="Wishlist">Wishlist</span></a></li>
+                <li><a href="delivery.html"><i class="fas fa-truck-loading"></i><span data-translate="Delivery">Delivery</span></a></li>
                 <li><a href="message.html"><i class="fas fa-envelope"></i><span data-translate="Message">Message</span></a></li>
             </ul>
         </div>
@@ -156,180 +158,188 @@
     <!--Shop Container-->
     <div class="shop-container">     
         <div class="shop-items">
-            <ul class="item-picture">
-                <li data-category="Merch">
-                    <picture>
-                        <img src="assets/images/shop/merch1.png" alt="Merch 1">
-                    </picture>
-                    <div class="item-description">
-                        <div class="icon">
-                            <span><i class="fas fa-heart"></i></span>
-                            <span><i class="fas fa-cart-plus"></i></span>
-                        </div>
-                        <strong data-translate="Passport Cover">Passport Cover</strong>
-                        <span class="product-price" data-price="15.58">USD 15.58</span>
-                        <small data-translate="Buy Now">Buy Now</small>
+            <li data-category="Merch">
+                <picture>
+                    <img src="assets/images/shop/merch1.png" alt="Merch 1">
+                </picture>
+                <div class="item-description">
+                    <div class="icon">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-cart-plus"></i></span>
                     </div>
-                </li>
-                <li data-category="Merch">
-                    <picture>
-                        <img src="assets/images/shop/merch3.png" alt="Merch 3">
-                    </picture>
-                    <div class="item-description">
-                        <div class="icon">
-                            <span><i class="fas fa-heart"></i></span>
-                            <span><i class="fas fa-cart-plus"></i></span>
-                        </div>
-                        <strong data-translate="S/S T-Shirt (Ivory)">S/S T-Shirt (Ivory)</strong>
-                        <span class="product-price" data-price="40.18">USD 40.18</span>
-                        <small data-translate="Buy Now">Buy Now</small>
-                </li>
-                <li data-category="Album">
-                    <picture>
-                        <img src="assets/images/shop/album1.png" alt="Album 1">
-                    </picture>
-                    <div class="item-description">
-                        <div class="icon">
-                            <span><i class="fas fa-heart"></i></span>
-                            <span><i class="fas fa-cart-plus"></i></span>
-                        </div>
-                        <strong data-translate="V (BTS) 'Layover' LP">V (BTS) 'Layover' LP</strong>
-                        <span class="product-price" data-price="42.64">USD 42.64</span>
-                        <small data-translate="Buy Now">Buy Now</small>
+                    <strong data-translate="Passport Cover">Passport Cover</strong>
+                    <span class="product-price" data-price="15.58">USD 15.58</span>
+                    <small data-translate="Buy Now">Buy Now</small>
+                </div>
+            </li>
+            <li data-category="Merch">
+                <picture>
+                    <img src="assets/images/shop/merch3.png" alt="Merch 3">
+                </picture>
+                <div class="item-description">
+                    <div class="icon">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-cart-plus"></i></span>
                     </div>
-                </li>
-                <li data-category="Merch">
-                    <picture>
-                        <img src="assets/images/shop/merch2.png" alt="Merch 2">
-                    </picture>
-                    <div class="item-description">
-                        <div class="icon">
-                            <span><i class="fas fa-heart"></i></span>
-                            <span><i class="fas fa-cart-plus"></i></span>
-                        </div>
-                        <strong data-translate="Travel Pouch (Blue)">Travel Pouch (Blue)</strong>
-                        <span class="product-price" data-price="23.78">USD 23.78</span>
-                        <small data-translate="Buy Now">Buy Now</small>
+                    <strong data-translate="S/S T-Shirt (Ivory)">S/S T-Shirt (Ivory)</strong>
+                    <span class="product-price" data-price="40.18">USD 40.18</span>
+                    <small data-translate="Buy Now">Buy Now</small>
+            </li>
+            <li data-category="Album">
+                <picture>
+                    <img src="assets/images/shop/album1.png" alt="Album 1">
+                </picture>
+                <div class="item-description">
+                    <div class="icon">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-cart-plus"></i></span>
                     </div>
-                </li>
-                <li data-category="Album">
-                    <picture>
-                        <img src="assets/images/shop/album2.png" alt="Album 2">
-                    </picture>
-                    <div class="item-description">
-                        <div class="icon">
-                            <span><i class="fas fa-heart"></i></span>
-                            <span><i class="fas fa-cart-plus"></i></span>
-                        </div>
-                        <strong data-translate="Jimin (BTS) 'FACE' LP">Jimin (BTS) 'FACE' LP</strong>
-                        <span class="product-price" data-price="42.64">USD 42.64</span>
-                        <small data-translate="Buy Now">Buy Now</small>
+                    <strong data-translate="V (BTS) 'Layover' LP">V (BTS) 'Layover' LP</strong>
+                    <span class="product-price" data-price="42.64">USD 42.64</span>
+                    <small data-translate="Buy Now">Buy Now</small>
+                </div>
+            </li>
+            <li data-category="Merch">
+                <picture>
+                    <img src="assets/images/shop/merch2.png" alt="Merch 2">
+                </picture>
+                <div class="item-description">
+                    <div class="icon">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-cart-plus"></i></span>
                     </div>
-                </li>
-                <li data-category="Photobook">
-                    <picture>
-                        <img src="assets/images/shop/photobook1.png" alt="Photobook 1">
-                    </picture>
-                    <div class="item-description">
-                        <div class="icon">
-                            <span><i class="fas fa-heart"></i></span>
-                            <span><i class="fas fa-cart-plus"></i></span>
-                        </div>
-                        <strong data-translate="Jin ‘Sea of JIN island’">Jin ‘Sea of JIN island’</strong>
-                        <span class="product-price" data-price="42.64">USD 42.64</span>
-                        <small data-translate="Buy Now">Buy Now</small>
+                    <strong data-translate="Travel Pouch (Blue)">Travel Pouch (Blue)</strong>
+                    <span class="product-price" data-price="23.78">USD 23.78</span>
+                    <small data-translate="Buy Now">Buy Now</small>
+                </div>
+            </li>
+            <li data-category="Album">
+                <picture>
+                    <img src="assets/images/shop/album2.png" alt="Album 2">
+                </picture>
+                <div class="item-description">
+                    <div class="icon">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-cart-plus"></i></span>
                     </div>
-                </li>
-                <li data-category="Photocard">
-                    <picture>
-                        <img src="assets/images/shop/photocard1.png" alt="Photocard 1">
-                    </picture>
-                    <div class="item-description">
-                        <div class="icon">
-                            <span><i class="fas fa-heart"></i></span>
-                            <span><i class="fas fa-cart-plus"></i></span>
-                        </div>
-                        <strong data-translate="BTS V layover POB PC">BTS V layover POB PC</strong>
-                        <span class="product-price" data-price="7.00">USD 7.00</span>
-                        <small data-translate="Buy Now">Buy Now</small>
+                    <strong data-translate="Jimin (BTS) 'FACE' LP">Jimin (BTS) 'FACE' LP</strong>
+                    <span class="product-price" data-price="42.64">USD 42.64</span>
+                    <small data-translate="Buy Now">Buy Now</small>
+                </div>
+            </li>
+            <li data-category="Photobook">
+                <picture>
+                    <img src="assets/images/shop/photobook1.png" alt="Photobook 1">
+                </picture>
+                <div class="item-description">
+                    <div class="icon">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-cart-plus"></i></span>
                     </div>
-                </li>
-                <li data-category="Photobook">
-                    <picture>
-                        <img src="assets/images/shop/photobook2.png" alt="Photobook 2">
-                    </picture>
-                    <div class="item-description">
-                        <div class="icon">
-                            <span><i class="fas fa-heart"></i></span>
-                            <span><i class="fas fa-cart-plus"></i></span>
-                        </div>
-                        <strong data-translate="BTS 'WE' SET">BTS 'WE' SET</strong>
-                        <span class="product-price" data-price="42.64">USD 42.64</span>
-                        <small data-translate="Buy Now">Buy Now</small>
+                    <strong data-translate="Jin ‘Sea of JIN island’">Jin ‘Sea of JIN island’</strong>
+                    <span class="product-price" data-price="42.64">USD 42.64</span>
+                    <small data-translate="Buy Now">Buy Now</small>
+                </div>
+            </li>
+            <li data-category="Photocard">
+                <picture>
+                    <img src="assets/images/shop/photocard1.png" alt="Photocard 1">
+                </picture>
+                <div class="item-description">
+                    <div class="icon">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-cart-plus"></i></span>
                     </div>
-                </li>
-                <li data-category="Album">
-                    <picture>
-                        <img src="assets/images/shop/album3.png" alt="Album 3">
-                    </picture>
-                    <div class="item-description">
-                        <div class="icon">
-                            <span><i class="fas fa-heart"></i></span>
-                            <span><i class="fas fa-cart-plus"></i></span>
-                        </div>
-                        <strong data-translate="Jimin (BTS) 'MUSE' (Set)">Jimin (BTS) 'MUSE' (Set)</strong>
-                        <span class="product-price" data-price="32.47">USD 32.47</span>
-                        <small data-translate="Buy Now">Buy Now</small>
+                    <strong data-translate="BTS V layover POB PC">BTS V layover POB PC</strong>
+                    <span class="product-price" data-price="7.00">USD 7.00</span>
+                    <small data-translate="Buy Now">Buy Now</small>
+                </div>
+            </li>
+            <li data-category="Photobook">
+                <picture>
+                    <img src="assets/images/shop/photobook2.png" alt="Photobook 2">
+                </picture>
+                <div class="item-description">
+                    <div class="icon">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-cart-plus"></i></span>
                     </div>
-                </li>
-                <li data-category="Photocard">
-                    <picture>
-                        <img src="assets/images/shop/photocard2.jpg" alt="Photocard 2">
-                    </picture>
-                    <div class="item-description">
-                        <div class="icon">
-                            <span><i class="fas fa-heart"></i></span>
-                            <span><i class="fas fa-cart-plus"></i></span>
-                        </div>
-                        <strong data-translate="Photocard Set (BTS)">Photocard Set (BTS)</strong>
-                        <span class="product-price" data-price="15.58">USD 15.58</span>
-                        <small data-translate="Buy Now">Buy Now</small>
+                    <strong data-translate="BTS 'WE' SET">BTS 'WE' SET</strong>
+                    <span class="product-price" data-price="42.64">USD 42.64</span>
+                    <small data-translate="Buy Now">Buy Now</small>
+                </div>
+            </li>
+            <li data-category="Album">
+                <picture>
+                    <img src="assets/images/shop/album3.png" alt="Album 3">
+                </picture>
+                <div class="item-description">
+                    <div class="icon">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-cart-plus"></i></span>
                     </div>
-                </li>
-                <li data-category="Photocard">
-                    <picture>
-                        <img src="assets/images/shop/photocard3.png" alt="Photocard 3">
-                    </picture>
-                    <div class="item-description">
-                        <div class="icon">
-                            <span><i class="fas fa-heart"></i></span>
-                            <span><i class="fas fa-cart-plus"></i></span>
-                        </div>
-                        <strong data-translate="BTS V FRIENDS Photocards 2024">BTS V FRIENDS Photocards 2024</strong>
-                        <span class="product-price" data-price="20.68">USD 20.68</span>
-                        <small data-translate="Buy Now">Buy Now</small>
+                    <strong data-translate="Jimin (BTS) 'MUSE' (Set)">Jimin (BTS) 'MUSE' (Set)</strong>
+                    <span class="product-price" data-price="32.47">USD 32.47</span>
+                    <small data-translate="Buy Now">Buy Now</small>
+                </div>
+            </li>
+            <li data-category="Photocard">
+                <picture>
+                    <img src="assets/images/shop/photocard2.jpg" alt="Photocard 2">
+                </picture>
+                <div class="item-description">
+                    <div class="icon">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-cart-plus"></i></span>
                     </div>
-                </li>
-                <li data-category="Photobook">
-                    <picture>
-                        <img src="assets/images/shop/photobook3.png" alt="Photobook 3">
-                    </picture>
-                    <div class="item-description">
-                        <div class="icon">
-                            <span><i class="fas fa-heart"></i></span>
-                            <span><i class="fas fa-cart-plus"></i></span>
-                        </div>
-                        <strong data-translate="SUGA ‘Wholly or Whole me’">SUGA ‘Wholly or Whole me’</strong>
-                        <span class="product-price" data-price="27.06">USD 27.06</span>
-                        <small data-translate="Buy Now">Buy Now</small>
+                    <strong data-translate="Photocard Set (BTS)">Photocard Set (BTS)</strong>
+                    <span class="product-price" data-price="15.58">USD 15.58</span>
+                    <small data-translate="Buy Now">Buy Now</small>
+                </div>
+            </li>
+            <li data-category="Photocard">
+                <picture>
+                    <img src="assets/images/shop/photocard3.png" alt="Photocard 3">
+                </picture>
+                <div class="item-description">
+                    <div class="icon">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-cart-plus"></i></span>
                     </div>
-                </li>
-            </ul>
+                    <strong data-translate="BTS V FRIENDS Photocards 2024">BTS V FRIENDS Photocards 2024</strong>
+                    <span class="product-price" data-price="20.68">USD 20.68</span>
+                    <small data-translate="Buy Now">Buy Now</small>
+                </div>
+            </li>
+            <li data-category="Photobook">
+                <picture>
+                    <img src="assets/images/shop/photobook3.png" alt="Photobook 3">
+                </picture>
+                <div class="item-description">
+                    <div class="icon">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-cart-plus"></i></span>
+                    </div>
+                    <strong data-translate="SUGA ‘Wholly or Whole me’">SUGA ‘Wholly or Whole me’</strong>
+                    <span class="product-price" data-price="27.06">USD 27.06</span>
+                    <small data-translate="Buy Now">Buy Now</small>
+                </div>
+            </li>
         </div>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination mt-5">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
     </div>
 </body>
     <script src="assets/js/language.js"></script>
     <script src="assets/js/currency.js"></script>
+    <script src="assets/js/filter.js"></script>
     <script src="assets/js/shop.js"></script>
 </html>
 

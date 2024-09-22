@@ -5,15 +5,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+body {
+    background-color: aliceblue;
+}
+
 /* General Profile Container */
 .profile-container {
     margin-top: 10px;
     margin-left: 230px;
     margin-right: 10px;
-    background-image: url('https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background-color: whitesmoke;
     min-height: 400px;
     padding-bottom: 20px;
 }
@@ -43,7 +44,7 @@
     bottom: 0;
     right: 0;
     background-color: transparent;
-    color: white;
+    color: whitesmoke;
     padding: 8px 12px;
     cursor: pointer;
 }
@@ -62,7 +63,7 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 5px solid white;
+    border: 5px solid whitesmoke;
 }
 
 #profile-photo {
@@ -83,7 +84,7 @@
     right: 0;
     background-color: #008ce4;
     box-shadow: rgb(49, 51, 53);
-    color: white;
+    color: whitesmoke;
     padding: 8px 12px;
     border-radius: 50%;
     cursor: pointer;
@@ -187,10 +188,7 @@
     height: 800px;
     margin-top: 10px;
     margin-left: 0;
-    background-image: url('https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background-color: whitesmoke; 
     position: absolute; /* Fixed position on the left */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
@@ -232,7 +230,7 @@
     margin-top: 10px;
     margin-left: 230px;
     margin-right: 10px;
-    background-image: url('https://images.unsplash.com/photo-1708305729900-906f34a7d49d?q=80&w=1721&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background: linear-gradient(130deg, #34c6fb, #94B3FD);
     min-height: 250px;
     padding-bottom: 20px;
     border-radius: 20px;
@@ -302,10 +300,7 @@ textarea {
     margin-top: 10px;
     margin-left: 230px;
     margin-right: 10px;
-    background-image: url('https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background-color: whitesmoke;
     min-height: 250px;
     padding-bottom: 20px;
     border-radius: 20px;
