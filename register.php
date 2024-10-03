@@ -33,68 +33,50 @@
                     </select>
                 </div>
             </div>
-    
-            <!-- Right Side: Register Button -->
-            <div class="navbar-options ms-auto" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">
-                            <i class="fas fa-step-backward"></i> 
-                            <span data-translate="Return">Return</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
         </div>
     </nav>
 
     <!-- Register Container -->
     <div class="register-form">
         <div class="form-container">
-            <section class="form signup">
+            <section class="form register">
                 <header>Register</header>
-                <form action="#">
-                    <div class="error-txt">This is an error message!</div>
+                <form action="server/register_info.php" method="POST" enctype="multipart/form-data">
+                    <div class="error-txt"></div>
                     <div class="name-details">
                         <div class="field input">
                             <label>First Name</label>
-                            <input type="text" placeholder="First Name">
+                            <input type="text" name="fname" placeholder="First Name" required>
                         </div>
                         <div class="field input">
                             <label>Last Name</label>
-                            <input type="text" placeholder="Last Name">
+                            <input type="text" name="lname" placeholder="Last Name" required>
                         </div>
                     </div>
                     <div class="field input">
                         <label>Email Address</label>
-                        <input type="text" placeholder="Enter your email">
+                        <input type="text" name="email" placeholder="Enter your email" required>
                     </div>
                     <div class="field input">
                         <label>Password</label>
-                        <input type="text" placeholder="Enter your password">
+                        <input type="password" name="password" placeholder="Enter your password" required>
                         <i class="fas fa-eye"></i>
                     </div>
                     <div class="field image">
                         <label>Select Image</label>
-                        <input type="file">
+                        <input type="file" name="image" required>
                     </div>
                     <div class="field button">
                         <input type="submit">
                     </div>
                 </form>
-                <div class="link">Already signed up? <a href="#">Login now</a></div>
+                <div class="link">Already signed up? <a href="login.php">Login now</a></div>
             </section>
         </div>
     </div>
 
-    </body>
-    <script src="assets/js/language.js"></script>
-   
-
-
-
-
-
 </body>
-<script src="assets/js/.js"></script>
+<script src="assets/js/header/language.js"></script>
+<script src="assets/js/forms/form.js"></script>
+<script src="assets/js/forms/register.js"></script>
 </html>

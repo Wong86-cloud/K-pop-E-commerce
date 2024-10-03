@@ -1,5 +1,5 @@
 // Your API key from Open Exchange Rates or other currency API
-const apiKey = 'efadaa61ba4e43ae98282c14416f05ab'; // Replace with your actual API key
+const apiKey = ''; // Replace with your actual API key
 const baseCurrency = 'USD'; // The base currency for the prices
 
 // Function to fetch exchange rates from the API

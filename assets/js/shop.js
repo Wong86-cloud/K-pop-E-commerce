@@ -57,3 +57,6 @@ document.querySelectorAll('.fas.fa-cart-plus').forEach((cartIcon) => {
         addToCart(this);
     });
 });
+
+
+

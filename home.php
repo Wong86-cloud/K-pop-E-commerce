@@ -16,86 +16,9 @@
 </head>
 <body>
 
-    <!--Navigation Bar-->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <!--Logo and Name-->
-            <div class="d-flex align-items-center">
-                <img src="assets/images/navbar/logo.png" class="navbar-logo">
-                <a class="navbar-brand">KIVORIA</a>
-                
-                <!-- Language Selector -->
-                <div class="dropdown ms-4 me-2">
-                    <label for="language" class="language-label">
-                        <span data-translate="Language">Language</span> |</label></label>
-                    <select name="language" id="language" class="language-selector">
-                        <option value="en" data-translate="English">English</option>
-                        <option value="ko" data-translate="Korean">Korean</option>
-                        <option value="zh-CN" data-translate="Chinese">Chinese</option>
-                        <option value="ms" data-translate="Malay">Malay</option>
-                    </select>
-                </div>
+    <?php include_once('navigation/header.php'); ?>
+    <?php include_once('navigation/sidebar.php'); ?>
 
-                <!-- Currency Selector -->
-                <div class="dropdown ms-4 me-2">
-                    <label for="currency" class="currency-label">
-                        <span data-translate="Currency">Currency</span> |</label>
-                    <select name="currency" id="currency" class="currency-selector">
-                        <option value="CNY" data-translate="Chinese Yuan (CNY)">Chinese Yuan (CNY)</option>
-                        <option value="EUR" data-translate="Euro (Euro)">Euro (EUR)</option>
-                        <option value="KRW" data-translate="Korean Won (KRW)">Korean Won (KRW)</option>
-                        <option value="MYR" data-translate="Malaysian Ringgit (MYR)">Malaysian Ringgit (MYR)</option>
-                        <option value="USD" data-translate="US Dollar (USD)" selected>US Dollar (USD)</option>           
-                    </select>
-                </div>
-            </div>
-
-             <!-- Navbar Options -->
-            <div class="navbar-options ms-auto" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-translate="Notifications">Notifications</span>
-                            <i class="far fa-bell"></i>     
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart.html">
-                            <span data-translate="Cart">Cart</span>
-                            <i class="fas fa-cart-arrow-down"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">
-                            <span data-translate="Log Out">Log Out</span>
-                            <i class="fas fa-sign-out-alt"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!--Side Bar-->
-    <div class="sidebar-container">  
-        <div class="sidebar">
-            <span class="sidebar-title" data-translate="Profile">Profile</span>
-            <a href="profile.html">
-                <div class="personal-profile">
-                    <img src="assets/images/profile/ella.jpg" id="sidebar-profile-photo">
-                    <span class="profile-name">Ella Gross</span>
-                </div>
-            </a>
-            <ul class="sidebar-menu">
-              <li><a href="home.html"><i class="fas fa-home"></i><span data-translate="Home">Home</span></a></li>
-              <li><a href="shop.html"><i class="fas fa-store"></i><span data-translate="Shop">Shop</span></a></li>
-              <li><a href="wishlist.html"><i class="fas fa-heart"></i><span data-translate="Wishlist">Wishlist</span></a></li>
-              <li><a href="delivery.html"><i class="fas fa-truck-loading"></i><span data-translate="Delivery">Delivery</span></a></li>
-              <li><a href="message.html"><i class="fas fa-envelope"></i><span data-translate="Message">Message</span></a></li>
-          </ul>
-        </div>
-    </div>
-       
     <div class="home-container">
       <section id="home">
           <div id="homeCarousel" class="carousel-container">
@@ -135,10 +58,10 @@
       </section>
   </div>
 
-    <!--Brands-->
+  <!--Brands-->
   <section id="brands">
     <div class="container">
-      <h1>Collaboration Brand</h1>
+      <h1 data-translate="Collaboration Brand">Collaboration Brand</h1>
       <div class="container d-flex justify-content-between align-items-center">
         <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/images/brands/yg.png">
         <img class="img-fluid col-lg-3 col-md-6 col-sm-12" src="assets/images/brands/jyp.png">
@@ -151,33 +74,24 @@
   <!--Recommended Artist-->
   <section id="recommended-artist">
     <div class="container">
-        <h1>Recommended Artist</h1>
+        <h1 data-translate="Recommended Artist">Recommended Artist</h1>
         <div class="artist-carousel">
             <!-- Left Button -->
             <button class="carousel-btn left-btn" onclick="prevSlideArtist()"><i class="fas fa-chevron-left"></i></button>
             <!-- Carousel Inner -->
+            <?php $artists = $conn->query("SELECT * FROM artists"); ?>
             <div class="carousel-inner">
-              <div class="artist">
-                <img src="assets/images/artists/bts.jpeg" alt="bts-logo">
-                <h4>BTS</h4>
-                <button class="btn artist-btn">Shop Now</button> 
-              </div>
-              <div class="artist">
-                <img src="assets/images/artists/blackpink2.jpg" alt="blackpink-logo">
-                <h4>Blackpink</h4>
-                <button class="btn artist-btn">Shop Now</button>
-              </div>
-              <div class="artist">
-                <img src="assets/images/artists/twice.jpg" alt="twice-logo">
-                <h4>Twice</h4>
-                <button class="btn artist-btn">Shop Now</button>
-              </div>
-              <div class="artist">
-                <img src="assets/images/artists/aespa2.jfif" alt="aespa-logo">
-                <h4>Aespa</h4>
-                <button class="btn artist-btn">Shop Now</button>
+              <div class="artist-carousel">
+                <?php while($artist = $artists->fetch_assoc()): ?>
+                  <div class="artist">
+                    <img src="assets/images/artists/<?php echo $artist['image_url'] ?>" alt="">
+                    <h4><?php echo $artist['name']; ?></h4>
+                    <button class="btn artist-btn" onclick="window.location.href='shop.php?celebrity=<?php echo urlencode($artist['name']); ?>'">Shop Now</button>
+                  </div>
+                <?php endwhile; ?>
               </div>
             </div>
+
             <!-- Right Button -->
             <button class="carousel-btn right-btn" onclick="nextSlideArtist()"><i class="fas fa-chevron-right"></i></button>
           </div>
@@ -190,34 +104,36 @@
       <div class="row">
         <div class="footer-one col-lg-3 col-md-6 col-sm-12">
           <img src="assets/images/navbar/logo.png" alt="logo" class="footer-logo">
-          <p class="pyb-2">KIVORIA will provide the best products for the most affordable prices</p>
+          <p class="pyb-2" data-translate="KIVORIA will provide the best products for the most affordable prices">
+            KIVORIA will provide the best products for the most affordable prices</p>
         </div>
         <div class="footer-two col-lg-3 col-md-6 col-sm-12">
           <h5 class="pb-2">Featured</h5>
           <ul class="text-uppercase">
-            <li><a href="#">Merch</a></li>
-            <li><a href="#">Album</a></li>
-            <li><a href="#">Photobook</a></li>
-            <li><a href="#">Photocard</a></li>
+            <li><a href="home.php" data-translate="Home">Home</a></li>
+            <li><a href="shop.php" data-translate="Shop">Shop</a></li>
+            <li><a href="wishlist.php" data-translate="Wishlist">Wishlist</a></li>
+            <li><a href="delivery.php" data-translate="Delivery">Delivery</a></li>
+            <li><a href="message.php" data-translate="Message">Message</a></li>
           </ul>
         </div>
         <div class="footer-three col-lg-3 col-md-6 col-sm-12">
-          <h5 class="pb-2">Contact Us</h5>
+          <h5 class="pb-2" data-translate="Contact Us">Contact Us</h5>
           <div>
-             <h6 class="text-uppercase">Address</h6>
+             <h6 class="text-uppercase" data-translate="Address">Address</h6>
              <p>1234 Main Street</p>
           </div>
           <div>
-            <h6 class="text-uppercase">Phone</h6>
+            <h6 class="text-uppercase" data-translate="Phone">Phone</h6>
             <p>857 574 9687</p>
           </div>
           <div>
-            <h6 class="text-uppercase">Email</h6>
+            <h6 class="text-uppercase" data-translate="Email">Email</h6>
             <p>zipzap.customerservice@gmail.com</p>
           </div>
         </div>
         <div class="footer-four col-lg-3 col-md-6 col-sm-12">
-          <h5 class="pb-2">Instagram</h5>
+          <h5 class="pb-2" data-translate="Instagram">Instagram</h5>
           <div class="row">
             <img src="assets/images/instagram/insta1.png" class="img-fluid w-25 h-100 m-2">
             <img src="assets/images/instagram/insta2.png" class="img-fluid w-25 h-100 m-2">
@@ -252,7 +168,7 @@
 
 
 </body>
-  <script src="assets/js/language.js"></script>
-  <script src="assets/js/currency.js"></script>
+  <script src="assets/js/header/currency.js"></script>
+  <script src="assets/js/header/language.js"></script>
   <script src="assets/js/home.js"></script>
 </html>

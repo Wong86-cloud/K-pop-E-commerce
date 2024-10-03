@@ -66,3 +66,28 @@ window.addEventListener('click', function(event) {
         modal.style.display = 'none';
     }
 });
+
+
+document.getElementById("save-changes").onclick = function() {
+    let formData = new FormData();
+    formData.append('fname', document.getElementById('profile-name').value.split(' ')[0]);
+    formData.append('lname', document.getElementById('profile-name').value.split(' ')[1]);
+    
+    // Check if a new profile photo is selected
+    let profilePhoto = document.getElementById('upload-profile-photo').files[0];
+    if (profilePhoto) {
+        formData.append('profile_photo', profilePhoto);
+    }
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "server/update_profile.php", true);
+    xhr.onload = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                alert("Profile updated successfully!");
+                location.reload(); // Refresh the page to reflect the updated info
+            }
+        }
+    };
+    xhr.send(formData);
+}

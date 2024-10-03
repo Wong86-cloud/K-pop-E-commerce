@@ -64,6 +64,7 @@ body {
     border-radius: 5px;
     margin-bottom: 10px;
     border: 1px solid #f5c6cb;
+    display: none;
 }
 
 .form form .name-details {
@@ -117,10 +118,17 @@ form .name-details .field:last-child{
 .form form .field i{
     position: absolute;
     right: 15px;
-    color: #ccc;
+    color: #333;
     top: 70%;
     transform: translateY(-50%);
     cursor: pointer;
+}
+
+.form form .field i.active::before {
+    content: '\f070'; /* Unicode for the "eye-slash" icon */
+    font-family: "Font Awesome 5 Free"; /* Ensure this matches the Font Awesome version you're using */
+    font-weight: 900; /* For solid icons */
+    color: #333; /* Change color when active */
 }
 
 .form .link {
@@ -136,3 +144,53 @@ form .name-details .field:last-child{
 .form .link a:hover {
     text-decoration: underline;
 }
+
+/*CAPTCHA*/
+.form .captcha {
+    margin: 15px 0px;
+}
+
+.form .captcha .preview {
+    color: #33363a;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 8px;
+    border: 1px solid #888;
+    font-family: "monospace";
+}
+
+.form .captcha .preview span {
+    display: inline-block;
+    user-select: none;
+}
+
+.form .captcha .captcha-form {
+    margin-top: 10px;
+    display: flex;
+}
+
+.form .captcha .captcha-form input {
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.form .captcha .captcha-form .captcha-refresh {
+    width: 40px;
+    border: none;
+    outline: none;
+    background: #33363a;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+
+
+

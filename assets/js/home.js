@@ -31,3 +31,4 @@ function nextSlideArtist() {
     const carouselInner = document.querySelector('.carousel-inner');
     carouselInner.scrollLeft += carouselInner.clientWidth / 3; // Scroll by a portion of the container width
 }
+

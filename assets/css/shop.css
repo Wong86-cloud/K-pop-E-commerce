@@ -3,13 +3,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
-/* General Profile Container */
-.shop-container {
-    margin: 10px 10px 0 230px;
+/* Celebrities Shop Container */
+.celebrities-shop-container {
+    margin: 10px 10px 0 230px; /* Keep existing margins */
     background: transparent;
-    width: 1020px;
-    height: 1100px;
-    padding-bottom: 20px;
+    width: calc(100% - 250px);
+    max-width: 1020px;
+    height: auto; 
+    padding: 10px; 
+}
+
+.shop-container {
+    margin: 0px 10px 0 230px; /* Reduced top margin */
+    background: #F6EACB; 
+    width: calc(100% - 250px); 
+    max-width: 1020px; 
+    min-height: 800px; 
+    padding: 20px; 
+}
+
+/* Button styles */
+.celebrity-btn {
+    background: linear-gradient(130deg, #CDC1FF, #94B3FD);
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 10px 10px; /* Padding for buttons */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 2px 0 2px rgba(0, 0, 0, 0.5);
+}
+
+#celebrity-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 10px;
+}
+
+.celebrity-btn:hover {
+    background-color: #2a2b2d; /* Darker shade on hover */
+}
+
+.celebrity-btn img {
+    width: 50px; /* Customize size for homepage images */
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .shop-items  {
@@ -28,7 +71,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 20px;
 }
 
 /* Item Picture */
@@ -80,20 +122,25 @@ picture img {
     background-color: #33363a;
     border-radius: 5px;
     cursor: pointer;
-    color: white;
     transition: background-color 0.3s ease, color 0.3s ease;
+    background: linear-gradient(130deg, #94B3FD, #c658cb); /* Gradient background */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to reveal the gradient */
+    background-clip: transparent; /* Ensure text color is transparent */
+    font-size: 16px;
 }
 
 .item-description small:hover {
-    background: linear-gradient(130deg, #34c6fb, #94B3FD);
-    color: white;
-    border: #eee;
+    background: linear-gradient(130deg, #637fbf, #973e9c); /* Gradient background */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to reveal the gradient */
+    background-clip: transparent; /* Ensure text color is transparent */
 }
 
 /* Filter Sidebar */
 .filter-product-container {
     width: 220px;
-    height: 840px;
+    height: 900px;
     background-color: white;
     margin-top: 510px;
     position: absolute;
@@ -186,12 +233,22 @@ picture img {
     color: #33363a;
 }
 
-.pagination a{
-    color:#33363a;
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }
 
-.pagination li:hover a{
-    background: #33363a;
-    color: whitesmoke;
-    border: #eee;
+.pagination a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: #33363a;
+    color: white;
 }

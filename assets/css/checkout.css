@@ -1,18 +1,228 @@
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .sidebar-container {
-    height: 2000px;
-    background: linear-gradient(130deg, #0070d8, #51d1ff, #0070d8);
+    height: 1800px;
 }
 
 /* General Profile Container */
 .checkout-container {
     margin: 10px 10px 0 230px;
-    background-image: url('https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-size: cover; /* Ensures the image covers the entire background */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
     width: 1020px;
-    min-height: 2000px;
+    min-height: 1800px;
+}
+
+/* Header Styling */
+.checkout-title {
+    font-family: 'MuseoModerno', sans-serif;
+    font-size: 30px;
+    color: whitesmoke;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    background: linear-gradient(130deg, #94DAFF, #94B3FD, #B983FF);
+    padding: 10px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input, select {
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+.phone-input-container {
+    display: flex;
+    align-items: center; /* Vertically center the elements */
+    gap: 10px; /* Space between elements */
+    justify-content: center; /* Horizontally center the items */
+    align-items: center; /* Vertically center the items */
+    margin-top: 10px;
+}
+
+.phone-input-container label {
+    margin-right: 5px; /* Small space between the label and the input */
+}
+
+#country-code, #phone-number {
+    padding: 8px;
+    font-size: 16px;
+}
+
+#country-code {
+    width: 100px; /* Adjust width as needed */
+    margin-right: 20px;
+}
+
+#phone-number {
+    flex: 1; /* Makes the phone number input take up the remaining space */
+}
+
+.phone-input-container select, .phone-input-container input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.phone-input-container label {
+    white-space: nowrap; /* Prevents label from breaking into multiple lines */
+}
+
+.customer-info form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.shipping-address form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.shipping-options table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.shipping-options th, .shipping-options td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    vertical-align: middle; /* Ensures proper vertical alignment */
+}
+
+.shipping-options img {
+    width: 60px;   /* Set a fixed width for the logos */
+    height: 40px;  /* Set a fixed height for the logos */
+    object-fit: contain;  /* Ensures the images scale proportionally without distortion */
+    display: block;
+    margin: auto;
+}
+
+.shipping-options td input[type="radio"] {
+    transform: scale(1.5); /* Make the radio buttons larger */
+}
+
+.payment-method label {
+    margin-right: 10px;
+}
+
+.payment-summary {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.pay-now-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.pay-now-btn:hover {
+    background-color: #218838;
+}
+
+.payment-title {
+    font-family: 'SUSE', sans-serif;
+    font-size: 20px;
+    color: whitesmoke;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    background: linear-gradient(0deg, #2d3135, #404648);
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.payment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.payment-error {
+    display: none; /* Initially hidden */
+    text-align: center;
+    padding: 20px;
+    background-color: #fff1f1; 
+    color: red; 
+    font-size: medium;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #e6c3c3; 
+    border-radius: 5px;
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+    width: 800px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.payment-success {
+    display: none; /* Initially hidden */
+    text-align: center;
+    padding: 20px;
+    background-color: #d4edda; /* Light green background */
+    color: #076c1e; /* Dark green text */
+    font-size: medium;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #c3e6cb; /* Green border */
+    border-radius: 5px;
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+    width: 800px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#view-order-button {
+    padding: 10px 20px;
+    background-color: #28a745; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#view-order-button:hover {
+    background-color: #218838; /* Darker green on hover */
 }

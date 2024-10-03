@@ -67,6 +67,25 @@ body {
     cursor: pointer;
 }
 
+.navbar-nav button {
+    font-size: 16px;
+    font-weight: 500;
+    color: whitesmoke;
+    background: #33363a;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav button:hover {
+    background: linear-gradient(130deg, #94B3FD, #c658cb); /* Gradient background */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to reveal the gradient */
+    background-clip: transparent; /* Ensure text color is transparent */
+}
+
 #search_bar {
     height: 60px;
     background: linear-gradient(130deg,#94DAFF,#94B3FD, #B983FF);

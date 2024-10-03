@@ -1,18 +1,223 @@
-/* General Profile Container */
+.sidebar-container {
+    height: 600px;
+}
+
 .single-product-container {
     margin: 10px 10px 0 230px;
-    background: white;
-    width: 1020px;
-    height: 1900px;
+    width: 1000px;
+    height:600px;
     padding-bottom: 20px;
 }
 
+.product-row {
+    display: flex;
+    justify-content: space-between; 
+    gap: 20px; 
+}
+
+/* Style for the image column */
+.product-image-column {
+    flex: 1; /* Take up equal space with the info column */
+    margin-left: 20px;
+}
+
+/* Style for the product info column */
+.product-info-column {
+    flex: 1; /* Take up equal space with the image column */
+    margin-right: 40px;
+}
+
+/* Container for the image */
+.main-img-container {
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: white;
+    width: 400px; 
+    height: 400px; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    outline: 2px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden; 
+}
+
+/* Image styles */
+.huge-img {
+    width: 100%; /* Ensure the image takes up the full container width */
+    height: 100%; /* Ensure the image takes up the full container height */
+    object-fit: cover; /* Cover the container without distortion */
+    border-radius: inherit; /* Inherit the border-radius from the container */
+}
+
+/* Small images group */
 .small-img-group {
     display: flex;
     justify-content: space-between;
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 400px;
 }
 
 .small-img-col {
-    flex-basis: 24%;
+    flex-basis: 24%; 
     cursor: pointer;
+    outline: 2px solid #ccc;
+    border-radius: 20px;
+    background: white;
+    /* Flexbox to center the image inside */
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    padding: 10px;           
+    height: 120px;           
 }
+
+.small-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; 
+    border-radius: 10px; 
+}
+
+.product-info-column {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to the left */
+    max-width: 400px; /* Limit the width for a better layout */
+}
+
+/* Title styles */
+.product-info-column h6 {
+    margin-top:20px;
+    font-size: 18px;
+    color: #888; /* Muted color for the category */
+    text-transform: uppercase; /* Uppercase styling for the category */
+    letter-spacing: 1px; /* Add some spacing between the letters */
+}
+
+/* Product name */
+.product-info-column h3 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Price styling */
+.product-info-column h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Quantity and button section */
+.quantity-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Input styles */
+.product-info-column input {
+    width: 60px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center; /* Center the number in the input */
+}
+
+.product-info-column input:focus {
+    outline: none;
+    border-color: #33363a; /* Highlight the input on focus */
+}
+
+/* Button styles */
+.product-info-column .buy-button {
+    background-color: #33363a;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.4s all;
+    border: none;
+}
+
+.product-info-column .buy-button:hover {
+    background: linear-gradient(130deg, #34c6fb, #94B3FD);
+    color: white;
+}
+
+/* Product details section */
+.product-info-column h4 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #333;
+    margin-top: 20px; /* Control the spacing between the quantity section and h4 */
+    margin-bottom: 20px; /* Reduce space between h4 and the product details span */
+}
+
+.product-info-column span {
+    font-size: 16px;
+    color: #555; /* Slightly muted text for details */
+    line-height: 1.6; /* Add line height for better readability */
+    margin-top: 0; /* Reset margin to ensure no unnecessary gaps */
+    text-align: justify;
+}
+
+/* Optional: Make the layout responsive */
+@media (max-width: 768px) {
+    .product-row {
+        flex-direction: column; /* Stack the columns on small screens */
+    }
+    .product-info-column {
+        max-width: 100%; /* Ensure it takes full width on smaller screens */
+        margin-top: 20px;
+    }
+}
+
+/* Style for the return button container */
+.return-to-shop {
+    position: absolute;
+    margin-top: 10px;
+    right: 10px;  
+}
+
+/* Style for the return button itself */
+.return-button {
+    display: inline-block;
+    background-color: transparent; 
+    color: #33363a; 
+    padding: 12px 30px; 
+    border-radius: 10px; /* Rounded corners */
+    text-decoration: none; /* Remove the underline from the link */
+    font-size: 16px; /* Font size */
+    transition: 0.4s all; /* Smooth transition for hover effect */
+}
+
+.return-button i {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.return-button {
+    color: #33363a; 
+}
+
+.return-button:hover {
+    background: linear-gradient(130deg, #94B3FD, #c658cb); /* Gradient background */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to reveal the gradient */
+    background-clip: transparent; /* Ensure text color is transparent */
+}
+
+    
+
+
+
+

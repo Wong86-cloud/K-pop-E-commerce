@@ -33,18 +33,6 @@
                     </select>
                 </div>
             </div>
-    
-            <!-- Right Side: Register Button -->
-            <div class="navbar-options ms-auto" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.html">
-                            <span data-translate="Register">Register</span>
-                            <i class="fab fa-wpforms"></i>     
-                        </a>
-                    </li>
-                </ul>
-            </div>
         </div>
     </nav>
 
@@ -53,26 +41,35 @@
         <div class="form-container">
             <section class="form login">
                 <header>Login</header>
-                <form action="#">
-                    <div class="error-txt">This is an error message!</div>
+                <form action="server/login_info.php" method="POST" enctype="multipart/form-data">
+                    <div class="error-txt"></div>
                     <div class="field input">
                         <label>Email Address</label>
-                        <input type="text" placeholder="Enter your email">
+                        <input type="text" name="email" placeholder="Enter your email">
                     </div>
                     <div class="field input">
                         <label>Password</label>
-                        <input type="text" placeholder="Enter your password">
+                        <input type="password" name="password" placeholder="Enter your password">
                         <i class="fas fa-eye"></i>
                     </div>
+                    <div class="captcha">
+                        <label for="captcha-input">Enter captcha</label>
+                        <div class="preview"></div>
+                        <div class="captcha-form">
+                            <input type="text" id="captcha-form" placeholder="Enter captcha text">
+                            <button class="captcha-refresh"><i class="fas fa-sync"></i></button>
+                        </div>
                     <div class="field button">
                         <input type="submit">
                     </div>
                 </form>
-                <div class="link">Not yet signed up? <a href="#">Signup now</a></div>
+                <div class="link">Not yet signed up? <a href="register.php">Signup now</a></div>
             </section>
         </div>
     </div>
 
 </body>
-<script src="assets/js/language.js"></script>
+<script src="assets/js/header/language.js"></script>
+<script src="assets/js/forms/form.js"></script>
+<script src="assets/js/forms/login.js"></script>
 </html>

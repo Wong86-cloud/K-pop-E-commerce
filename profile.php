@@ -16,66 +16,7 @@
 </head>
 <body>
 
-    <!--Navigation Bar-->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <!--Logo and Name-->
-            <div class="d-flex align-items-center">
-                <img src="assets/images/navbar/logo.png" class="navbar-logo">
-                <a class="navbar-brand">KIVORIA</a>
-                
-                <!-- Language Selector -->
-                <div class="dropdown ms-4 me-2">
-                    <label for="language" class="language-label">
-                        <span data-translate="Language">Language</span> |</label></label>
-                    <select name="language" id="language" class="language-selector">
-                        <option value="en" data-translate="English">English</option>
-                        <option value="ko" data-translate="Korean">Korean</option>
-                        <option value="zh-CN" data-translate="Chinese">Chinese</option>
-                        <option value="ms" data-translate="Malay">Malay</option>
-                    </select>
-                </div>
-
-                <!-- Currency Selector -->
-                <div class="dropdown ms-4 me-2">
-                    <label for="currency" class="currency-label">
-                        <span data-translate="Currency">Currency</span> |</label>
-                    <select name="currency" id="currency" class="currency-selector">
-                        <option value="USD" data-translate="US Dollar (USD)">US Dollar (USD)</option>
-                        <option value="EUR" data-translate="Euro (Euro)">Euro (EUR)</option>
-                        <option value="KRW" data-translate="Korean Won (KRW)">Korean Won (KRW)</option>
-                        <option value="CNY" data-translate="Chinese Yuan (CNY)">Chinese Yuan (CNY)</option>
-                        <option value="MYR" data-translate="Malaysian Ringgit (MYR)">Malaysian Ringgit (MYR)</option>
-                    </select>
-                </div>
-            </div>
-
-             <!-- Navbar Options -->
-            <div class="navbar-options ms-auto" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-translate="Notifications">Notifications</span>
-                            <i class="far fa-bell"></i>     
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart.html">
-                            <span data-translate="Cart">Cart</span>
-                            <i class="fas fa-cart-arrow-down"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">
-                            <span data-translate="Log Out">Log Out</span>
-                            <i class="fas fa-sign-out-alt"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+    <?php include_once('navigation/header.php'); ?>
     <!--Search Bar-->
     <div id="search_bar">
         <div>
@@ -84,26 +25,7 @@
             <button id="search_button"><i class="fas fa-search"></i></button>
         </div>
     </div>
-
-    <!--Side Bar-->
-    <div class="sidebar-container">  
-        <div class="sidebar">
-            <span class="sidebar-title" data-translate="Profile">Profile</span>
-            <a href="profile.html">
-                <div class="personal-profile">
-                    <img src="assets/images/profile/ella.jpg" id="sidebar-profile-photo">
-                    <span class="profile-name">Ella Gross</span>
-                </div>
-            </a>
-            <ul class="sidebar-menu">
-                <li><a href="home.html"><i class="fas fa-home"></i><span data-translate="Home">Home</span></a></li>
-                <li><a href="shop.html"><i class="fas fa-store"></i><span data-translate="Shop">Shop</span></a></li>
-                <li><a href="wishlist.html"><i class="fas fa-heart"></i><span data-translate="Wishlist">Wishlist</span></a></li>
-                <li><a href="delivery.html"><i class="fas fa-truck-loading"></i><span data-translate="Delivery">Delivery</span></a></li>
-                <li><a href="message.html"><i class="fas fa-envelope"></i><span data-translate="Message">Message</span></a></li>
-            </ul>
-        </div>
-    </div>
+    <?php include_once('navigation/sidebar.php'); ?>
 
     <!--Profile Container-->
     <div class="profile-container">
@@ -114,9 +36,9 @@
                 <label for="upload-background-picture" id="upload-background-picture-button"><i class="fas fa-camera"></i></label>
             </div>
             <div class="profile-header">
-                <img src="assets/images/profile/ella.jpg" id="profile-photo">
+                <img src="assets/images/profile/<?php echo $row['img'] ?>" id="profile-photo" alt="Profile Photo">
                 <input type="file" id="upload-profile-header">
-                <label for="upload-profile-header"  id="upload-profile-header-button"><i class="fas fa-camera"></i></label>
+                <label for="upload-profile-header" id="upload-profile-header-button"><i class="fas fa-camera"></i></label>
             </div>
             <!-- Modal Structure -->
             <div id="image-modal" class="modal">
@@ -124,14 +46,15 @@
                 <img class="modal-content" id="modal-image">
             </div>
             <div class="profile-info">
-                <input type="text" id="profile-name" value="Ella Gross" placeholder="Enter Name">
+                <input type="text" id="profile-name" value="<?php echo $row['fname'] . " " .$row['lname'] ?>" placeholder="Enter Name">
+                <button id="save-changes">Save Changes</button>
             </div>
         </div>
 
         <div class="profile-menu">
             <br>
             <!--Menu Buttons-->
-            <div id="menu-buttons" onclick="location.href='timeline.html'" data-translate="Timeline">Timeline</div>
+            <div id="menu-buttons" onclick="location.href='timeline.php'" data-translate="Timeline">Timeline</div>
             <div id="menu-buttons" data-translate="About">About</div>
             <div id="menu-buttons" data-translate="Friends">Friends</div>
             <div id="menu-buttons" data-translate="Photos">Photos</div>
