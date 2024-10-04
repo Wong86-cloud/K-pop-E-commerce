@@ -38,8 +38,8 @@
                         <span data-translate="All">All</span>
                     </label>
                     <label>
-                        <input type="checkbox" name="filter" value="Merch">
-                        <span data-translate="Merch">Merch</span>
+                        <input type="checkbox" name="filter" value="Merchandise">
+                        <span data-translate="Merchandise">Merchandise</span>
                     </label>
                     <label>
                         <input type="checkbox" name="filter" value="Album">
@@ -146,24 +146,29 @@
     <!-- Display products -->
     <ul class="shop-items">
         <?php while ($item = $items->fetch_assoc()): ?>
-            <li data-category="<?php echo $item['category']; ?>">
+            <li data-category="<?php echo $item['category']; ?>" data-product-id="<?php echo $item['product_id']; ?>">
                 <picture>
                     <img src="assets/images/shop/<?php echo $item['image']; ?>" alt="<?php echo htmlspecialchars($item['name']); ?>">
                 </picture>
                 <div class="item-description">
                     <div class="icon">
-                        <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-cart-plus"></i></span>
+                        <span class="wishlist-icon" oonclick="addToWishlist(<?php echo $item['product_id']; ?>, this)">
+                            <i class="fas fa-heart" style="color:gray"></i>
+                        </span>
+                        <span class="add-to-cart" onclick="addToCart(this)">
+                            <i class="fas fa-cart-plus"></i>
+                        </span>
                     </div>
                     <strong><?php echo htmlspecialchars($item['name']); ?></strong>
                     <span class="product-price" data-price="<?php echo htmlspecialchars($item['price']); ?>">
                         USD <?php echo htmlspecialchars($item['price']); ?>
                     </span>
-                    <small class="buy-now-text"><a href="single_product.php?id=<?php echo $item['id']; ?>">Buy Now</a></small>
+                    <small class="buy-now-text"><a href="single_product.php?id=<?php echo $item['product_id']; ?>">View Product</a></small>
                 </div>
             </li>
         <?php endwhile; ?>
     </ul>
+    </div>
 
     <!-- Pagination -->
     <div class="pagination">

@@ -1,8 +1,10 @@
 <?php
     session_start();
-    if(!isset($_SESSION['unique_id'])){
-        header('location:login.php');
-    }
+    // Check if the unique_id is set in the session
+    if (!isset($_SESSION['unique_id'])) {
+        echo "User is not logged in.";
+    exit; // Stop execution if the user is not logged in
+}
 ?>
 
 <!--Navigation Bar-->

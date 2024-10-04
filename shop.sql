@@ -1,17 +1,12 @@
-CREATE TABLE artists (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL UNIQUE,
-    image_url VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE products (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    category VARCHAR(50) NOT NULL,
-    celebrity VARCHAR(100) NOT NULL,  -- Same type as `name` in `artists`
-    image VARCHAR(255) NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (celebrity) REFERENCES artists(name)
-        ON DELETE CASCADE  -- Optional, but useful for ensuring integrity
-        ON UPDATE CASCADE
-);
+CREATE TABLE `wishlist` (
+  `wishlist_id` int(11) NOT NULL AUTO_INCREMENT,
+  `unique_id` int(200) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `added_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`wishlist_id`),
+  KEY `unique_id` (`unique_id`),
+  KEY `product_id` (`product_id`),
+  CONSTRAINT `wishlist_ibfk_1` FOREIGN KEY (`unique_id`) REFERENCES `users` (`unique_id`),
+  CONSTRAINT `wishlist_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE,
+  CONSTRAINT `unique_user_product` UNIQUE (`unique_id`, `product_id`) -- Unique constraint
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

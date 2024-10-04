@@ -1,0 +1,206 @@
+.wishlist-container {
+    margin: 10px 10px 0 230px; /* Reduced top margin */
+    background: #F6EACB; 
+    width: calc(100% - 250px); 
+    max-width: 1020px; 
+    min-height: 800px; 
+    padding: 20px; 
+}
+
+.wishlist-items  {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between items */
+}
+
+.wishlist-items li {
+    background-color: whitesmoke;
+    list-style: none;
+    width: 24%;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 2px 0 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Item Picture */
+picture {
+    width: 100%;
+    height: 200px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+picture img {
+    width: 100%;
+    height: auto;
+}
+
+/* Item Description */
+.item-description {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.item-description .icon {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between icons */
+    margin-bottom: -10px;
+}
+
+.item-description strong {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #33363a;
+}
+
+/* Price */
+.item-description span {
+    margin: 10px 0 20px 0;
+    display: block;
+    font-size: 16px;
+    color: #33363a;
+}
+
+.item-description small {
+    padding: 10px 20px;
+    background-color: #33363a;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background: linear-gradient(130deg, #94B3FD, #c658cb); /* Gradient background */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to reveal the gradient */
+    background-clip: transparent; /* Ensure text color is transparent */
+    font-size: 16px;
+}
+
+.item-description small:hover {
+    background: linear-gradient(130deg, #637fbf, #973e9c); /* Gradient background */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to reveal the gradient */
+    background-clip: transparent; /* Ensure text color is transparent */
+}
+
+/* Filter Sidebar */
+.filter-wishlist-container {
+    width: 220px;
+    height: 900px;
+    background-color: white;
+    margin-top: 510px;
+    position: absolute;
+}
+
+.filter-wishlist-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    color: #33363a;
+    margin-top: 30px;
+}
+
+/* Shop Filter */
+.filter-wishlist {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 20px;
+    font-size: 16px;   
+}
+
+.wishlist-filter {
+    list-style: none;
+    padding: 0;
+}
+
+.wishlist-filter li {  
+    margin: 10px 0;
+}
+
+.wishlist-filter label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.wishlist-filter input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.wishlist-filter input[type="checkbox"]:checked + span {
+    font-weight: bold;
+    color: #33363a;
+}
+
+.wishlist-filter label:hover span {
+    color: #33363a;
+}
+
+/* Filter Price */
+.filter-price-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    color: #33363a;
+}
+
+.filter-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 20px;
+    font-size: 16px;
+}
+
+.price-items {
+    list-style: none;
+    padding: 0;
+}
+
+.price-items li {
+    margin: 10px 0;
+}
+
+.price-items label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.price-items input[type="radio"] {
+    margin-right: 10px;
+}
+
+.price-items input[type="radio"]:checked + span {
+    font-weight: bold;
+    color: #33363a;
+}
+
+.price-items input[type="radio"]:hover + span {
+    color: #33363a;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: #33363a;
+    color: white;
+}

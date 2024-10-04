@@ -55,15 +55,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Get the shop items container
         const shopItemsContainer = document.querySelector('.shop-items');
-        console.log(shopItemsContainer); // Log for debugging
 
-        // Ensure the container exists before modifying
-        if (shopItemsContainer) {
-            shopItemsContainer.innerHTML = ''; // Clear current items
-            sortedItems.forEach(item => shopItemsContainer.appendChild(item)); // Append sorted items
-        } else {
-            console.error('The shop items container could not be found.');
-        }
+function fetchProducts(page = 1) {
+    const celebrity = new URLSearchParams(window.location.search).get('celebrity');
+    const category = new URLSearchParams(window.location.search).get('category');
+
+    fetch(`fetch_products.php?page=${page}&celebrity=${encodeURIComponent(celebrity)}&category=${encodeURIComponent(category)}`)
+        .then(response => response.json())
+        .then(data => {
+            if (shopItemsContainer) {
+                shopItemsContainer.innerHTML = ''; // Clear current items
+
+                // Loop through the products and create HTML
+                data.items.forEach(item => {
+                    const itemElement = document.createElement('li');
+                    itemElement.setAttribute('data-category', item.category);
+                    itemElement.setAttribute('data-product-id', item.product_id);
+
+                    itemElement.innerHTML = `
+                        <picture>
+                            <img src="assets/images/shop/${item.image}" alt="${item.name}">
+                        </picture>
+                        <div class="item-description">
+                            <div class="icon">
+                                <span class="wishlist-icon" onclick="addToWishlist(${item.product_id}, this)">
+                                    <i class="fas fa-heart" style="color: gray"></i>
+                                </span>
+                                <span class="add-to-cart" onclick="addToCart(this)">
+                                    <i class="fas fa-cart-plus"></i>
+                                </span>
+                            </div>
+                            <strong>${item.name}</strong>
+                            <span class="product-price" data-price="${item.price}">
+                                USD ${item.price}
+                            </span>
+                            <small class="buy-now-text"><a href="single_product.php?id=${item.product_id}">Buy Now</a></small>
+                        </div>
+                    `;
+
+                    shopItemsContainer.appendChild(itemElement);
+                });
+            } else {
+                console.error('The shop items container could not be found.');
+            }
+        })
+        .catch(error => console.error('Error fetching products:', error));
+}
+
+// Call fetchProducts on page load
+document.addEventListener('DOMContentLoaded', () => fetchProducts());
+
     }
 
     // Add event listeners to checkboxes, radio buttons, and search box

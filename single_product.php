@@ -20,7 +20,7 @@
     <?php
     // Assuming you've already connected to the database
     $productId = isset($_GET['id']) ? (int)$_GET['id'] : 0; // Get product ID from the URL
-    $productQuery = "SELECT * FROM products WHERE id = $productId"; // Replace with your table name
+    $productQuery = "SELECT * FROM products WHERE product_id = $productId"; // Replace with your table name
     $productResult = $conn->query($productQuery);
 
     if ($productResult->num_rows > 0) {
@@ -44,7 +44,7 @@
                     $celebrity = $product['celebrity']; // Get the product celebrity
                 
                     // SQL query to fetch related products by the same celebrity
-                    $relatedQuery = "SELECT * FROM products WHERE celebrity = '$celebrity' AND id != " . $product['id'] . " LIMIT 4";
+                    $relatedQuery = "SELECT * FROM products WHERE celebrity = '$celebrity' AND product_id != " . $product['product_id'] . " LIMIT 4";
                     $relatedResult = $conn->query($relatedQuery);
                 
                     // Check if related products exist
