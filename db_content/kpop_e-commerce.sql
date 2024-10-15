@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2024 at 03:57 AM
+-- Generation Time: Oct 15, 2024 at 04:06 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -223,6 +223,32 @@ INSERT INTO `shipping_methods` (`shipping_id`, `shipping_logo`, `shipping_name`,
 (2, 'assets/images/shipping/fedex.png', 'FedEx International Priority', '2-5 business days', 10.00),
 (3, 'assets/images/shipping/usps.png', 'USPS Priority Mail International', '6-10 business days', 6.00);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `unique_id` int(200) NOT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `country` varchar(100) DEFAULT NULL,
+  `country_code` varchar(10) DEFAULT NULL,
+  `handphone` varchar(20) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `address` text DEFAULT NULL,
+  `postcode` varchar(20) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `img` varchar(400) NOT NULL,
+  `background_img` varchar(400) DEFAULT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Dumping data for table `users`
 --
@@ -230,6 +256,19 @@ INSERT INTO `shipping_methods` (`shipping_id`, `shipping_logo`, `shipping_name`,
 INSERT INTO `users` (`user_id`, `unique_id`, `fname`, `lname`, `gender`, `dob`, `country`, `country_code`, `handphone`, `email`, `address`, `postcode`, `city`, `password`, `img`, `background_img`, `status`) VALUES
 (1, 1655463620, 'Anna', 'Tanaka', 'female', '2005-11-17', 'Japan', '+81', '0335467689', 'annajiang@gmail.com', 'Shibuya Ward, Jinnan 2-1-2-3 Shibuya Heights Room 101', '〒150-0041', 'Shibuya-ku, Tokyo-to', '$2y$10$wvbkPyqpjtGsNiInjrGrdOHvPkFl9dXHfee7rN0sGGuzVYkde/Tp2', 'anna.jpg', NULL, 'Active now'),
 (2, 1517014417, 'Ella', 'Gross', NULL, NULL, NULL, NULL, NULL, 'ellagross@gmail.com', NULL, NULL, NULL, '$2y$10$z4c4QGT1D1cEcz.QtSj5pOtq8exHdFx12vbV8ujgR7477LqE6b7IK', 'ella.jpg', NULL, 'Active now');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlist`
+--
+
+CREATE TABLE `wishlist` (
+  `wishlist_id` int(11) NOT NULL,
+  `unique_id` int(200) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `added_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `wishlist`
@@ -305,6 +344,23 @@ ALTER TABLE `shipping_methods`
   ADD PRIMARY KEY (`shipping_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `unique_id` (`unique_id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD PRIMARY KEY (`wishlist_id`),
+  ADD UNIQUE KEY `unique_user_product` (`unique_id`,`product_id`),
+  ADD KEY `unique_id` (`unique_id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -357,6 +413,18 @@ ALTER TABLE `shipping_methods`
   MODIFY `shipping_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -392,6 +460,13 @@ ALTER TABLE `posts`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`celebrity`) REFERENCES `artists` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD CONSTRAINT `wishlist_ibfk_1` FOREIGN KEY (`unique_id`) REFERENCES `users` (`unique_id`),
+  ADD CONSTRAINT `wishlist_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
