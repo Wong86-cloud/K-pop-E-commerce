@@ -20,37 +20,34 @@
     <!--Search Bar-->
     <div id="search_bar">
         <div>
-            <span class="forum-title" data-translate="K-POP Forum">K-POP Forum</span>
+            <span class="title" data-translate="K-POP Forum">K-POP Forum</span>
             <input type="text" id="search_box" data-translate="Search for people" placeholder="Search for people">
             <button id="search_button"><i class="fas fa-search"></i></button>
         </div>
     </div>
     <?php include_once('navigation/sidebar.php'); ?>
 
-    <!--Profile Container-->
+    <!--Profile Container--> 
     <div class="profile-container">
-        <div class="profile">
-            <div class="cover-photo">
-                <img src="assets/images/profile/ella_background.png" id="background-picture">
-                <input type="file" id="upload-background-picture">
-                <label for="upload-background-picture" id="upload-background-picture-button"><i class="fas fa-camera"></i></label>
+        <form id="profile-form" action="db_connection/update_profile.php" method="POST" enctype="multipart/form-data">
+            <div class="profile">
+                <div class="cover-photo">
+                    <img src="assets/images/profile/<?php echo $row['background_img'] ?>" id="background-picture" alt="Background Image">
+                    <input type="file" name="upload-background-picture" id="upload-background-picture" accept="assets/images/profile/*">
+                    <label for="upload-background-picture" id="upload-background-picture-button"><i class="fas fa-camera"></i></label>
+                </div>
+                <div class="profile-header">
+                    <img src="assets/images/profile/<?php echo $row['img'] ?>" id="profile-photo" alt="Profile Photo">
+                    <input type="file" name="upload-profile-header" id="upload-profile-header" accept="assets/images/profile/*">
+                    <label for="upload-profile-header" id="upload-profile-header-button"><i class="fas fa-camera"></i></label>
+                </div>
+                <div class="profile-info">
+                    <input type="text" name="profile-name" id="profile-name" value="<?php echo $row['fname'] . " " . $row['lname'] ?>" placeholder="Enter Name">
+                    <button type="submit" id="save-changes">Save Changes</button>
+                </div>
             </div>
-            <div class="profile-header">
-                <img src="assets/images/profile/<?php echo $row['img'] ?>" id="profile-photo" alt="Profile Photo">
-                <input type="file" id="upload-profile-header">
-                <label for="upload-profile-header" id="upload-profile-header-button"><i class="fas fa-camera"></i></label>
-            </div>
-            <!-- Modal Structure -->
-            <div id="image-modal" class="modal">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="modal-image">
-            </div>
-            <div class="profile-info">
-                <input type="text" id="profile-name" value="<?php echo $row['fname'] . " " .$row['lname'] ?>" placeholder="Enter Name">
-                <button id="save-changes">Save Changes</button>
-            </div>
-        </div>
-
+        </form>
+    
         <div class="profile-menu">
             <br>
             <!--Menu Buttons-->

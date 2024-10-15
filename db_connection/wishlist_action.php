@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('config.php'); // Include your database connection script
+include_once('config.php'); // Include your database connection
 
 // Get the raw POST data
 $data = json_decode(file_get_contents("php://input"), true);

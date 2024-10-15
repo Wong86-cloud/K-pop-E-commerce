@@ -18,7 +18,7 @@
     display: flex; /* Use flexbox to align items horizontally */
     width: 780px; /* Make sure the container takes up the full width */
     height: 580px; /* Define a fixed height */
-    margin: 10px 10px 0 350px;
+    margin: 20px 10px 0 350px;
     overflow-x: hidden;
     border-radius: 20px;
     box-shadow: 2px 0 2px rgba(0, 0, 0, 0.5);
@@ -89,7 +89,7 @@
 
 .users .search input {
     height: 40px;
-    width: 84%; /* Let the width occupy the available space */
+    width: 94%; /* Let the width occupy the available space */
     border: 1px solid #73767a;
     padding: 0 10px;
     font-size: 16px;
@@ -229,87 +229,203 @@
 .chat-box {
     height: 100%;
     overflow-y: auto;
-    background: linear-gradient(135deg, #99FEFF,#B983FF);
+    background: linear-gradient(135deg, #99FEFF, #B983FF);
 }
 
 .chat-box .chat {
     margin: 15px 0;
+    display: flex; /* Ensure chat items are flex containers */
 }
 
-.chat-box .chat p{
+.chat-box .chat p {
     word-wrap: break-word;
     padding: 8px 16px;
+    margin: 0; /* Remove default margins */
 }
 
-.chat-box .outgoing{
-    display: flex;
+.chat-box .outgoing {
+    flex-direction: row-reverse; /* Align outgoing messages to the right */
+    margin-right: 10px;
 }
 
-.outgoing .details{
-    margin-right: 20px;
-    margin-left: auto;
-    max-width: calc(100% - 300px);
+.outgoing .details {
+    margin-right: 15px; /* Push outgoing messages to the right */
+    max-width: 75%; /* Allow for more width */
 }
 
-.outgoing .details p{
-    background:#33363a;
-    color:white;
-    border-radius: 18px 18px 0 18px;
-}
-
-.chat-box .incoming{
-    display: flex;
-    align-items: flex-end;
-}
-
-.chat-box .incoming img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-left: 20px;
-    object-fit: cover;
-}
-
-.incoming .details{
-    margin-left: 10px;
-    margin-right: auto;
-    max-width: calc(100% - 300px);
-}
-
-.incoming .details p{
-    background:white;
-    color:#33363a;
-    border-radius: 18px 18px 18px 0;
-}
-
-.users-content .typing-area {
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.typing-area input{
-    height: 45px;
-    width: calc(100% - 70px);
-    font-size: 17px;
-    border: 1px solid #cccccc;
-    padding: 0 13px;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-}
-
-.typing-area button{
-    width: 50px;
-    border: none;
-    outline: none;
+.outgoing .details p {
     background: #33363a;
     color: white;
-    font-size: 17px;
-    cursor: pointer;
-    border-radius: 0 5px 5px 0;
-    margin-right: 20px;
+    border-radius: 18px 0 18px 18px;
 }
 
+.outgoing .details a {
+    color: #ffffff;
+}
+
+.chat-box .incoming {
+    display: flex;
+    align-items: flex-end; /* Align items at the bottom */
+    margin-left: 15px;
+}
+
+.incoming .details {
+    margin-left: 15px;
+    max-width: 75%; /* Allow for more width */
+}
+
+.incoming .details p {
+    background: white;
+    color: #33363a;
+    border-radius: 0 18px 18px 18px;
+}
+
+.incoming .details a {
+    color: #33363a;
+}
+
+/*Upload Image*/
+.chat-image {
+    max-width: 350px;        /* Set a maximum width */
+    max-height: 350px;       /* Set a maximum height */
+    width: auto;             /* Maintain aspect ratio */
+    height: auto;            /* Maintain aspect ratio */
+    border-radius: 5px;      /* Rounded corners */
+    display: inline;         /* Display inline */
+    margin-top: 5px;         /* Space above the image */
+    object-fit: cover;       /* Ensures the image covers the container */
+    justify-content: center;  /* Centering */
+    align-items: center;      /* Centering */
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 50px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#modal-image {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+/* Add Animation */
+@keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/*Upload Document*/
+.pdf-link {
+    display: inline;          /* Display inline */
+    margin-left: 5px;        /* Space to the left of the PDF link */
+}
+
+.profile-pic-container {
+    display: flex; /* Ensure the profile picture container is flexible */
+}
+
+.profile-pic {
+    width: 50px; /* Set the width of the profile picture */
+    height: 50px; /* Set the height of the profile picture */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image does not get distorted */
+}
+
+/* Container for the typing area */
+.typing-area {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ccc;
+    position: relative;
+}
+
+/* Styling for the message input field */
+.input-field {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    margin-right: 10px;
+    background-color: white;
+    transition: border-color 0.2s ease;
+}
+
+.input-field:focus {
+    border-color: #33363a;
+}
+
+/* Attach button styling */
+.attach-button {
+    background-color: transparent;
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+}
+
+.attach-button i {
+    color: #33363a;
+}
+
+.attach-button:hover i {
+    color: #33363a;
+}
+
+/* Hide file input */
+.attach-input {
+    display: none;
+}
+
+/* Send button styling */
+.send-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.send-button i {
+    color: #33363a;
+}
+
+.send-button:hover i {
+    color: #33363a;
+}
 
 
 

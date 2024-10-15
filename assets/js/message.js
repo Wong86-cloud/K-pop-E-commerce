@@ -19,7 +19,7 @@ searchBar.onkeyup = () => {
         searchBar.classList.remove("active");
     }
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "server/users_search.php", true);
+    xhr.open("POST", "db_connection/chat/users_search.php", true);
     xhr.onload = () => {
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){
@@ -36,7 +36,7 @@ searchBar.onkeyup = () => {
 setInterval(() => { 
     // let's start Ajax
     let xhr = new XMLHttpRequest(); // creating XML object
-    xhr.open("GET", "server/users.php", true); //receive data not to send 
+    xhr.open("GET", "db_connection/chat/users.php", true); //receive data not to send 
     xhr.onload = () => {
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){

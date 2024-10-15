@@ -36,7 +36,7 @@
         <div class="product-row">
             <div class="product-image-column">
                 <div class="main-img-container">
-                    <img class="huge-img" src="assets/images/shop/<?php echo htmlspecialchars($product['image']); ?>" id="main-img" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                    <img class="huge-img" src="assets/images/shop/<?php echo htmlspecialchars($product['product_image']); ?>" id="main-img" alt="<?php echo htmlspecialchars($product['product_name']); ?>">
                 </div>
                     <div class="small-img-group">
                     <!-- Fetch additional related products based on celebrity only -->
@@ -52,25 +52,27 @@
                     ?>
                         <?php while ($relatedProduct = $relatedResult->fetch_assoc()): ?>
                             <div class="small-img-col">
-                                <img src="assets/images/shop/<?php echo htmlspecialchars($relatedProduct['image']); ?>" width="100%" class="small-img" 
-                                    data-title="<?php echo htmlspecialchars($relatedProduct['name']); ?>" 
-                                    data-price="<?php echo htmlspecialchars($relatedProduct['price']); ?>" 
-                                    data-details="<?php echo htmlspecialchars($relatedProduct['description']); ?>"/>
+                                <img src="assets/images/shop/<?php echo htmlspecialchars($relatedProduct['product_image']); ?>" width="100%" class="small-img" 
+                                    data-title="<?php echo htmlspecialchars($relatedProduct['product_name']); ?>" 
+                                    data-price="<?php echo htmlspecialchars($relatedProduct['product_price']); ?>" 
+                                    data-details="<?php echo htmlspecialchars($relatedProduct['product_description']); ?>"/>
                             </div>
                         <?php endwhile; ?>
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="product-info-column">
+            <div class="product-info-column"> 
                 <h6><?php echo htmlspecialchars($product['celebrity']); ?></h6> <!-- Assuming there's a celebrity field -->
-                <h3 id="product-title" class="py-4"><?php echo htmlspecialchars($product['name']); ?></h3>
-                <h2 id="product-price">$<?php echo htmlspecialchars($product['price']); ?></h2>
+                <h3 id="product-title" class="py-4"><?php echo htmlspecialchars($product['product_name']); ?></h3>
+                <h2 id="product-price">$<?php echo htmlspecialchars($product['product_price']); ?></h2>
+                <!-- Quantity Section -->
                 <div class="quantity-section">
-                    <input type="number" value="1" min="1" />
-                    <button class="buy-button">Add To Cart</button>
+                    <input type="number" id="quantity-<?php echo $product['product_id']; ?>" value="1" min="1" max="10"/>
+                    <!-- Pass both product ID and quantity to addToCart -->
+                    <button class="buy-button" onclick="addToCart(<?php echo $product['product_id']; ?>)">Add To Cart</button>
                 </div>
                 <h4>Product details</h4>
-                <span id="product-details"><?php echo htmlspecialchars($product['description']); ?></span>
+                <span id="product-details"><?php echo htmlspecialchars($product['product_description']); ?></span>
             </div>
             <?php $celebrityFilter = isset($_GET['celebrity']) ? $_GET['celebrity'] : ''; ?>
             <div class="return-to-shop">

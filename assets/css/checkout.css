@@ -1,16 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 .sidebar-container {
-    height: 1800px;
+    height:2000px;
 }
 
 /* General Profile Container */
 .checkout-container {
     margin: 10px 10px 0 230px;
     width: 1020px;
-    min-height: 1800px;
+    min-height: fit-content;
 }
 
 /* Header Styling */
@@ -30,101 +26,154 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
 }
+
 
 h3 {
     font-size: 22px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-label {
-    font-weight: bold;
-    margin-top: 10px;
+.shipping-options-title {
+    margin-top: 20px;
 }
 
-input, select {
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
+/* Form Element Styling */
+.container input, 
+.container select {
+    width: 100%; /* Ensure the input/select fills the width of the container */
+    max-width: 1000px; /* Maximum width for larger screens */
+    padding: 10px; /* Padding inside the input field */
+    margin-bottom: 15px; /* Spacing between form elements */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    box-sizing: border-box; /* Ensures padding doesn't affect the total width */
 }
 
+
+/* Combined Postcode, City, and Country Row */
+.postcode-city-country {
+    display: flex;
+    gap: 10px;
+}
+
+.postcode-city-country input,
+.postcode-city-country select {
+    flex: 1;
+}
+
+/* Phone Number Input Styling */
 .phone-input-container {
     display: flex;
-    align-items: center; /* Vertically center the elements */
-    gap: 10px; /* Space between elements */
-    justify-content: center; /* Horizontally center the items */
-    align-items: center; /* Vertically center the items */
+    align-items: center;
+    gap: 10px;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
-.phone-input-container label {
-    margin-right: 5px; /* Small space between the label and the input */
-}
-
-#country-code, #phone-number {
-    padding: 8px;
-    font-size: 16px;
-}
-
-#country-code {
-    width: 100px; /* Adjust width as needed */
-    margin-right: 20px;
-}
-
-#phone-number {
-    flex: 1; /* Makes the phone number input take up the remaining space */
-}
-
-.phone-input-container select, .phone-input-container input {
+.phone-input-container select, 
+.phone-input-container input {
+    flex: 1;
+    min-width: 120px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 8px;
-    box-sizing: border-box;
-    outline: none;
 }
 
-.phone-input-container label {
-    white-space: nowrap; /* Prevents label from breaking into multiple lines */
-}
-
-.customer-info form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-.shipping-address form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-.shipping-options table {
+/* Table Styling */
+table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-.shipping-options th, .shipping-options td {
+th, td {
     padding: 12px;
     text-align: center;
     border: 1px solid #ddd;
-    vertical-align: middle; /* Ensures proper vertical alignment */
+    font-size: 16px;
+    color: #333;
 }
 
-.shipping-options img {
-    width: 60px;   /* Set a fixed width for the logos */
-    height: 40px;  /* Set a fixed height for the logos */
-    object-fit: contain;  /* Ensures the images scale proportionally without distortion */
-    display: block;
-    margin: auto;
+/* Shipping Options Table */
+.shipping-options td img {
+    width: 60px;
+    height: 40px;
+    object-fit: contain;
 }
 
 .shipping-options td input[type="radio"] {
-    transform: scale(1.5); /* Make the radio buttons larger */
+    transform: scale(1.3); /* Make radio buttons bigger */
+}
+
+/* Hover effect for table rows */
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Cart Items Table */
+.cart-items table {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Order Summary Block */
+.order-summary {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.order-summary h4 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.order-summary p {
+    font-size: 18px;
+    margin: 8px 0;
+    color: #555;
+}
+
+/* Button Styling */
+button[type="submit"] {
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto;
+    padding: 12px 20px;
+    background-color: #28a745; /* Green color */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .postcode-city-country {
+        flex-direction: column;
+    }
+
+    .phone-input-container {
+        flex-direction: column;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+    }
 }
 
 .payment-method label {
@@ -136,93 +185,49 @@ input, select {
     font-size: 18px;
 }
 
-.pay-now-btn {
-    background-color: #28a745;
-    color: white;
-    padding: 12px 20px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-.pay-now-btn:hover {
-    background-color: #218838;
-}
-
-.payment-title {
-    font-family: 'SUSE', sans-serif;
-    font-size: 20px;
-    color: whitesmoke;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    background: linear-gradient(0deg, #2d3135, #404648);
-    padding: 10px;
-    margin-top: 20px;
-}
-
-.payment {
+.payment-options {
     display: flex;
-    flex-direction: column;
+    gap: 20px; /* Add space between options */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.payment-option {
+    display: flex;
     align-items: center;
-    margin-top: 10px;
-    width: 100%;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.payment-error {
-    display: none; /* Initially hidden */
-    text-align: center;
-    padding: 20px;
-    background-color: #fff1f1; 
-    color: red; 
-    font-size: medium;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    border: 1px solid #e6c3c3; 
-    border-radius: 5px;
-    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
-    width: 800px;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.payment-success {
-    display: none; /* Initially hidden */
-    text-align: center;
-    padding: 20px;
-    background-color: #d4edda; /* Light green background */
-    color: #076c1e; /* Dark green text */
-    font-size: medium;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    border: 1px solid #c3e6cb; /* Green border */
-    border-radius: 5px;
-    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
-    width: 800px;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-#view-order-button {
+    border: 1px solid #ccc;
     padding: 10px 20px;
-    background-color: #28a745; /* Green button */
-    color: white;
-    border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
 }
 
-#view-order-button:hover {
-    background-color: #218838; /* Darker green on hover */
+.payment-option:hover {
+    border-color: #007bff; /* Border changes on hover */
+    background-color: #eef7ff; /* Slight background change */
 }
+
+.payment-option input {
+    margin-right: 10px;
+    transform: scale(1.5); /* Make radio buttons larger */
+}
+
+.payment-option i {
+    font-size: 24px;
+    color: #007bff;
+    margin-right: 10px; /* Add space between the icon and the label */
+}
+
+.payment-option i.fab {
+    color: #003087; /* PayPal icon color */
+}
+
+.payment-option input:checked + i {
+    color: #28a745; /* Change icon color when selected */
+}
+
+.payment-option input:checked + i.fab {
+    color: #009cde; /* Change PayPal icon color when selected */
+}
+

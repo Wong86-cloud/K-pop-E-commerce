@@ -19,12 +19,11 @@
     <?php include_once('navigation/header.php'); ?>
     <?php include_once('navigation/sidebar.php'); ?>
     
-    <!--Message Container-->
+    <!--Chat Container-->
     <div class="message-container">
         <section class="users-content">
             <header>
                 <?php
-                include_once('server/config.php');
                 $user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
                 $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$user_id}");
                 if(mysqli_num_rows($sql) > 0){
@@ -43,12 +42,23 @@
             <div class="chat-box">
             <!--Compare this snippet from server/get_chat.php-->
             </div>
-            <form action="#" class="typing-area" autocomlete="off">
+            <form action="#" class="typing-area" autocomplete="off" enctype="multipart/form-data">
+                <button type="button" class="attach-button">
+                    <i class="fas fa-paperclip"></i>
+                    <input type="file" name="attachment" class="attach-input" style="display: none;">
+                </button>
                 <input type="text" name="outgoing_id" value="<?php echo $_SESSION['unique_id']?>" hidden>
                 <input type="text" name="incoming_id" value="<?php echo $user_id?>" hidden>
                 <input type="text" name="message" class="input-field" placeholder="Type a message here...">
-                <button><i class="fab fa-telegram-plane"></i></button>
+                <button type="submit" class="send-button">
+                    <i class="fab fa-telegram-plane"></i>
+                </button>
             </form>
+            <!-- Modal for displaying enlarged images -->
+            <div id="imageModal" class="modal" onclick="closeModal()">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="modalImage" alt="Enlarged Image">
+            </div>
         </section>
     </div>
    

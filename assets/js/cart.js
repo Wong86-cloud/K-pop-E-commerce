@@ -1,89 +1,153 @@
+// Constants
+const CURRENCY_SYMBOL = 'USD ';
+const TAX_RATE = 0.05; // Example tax rate
+
 // Function to format currency
 function formatCurrency(amount) {
-    return `USD ${parseFloat(amount).toFixed(2)}`;
+    return `${CURRENCY_SYMBOL}${parseFloat(amount).toFixed(2)}`;
 }
 
-// Function to load cart items from localStorage and display them
-function loadCart() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartContainer = document.getElementById('cart-items');
-    cartContainer.innerHTML = ''; // Clear previous items
+document.addEventListener("DOMContentLoaded", function () {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const subtotalElement = document.querySelector('.subtotal-price');
+    const taxElement = document.querySelector('.tax-price');
+    const totalElement = document.querySelector('.total-price');
 
-    let totalPrice = 0;
+    // Function to remove item from cart in the database via an AJAX request
+    async function removeFromCart(productId) {
+        try {
+            const response = await fetch('db_connection/cart/remove_cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ product_id: productId }),
+            });
+            const data = await response.json();
+            if (data.success) {
+                console.log("Item removed from cart successfully.");
+            } else {
+                console.error("Failed to remove item from cart:", data.message);
+            }
+        } catch (error) {
+            console.error('Error removing item from cart:', error);
+        }
+    }
 
-    cart.forEach(item => {
-        const itemTotal = item.quantity * parseFloat(item.price);
-        totalPrice += itemTotal;
+    // Function to recalculate the totals
+    function updateCartTotals() {
+        let subtotal = 0;
 
-        cartContainer.innerHTML += `
-            <tr data-id="${item.id}">
-                <td>
-                    <div class="cart-info">
-                        <img src="${item.image}" alt="${item.name}">
-                        <div>
-                            <p>${item.name}</p>
-                            <small class="product-price">${formatCurrency(item.price)}</small>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <input type="number" value="${item.quantity}" min="1" class="quantity-input">
-                    <a class="remove-button" href="#" onclick="removeFromCart('${item.id}'); return false;">Remove</a>
-                </td>
-                <td><span class="product-price">${formatCurrency(item.price)}</span></td>
-                <td><span class="total-price">${formatCurrency(itemTotal)}</span></td>
-            </tr>
-        `;
-    });
+        // Loop through each cart item to update the totals
+        cartItemsContainer.querySelectorAll('tr').forEach((row) => {
+            console.log("Processing row:", row); // Log the entire row
+            const quantityInput = row.querySelector('.quantity-input');
+            const priceElement = row.querySelector('.product-price');
+            const totalElement = row.querySelector('.total-price');
 
-    // Update total price in the footer
-    document.querySelector('.subtotal-price').innerText = formatCurrency(totalPrice);
-    document.querySelector('.total-price').innerText = formatCurrency(totalPrice);
-}
+            console.log("Price element:", priceElement); // Log the price element
 
-// Function to remove an item from the cart
-function removeFromCart(itemId) {
-    console.log(`Attempting to remove item with id: ${itemId}`); // Debugging line
+            if (priceElement) {
+                const price = parseFloat(priceElement.textContent.replace(CURRENCY_SYMBOL, '').trim());
+                const quantity = parseInt(quantityInput.value);
+                const itemTotal = price * quantity;
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    console.log(`Cart before removal: ${JSON.stringify(cart)}`); // Debugging line
+                // Update item total
+                if (totalElement) {
+                    totalElement.textContent = formatCurrency(itemTotal);
+                } else {
+                    console.error("Total element not found for row:", row);
+                }
 
-    cart = cart.filter(item => item.id !== itemId);
-    console.log(`Cart after removal: ${JSON.stringify(cart)}`); // Debugging line
+                // Update subtotal
+                subtotal += itemTotal;
+            } else {
+                console.error("Price element not found for row:", row);
+            }
+        });
 
-    localStorage.setItem('cart', JSON.stringify(cart));
-    loadCart(); // Reload the cart to reflect changes
-}
+        const tax = subtotal * TAX_RATE;
+        const overallTotal = subtotal + tax;
 
-// Event listener for quantity change
-document.addEventListener('change', function (e) {
-    if (e.target.classList.contains('quantity-input')) {
-        const row = e.target.closest('tr');
-        const itemId = row.getAttribute('data-id');
-        const newQuantity = parseInt(e.target.value, 10);
-
-        // Ensure newQuantity is a valid number
-        if (isNaN(newQuantity) || newQuantity <= 0) {
-            e.target.value = 1; // Reset to 1 if invalid
-            return;
+        // Update subtotal, tax, and total in the DOM
+        if (subtotalElement) {
+            subtotalElement.textContent = formatCurrency(subtotal);
+        } else {
+            console.error("Subtotal element not found in the DOM.");
+        }
+        
+        if (taxElement) {
+            taxElement.textContent = formatCurrency(tax);
+        } else {
+            console.error("Tax element not found in the DOM.");
         }
 
-        console.log(`Updating quantity for item with id: ${itemId} to ${newQuantity}`); // Debugging line
+        // Update hidden inputs in the checkout form
+        if (document.querySelector('input[name="subtotal"]')) {
+            document.querySelector('input[name="subtotal"]').value = subtotal.toFixed(2);
+        } else {
+            console.error("Subtotal hidden input not found in the DOM.");
+        }
+        
+        if (document.querySelector('input[name="tax"]')) {
+            document.querySelector('input[name="tax"]').value = tax.toFixed(2);
+        } else {
+            console.error("Tax hidden input not found in the DOM.");
+        }
 
-        // Update quantity in localStorage
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart = cart.map(item => {
-            if (item.id === itemId) {
-                item.quantity = newQuantity;
-            }
-            return item;
-        });
-        localStorage.setItem('cart', JSON.stringify(cart));
-
-        // Update total price
-        loadCart(); // Reload the cart to reflect changes
+        if (document.querySelector('input[name="overallTotal"]')) {
+            document.querySelector('input[name="overallTotal"]').value = overallTotal.toFixed(2);
+        } else {
+            console.error("Overall total hidden input not found in the DOM.");
+        }
     }
-});
 
-// Call loadCart function when the page loads
-window.onload = loadCart;
+    // Event listener for quantity changes
+    cartItemsContainer.addEventListener('change', function (event) {
+        if (event.target.classList.contains('quantity-input')) {
+            const productId = event.target.closest('tr').getAttribute('data-id');
+            const newQuantity = event.target.value;
+
+            // Update the cart on the server (optional AJAX call)
+            updateCartQuantity(productId, newQuantity)
+                .then(() => updateCartTotals());
+        }
+    });
+
+    // Function to update quantity in the database via an AJAX request
+    async function updateCartQuantity(productId, quantity) {
+        try {
+            const response = await fetch('db_connection/cart/update_cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ product_id: productId, quantity: quantity }),
+            });
+            const data = await response.json();
+            if (data.success) {
+                console.log("Cart updated successfully.");
+            } else {
+                console.error("Failed to update cart:", data.message);
+            }
+        } catch (error) {
+            console.error('Error updating cart:', error);
+        }
+    }
+
+    // Event listener for removing items
+    cartItemsContainer.addEventListener('click', function (event) {
+        if (event.target.classList.contains('remove-button')) {
+            const productId = event.target.closest('tr').getAttribute('data-id');
+
+            // Remove the item from the cart on the server (optional AJAX call)
+            removeFromCart(productId)
+                .then(() => {
+                    // Remove the item from the DOM
+                    event.target.closest('tr').remove();
+                    // Update the totals
+                    updateCartTotals();
+                });
+        }
+    });
+});

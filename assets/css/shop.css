@@ -13,6 +13,10 @@
     padding: 10px; 
 }
 
+#search_bar div span.title {
+    margin-top: 5px;
+}
+
 .shop-container {
     margin: 0px 10px 0 230px; /* Reduced top margin */
     background: #F6EACB; 

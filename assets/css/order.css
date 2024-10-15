@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.sidebar-container {
+    height: 600px;
+}
+
+/* General Profile Container */
+.order-container {
+    margin: 10px 10px 0 230px;
+    width: 1020px;
+    min-height: fit-content;
+}
+
+/* Table Styling */
+.table {
+    width: 100%;
+    border-collapse: collapse; /* Remove space between table cells */
+    margin-top: 10px;
+}
+
+.table-container {
+    max-height: 400px; /* Adjust the height as needed */
+    overflow-y: auto;
+    border: 1px solid #ddd; /* Optional: to add a border around the scrollable area */
+}
+
+.table th, .table td {
+    padding: 15px; /* Inner spacing for table cells */
+    text-align: center; /* Align text to the left */
+    border-bottom: 1px solid #ddd; /* Border between rows */
+}
+
+.table th {
+    background-color: #f8f9fa; /* Light grey background for headers */
+    color: #333; /* Darker text color for contrast */
+    font-weight: bold; /* Make header text bold */
+}
+
+.table tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+/* Button Styling */
+.btn {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* White text */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Inner spacing */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Alert Message Styling */
+.alert {
+    margin-top: 20px; /* Space above the alert */
+    padding: 15px; /* Inner spacing */
+    border-radius: 5px; /* Rounded corners */
+    color: #856404; /* Dark yellow for warning alerts */
+    background-color: #fff3cd; /* Light yellow background */
+    border: 1px solid #ffeeba; /* Yellow border */
+}
+
+/* Additional Styles */
+footer {
+    text-align: center; /* Center align footer text */
+    margin-top: 30px; /* Space above footer */
+    font-size: 14px; /* Smaller font for footer */
+    color: #666; /* Grey color for footer text */
+}
+

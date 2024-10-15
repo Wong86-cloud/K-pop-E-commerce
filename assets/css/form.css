@@ -18,7 +18,7 @@ body {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    height: calc(100vh - 80px); /* Full height minus navbar height */
+    height: calc(140vh - 80px); /* Full height minus navbar height */
     margin-top: 80px; /* Adjust this according to your navbar height */
     margin-bottom: 80px;
 }
@@ -30,7 +30,15 @@ body {
     height: calc(100vh - 10px); /* Full height minus navbar height */
 }
 
-.form-container {
+.register-form-container {
+    background: #ffffff;
+    width: 600px;
+    border-radius: 16px;
+    box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+                0 32px 64px -48px rgba(0,0,0,0.5);
+}
+
+.login-form-container {
     background: #ffffff;
     width: 450px;
     border-radius: 16px;
@@ -66,19 +74,56 @@ body {
     border: 1px solid #f5c6cb;
     display: none;
 }
+/* Form Styling */
+.form {
+    padding: 25px 50px;
+}
 
-.form form .name-details {
+.form header {
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-form .name-details .field:first-child{
-    margin-right: 10px;
+.form form {
+    margin: 20px 0;
 }
 
-form .name-details .field:last-child{
-    margin-left: 10px;
+.form form .error-txt {
+    color: #721c24;
+    background: #f8d7da;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #f5c6cb;
+    display: none;
 }
 
+/* Flex container styling for sections */
+.form form .name-details, 
+.form form .user-details, 
+.form form .address-details, 
+.form form .password-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Add space between fields */
+}
+
+/* Ensure each field takes equal space */
+.form form .name-details .field, 
+.form form .user-details .field, 
+.form form .address-details .field, 
+.form form .password-details .field {
+    flex-grow: 1; /* Each field grows equally */
+    flex-basis: 0; /* Ensures equal width across */
+}
+
+/* Form Inputs */
 .form form .field {
     display: flex;
     position: relative;
@@ -86,23 +131,50 @@ form .name-details .field:last-child{
     margin-bottom: 10px;
 }
 
-.form form .field input {
-    outline: none;
-}
-
-.form form .input input{
+.form form .input input, 
+.form .form-select {
     height: 40px;
-    width: 100%;
+    width: 100%; /* Ensure full width */
     font-size: 16px;
     padding: 0 10px;
     border: 1px solid #ccc;
-    border-radius: 5px
+    border-radius: 5px;
+    outline: none;
 }
 
-.form form .image input {
-    font-size: 17px;
+.form .form-select {
+    cursor: pointer;
+    transition: border-color 0.3s;
 }
 
+.form .form-select:hover {
+    border-color: #555;
+}
+
+.form .form-select option {
+    color: #333;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+/* Password field with eye icon */
+.form form .field i {
+    position: absolute;
+    right: 15px;
+    color: #333;
+    top: 70%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.form form .field i.active::before {
+    content: '\f070'; /* Unicode for the "eye-slash" icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #333;
+}
+
+/* Submit Button */
 .form form .button input {
     margin-top: 13px;
     height: 45px;
@@ -115,20 +187,42 @@ form .name-details .field:last-child{
     cursor: pointer;
 }
 
-.form form .field i{
-    position: absolute;
-    right: 15px;
-    color: #333;
-    top: 70%;
-    transform: translateY(-50%);
+/* Submit Button */
+.submitButton {
+    margin-top: 13px;
+    height: 45px;
+    border: none;
+    font-size: 17px;
+    font-weight: 400;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.form form .field i.active::before {
-    content: '\f070'; /* Unicode for the "eye-slash" icon */
-    font-family: "Font Awesome 5 Free"; /* Ensure this matches the Font Awesome version you're using */
-    font-weight: 900; /* For solid icons */
-    color: #333; /* Change color when active */
+/* Link Section */
+.form .link {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 17px;
+}
+
+.form .link a {
+    color: #333;
+}
+
+.form .link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styling for Smaller Screens */
+@media (max-width: 768px) {
+    .form form .name-details, 
+    .form form .user-details, 
+    .form form .address-details, 
+    .form form .password-details {
+        flex-direction: column; /* Stack fields vertically */
+    }
 }
 
 .form .link {

@@ -17,6 +17,16 @@
 <body>
 
     <?php include_once('navigation/header.php'); ?>
+    <div id="search_bar">
+        <div>
+            <span class="title" data-translate="K-POP Message">K-POP Message</span>
+            <img src="assets/images/navbar/music.png" alt="Wishlist">
+            <img src="assets/images/navbar/disc.jfif" alt="Wishlist">
+            <img src="assets/images/navbar/headphones.png" alt="Wishlist">
+            <img src="assets/images/navbar/mic.png" alt="Wishlist">
+            <img src="assets/images/navbar/love.png" alt="Wishlist">
+        </div>
+    </div>
     <?php include_once('navigation/sidebar.php'); ?>
     
     <!--Message Container-->
@@ -24,7 +34,6 @@
         <section class="users">
             <header>
             <?php
-            include_once('server/config.php');
             $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
             if(mysqli_num_rows($sql) > 0){
                 $row = mysqli_fetch_assoc($sql);

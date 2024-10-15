@@ -2,7 +2,7 @@
     session_start();
 
     if(isset($_SESSION['unique_id'])){
-        include_once "server/config.php";
+        include_once "db_connection/config.php";
     
         // Use POST instead of GET
         if(isset($_POST['logout'])){

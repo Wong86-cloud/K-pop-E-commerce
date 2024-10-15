@@ -14,7 +14,7 @@ function toggleLike(button) {
         heartIcon.style.color = "#33363a"; // Set to default color
 
         // Send request to remove the item from the database
-        fetch('server/wishlist_action.php', {
+        fetch('db_connection/wishlist_action.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ product_id: productId, action: 'remove' })
@@ -26,6 +26,7 @@ function toggleLike(button) {
                 const itemToRemove = wishlistContainer.querySelector(`li[data-product-id="${productId}"]`);
                 if (itemToRemove) {
                     wishlistContainer.removeChild(itemToRemove); // Remove the item from the DOM
+                    alert('Product successfully removed from the cart.');
                 }
             } else {
                 alert('Failed to remove item from wishlist: ' + (data.message || 'Unknown error.'));
@@ -41,3 +42,25 @@ function toggleLike(button) {
     }
 }
 
+//Add to cart
+function addToCart(productId, quantity = 1) {
+    const formData = new FormData();
+    formData.append('product_id', productId);
+    formData.append('quantity', quantity);  
+
+    fetch('db_connection/cart/add_to_cart.php', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'added') {
+            alert('Product added to cart');
+        } else if (data.status === 'exists') {
+            alert('Product is already in the cart');
+        } else if (data.status === 'not_logged_in') {
+            alert('Please log in to add items to the cart');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}

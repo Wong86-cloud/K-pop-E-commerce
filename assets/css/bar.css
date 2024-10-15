@@ -101,11 +101,16 @@ body {
     font-size: 30px;
 }
 
+#search_bar img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+
 /*Style of Discussion Forum*/
-#search_bar div span.forum-title {
+#search_bar div span.title {
     font-family: 'Audiowide', cursive;
     font-size: 30px;
-    margin-top: 5px;
     color: whitesmoke;
     letter-spacing: 2px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -191,7 +196,7 @@ body {
     font-size: 18px;
     color: whitesmoke;
     letter-spacing: 2px;
-    margin-left: 20px; /* Space between photo and name */
+    margin-left: 15px; /* Space between photo and name */
 }
 
 a {

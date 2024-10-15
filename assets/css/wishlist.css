@@ -1,3 +1,7 @@
+.sidebar-container {
+    height: 1000px; /* Set a fixed height for the sidebar */
+}
+
 .wishlist-container {
     margin: 10px 10px 0 230px; /* Reduced top margin */
     background: #F6EACB; 
@@ -23,6 +27,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-size: 20px;
+    color: #33363a;
+    text-align: center;
 }
 
 /* Item Picture */
@@ -186,21 +193,40 @@ picture img {
 }
 
 .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
+    display: flex; /* Flexbox layout for alignment */
+    margin-top: 10px;
+    margin-left: 635px;
+    margin-bottom: 10px;
 }
 
-.pagination a {
-    margin: 0 5px;
-    padding: 5px 10px;
-    text-decoration: none;
-    color: #333;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.pagination-link {
+    margin: 0 5px; /* Space between links */
+    padding: 8px 12px; /* Padding for better clickability */
+    text-decoration: none; /* Remove underline from links */
+    color: #33363a; /* Link color */
+    border: 1px solid #33363a; /* Border around links */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
-.pagination a.active {
-    background-color: #33363a;
-    color: white;
+.pagination-link:hover {
+    background-color:  #33363a; /* Hover color */
+    color: white; /* Text color on hover */
+}
+
+.pagination-current {
+    margin: 0 5px; /* Space around the current page */
+    padding: 8px 12px; /* Padding for the current page display */
+    background-color:  #33363a; /* Background color for the current page */
+    color: white; /* Text color for current page */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+.pagination-link:first-child {
+    margin-left: 0; /* Remove left margin for the first link */
+}
+
+.pagination-link:last-child {
+    margin-right: 0; /* Remove right margin for the last link */
 }

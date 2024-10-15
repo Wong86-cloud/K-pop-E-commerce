@@ -18,3 +18,28 @@ smallImgs.forEach(img => {
     });
 });
 
+// Add to cart
+function addToCart(productId) {
+    const quantity = document.getElementById("quantity-" + productId).value; // Get quantity
+    const formData = new FormData();
+    formData.append('product_id', productId);
+    formData.append('quantity', quantity); // Include quantity
+
+    fetch('db_connection/cart/add_to_cart.php', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'added') {
+            alert('Product added to cart');
+        } else if (data.status === 'exists') {
+            alert('Product is already in the cart');
+        } else if (data.status === 'not_logged_in') {
+            alert('Please log in to add items to the cart');
+        } else {
+            alert('Error adding product to cart');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}

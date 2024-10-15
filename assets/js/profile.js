@@ -2,13 +2,13 @@
 const backgroundImage = document.querySelector('#background-picture');
 const backgroundFile = document.querySelector('#upload-background-picture');
 
-backgroundFile.addEventListener('change', function(){
+backgroundFile.addEventListener('change', function() {
     const choosedFile = this.files[0];
 
-    if(choosedFile){
+    if (choosedFile) {
         const reader = new FileReader();
 
-        reader.addEventListener('load', function(){
+        reader.addEventListener('load', function() {
             backgroundImage.setAttribute('src', reader.result);
         });
 
@@ -20,13 +20,13 @@ backgroundFile.addEventListener('change', function(){
 const headerImg = document.querySelector('#profile-photo');
 const headerFile = document.querySelector('#upload-profile-header');
 
-headerFile.addEventListener('change', function(){
+headerFile.addEventListener('change', function() {
     const choosedFile = this.files[0];
 
-    if(choosedFile){
+    if (choosedFile) {
         const reader = new FileReader();
 
-        reader.addEventListener('load', function(){
+        reader.addEventListener('load', function() {
             headerImg.setAttribute('src', reader.result);
         });
 
@@ -34,60 +34,38 @@ headerFile.addEventListener('change', function(){
     }
 });
 
-// Modal Structure for Viewing Images
-const modal = document.getElementById('image-modal');
-const modalImg = document.getElementById('modal-image');
-const closeModal = document.querySelector('.close');
+// Save Changes Button Click Event
+document.getElementById("save-changes").onclick = function(event) {
+    event.preventDefault(); // Prevent the default form submission
 
-// Function to show image in modal
-function showModal(imgSrc) {
-    modal.style.display = 'block';
-    modalImg.src = imgSrc;
-}
-
-// Add click event to profile photo
-headerImg.addEventListener('click', function() {
-    showModal(this.src);
-});
-
-// Add click event to background photo
-backgroundImage.addEventListener('click', function() {
-    showModal(this.src);
-});
-
-// Close the modal when the close button is clicked
-closeModal.addEventListener('click', function() {
-    modal.style.display = 'none';
-});
-
-// Close the modal when the user clicks outside the modal
-window.addEventListener('click', function(event) {
-    if (event.target == modal) {
-        modal.style.display = 'none';
-    }
-});
-
-
-document.getElementById("save-changes").onclick = function() {
+    // Create a new FormData object
     let formData = new FormData();
-    formData.append('fname', document.getElementById('profile-name').value.split(' ')[0]);
-    formData.append('lname', document.getElementById('profile-name').value.split(' ')[1]);
+    formData.append('profile-name', document.getElementById('profile-name').value);
     
-    // Check if a new profile photo is selected
-    let profilePhoto = document.getElementById('upload-profile-photo').files[0];
-    if (profilePhoto) {
-        formData.append('profile_photo', profilePhoto);
+    // Check if a new background image is selected
+    let backgroundImageFile = document.getElementById('upload-background-picture').files[0];
+    if (backgroundImageFile) {
+        formData.append('upload-background-picture', backgroundImageFile);
+    }
+    
+    // Check if a new profile image is selected
+    let profilePhotoFile = document.getElementById('upload-profile-header').files[0];
+    if (profilePhotoFile) {
+        formData.append('upload-profile-header', profilePhotoFile);
     }
 
+    // Create a new XMLHttpRequest to send the form data
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "server/update_profile.php", true);
+    xhr.open("POST", "db_connection/update_profile.php", true);
     xhr.onload = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                alert("Profile updated successfully!");
-                location.reload(); // Refresh the page to reflect the updated info
-            }
+        if (xhr.status === 200) {
+            // Optional: Handle successful response
+            alert("Profile updated successfully!");
+            location.reload(); // Reload to see the updates
+        } else {
+            // Optional: Handle error response
+            alert("Failed to update profile. Please try again.");
         }
     };
     xhr.send(formData);
-}
+};

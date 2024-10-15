@@ -14,7 +14,7 @@ form.onsubmit = (e) => {
 
     function generateCaptcha() {
         let value = btoa(Math.random() * 1000000000);
-        value = value.substr(0, 5 + Math.random() * 5);
+        value = value.substr(0, 4 + Math.random() * 3);
         captchaValue = value;
     }
 
@@ -56,7 +56,7 @@ continueBtn.onclick = () => {
 
     // Create XMLHttpRequest object for login
     let xhr = new XMLHttpRequest(); // creating XML object
-    xhr.open("POST", "server/login_info.php", true);
+    xhr.open("POST", "db_connection/login_info.php", true);
     xhr.onload = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {

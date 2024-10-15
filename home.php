@@ -17,6 +17,16 @@
 <body>
 
     <?php include_once('navigation/header.php'); ?>
+    <div id="search_bar">
+        <div>
+            <span class="title" data-translate="K-POP Home">K-POP Home</span>
+            <img src="assets/images/navbar/music.png" alt="Wishlist">
+            <img src="assets/images/navbar/disc.jfif" alt="Wishlist">
+            <img src="assets/images/navbar/headphones.png" alt="Wishlist">
+            <img src="assets/images/navbar/mic.png" alt="Wishlist">
+            <img src="assets/images/navbar/love.png" alt="Wishlist">
+        </div>
+    </div>
     <?php include_once('navigation/sidebar.php'); ?>
 
     <div class="home-container">
@@ -46,7 +56,7 @@
                           <h1>Exclusive Blacpink</h1>
                           <h1>Merchandise</h1>
                           <p>Limited-edition items available now!</p>
-                          <button class="btn shop-btn">Buy Now</button>
+                          <button class="btn shop-btn" onclick="window.location.href='shop.php?celebrity=blackpink'">Buy Now</button>
                       </div>
                       <div class="album-cover">
                           <img src="assets/images/shop/album4.jpg" alt="album" class="album-image">

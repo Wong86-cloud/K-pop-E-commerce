@@ -20,7 +20,7 @@
     <!--Search Bar-->
     <div id="search_bar">
         <div>
-            <span class="forum-title" data-translate="K-POP Shop">K-POP Shop</span>
+            <span class="title" data-translate="K-POP Shop">K-POP Shop</span>
             <input type="text" id="search_box" data-translate="Search for product" placeholder="Search for product">
             <button id="search_button"><i class="fas fa-search"></i></button>
         </div>
@@ -109,7 +109,6 @@
         // Initialize filters from the GET request
         $celebrityFilter = isset($_GET['celebrity']) ? urldecode($_GET['celebrity']) : null;
         $categoryFilter = isset($_GET['category']) ? $_GET['category'] : 'all';
-        $priceOrderFilter = isset($_GET['price_order']) ? $_GET['price_order'] : 'Default';
 
         // Build the count query
         $countQuery = "SELECT COUNT(*) as total FROM products WHERE 1";
@@ -146,23 +145,21 @@
     <!-- Display products -->
     <ul class="shop-items">
         <?php while ($item = $items->fetch_assoc()): ?>
-            <li data-category="<?php echo $item['category']; ?>" data-product-id="<?php echo $item['product_id']; ?>">
+            <li data-category="<?php echo $item['product_category']; ?>" data-product-id="<?php echo $item['product_id']; ?>">
                 <picture>
-                    <img src="assets/images/shop/<?php echo $item['image']; ?>" alt="<?php echo htmlspecialchars($item['name']); ?>">
+                    <img src="assets/images/shop/<?php echo $item['product_image']; ?>" alt="<?php echo htmlspecialchars($item['product_name']); ?>">
                 </picture>
                 <div class="item-description">
                     <div class="icon">
                         <span class="wishlist-icon" oonclick="addToWishlist(<?php echo $item['product_id']; ?>, this)">
                             <i class="fas fa-heart" style="color:gray"></i>
                         </span>
-                        <span class="add-to-cart" onclick="addToCart(this)">
+                        <span class="add-to-cart" onclick="addToCart(<?php echo $item['product_id']; ?>)">
                             <i class="fas fa-cart-plus"></i>
                         </span>
                     </div>
-                    <strong><?php echo htmlspecialchars($item['name']); ?></strong>
-                    <span class="product-price" data-price="<?php echo htmlspecialchars($item['price']); ?>">
-                        USD <?php echo htmlspecialchars($item['price']); ?>
-                    </span>
+                    <strong><?php echo htmlspecialchars($item['product_name']); ?></strong>
+                    <span class="product-price" data-price="<?php echo htmlspecialchars($item['product_price']); ?>">USD <?php echo htmlspecialchars($item['product_price']); ?></span>
                     <small class="buy-now-text"><a href="single_product.php?id=<?php echo $item['product_id']; ?>">View Product</a></small>
                 </div>
             </li>
@@ -189,7 +186,6 @@
 </body>
     <script src="assets/js/header/currency.js"></script>
     <script src="assets/js/header/language.js"></script>
-    <script src="assets/js/filter.js"></script>
     <script src="assets/js/shop.js"></script>
 </html>
 

@@ -38,10 +38,10 @@
 
     <!-- Login Container -->
     <div class="login-form">
-        <div class="form-container">
+        <div class="login-form-container">
             <section class="form login">
                 <header>Login</header>
-                <form action="server/login_info.php" method="POST" enctype="multipart/form-data">
+                <form action="db_connection/login_info.php" method="POST" enctype="multipart/form-data">
                     <div class="error-txt"></div>
                     <div class="field input">
                         <label>Email Address</label>
