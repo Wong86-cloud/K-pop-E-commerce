@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('db_connection/config.php');
+include_once('config.php');
 
 // Debugging: Check if form data and files are being received
 echo "<pre>";
@@ -24,6 +24,20 @@ $profile_img = '';
 $background_img = '';
 $upload_dir = 'assets/images/profile/'; // Folder to store uploaded images
 
+// Fetch existing profile and background images from the database
+$sql = "SELECT `img`, `background_img` FROM `users` WHERE `unique_id` = ?";
+if ($stmt = $conn->prepare($sql)) {
+    $stmt->bind_param('i', $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    $existing_profile_img = $row['img'];
+    $existing_background_img = $row['background_img'];
+
+    $stmt->close();
+}
+
 // Handle Profile Image Upload
 if (!empty($_FILES['upload-profile-header']['name'])) {
     $profile_img = basename($_FILES['upload-profile-header']['name']);
@@ -35,6 +49,9 @@ if (!empty($_FILES['upload-profile-header']['name'])) {
     } else {
         echo "Error uploading profile image.<br>";
     }
+} else {
+    // Retain the existing profile image if no new image is uploaded
+    $profile_img = $existing_profile_img;
 }
 
 // Handle Background Image Upload
@@ -48,6 +65,9 @@ if (!empty($_FILES['upload-background-picture']['name'])) {
     } else {
         echo "Error uploading background image.<br>";
     }
+} else {
+    // Retain the existing background image if no new image is uploaded
+    $background_img = $existing_background_img;
 }
 
 // SQL query to update user profile in the database
@@ -76,7 +96,6 @@ if ($stmt = $conn->prepare($sql)) {
 }
 
 // Redirect back to the profile page or any other page after processing (optional)
-header("Location: profile.php");
+header("Location: ../profile.php");
 exit();
-
 ?>

@@ -25,7 +25,9 @@
             <button id="search_button"><i class="fas fa-search"></i></button>
         </div>
     </div>
-    <?php include_once('navigation/sidebar.php'); ?>
+    <?php 
+    include_once('navigation/sidebar.php');  
+    ?>
 
     <!--Profile Container--> 
     <div class="profile-container">
@@ -78,13 +80,15 @@
 
     <!--Post Area-->
     <div class="post-area-container">
-        <textarea placeholder="What's on your mind?" data-translate="What's on your mind?"></textarea>
-        <div class="post-buttons">
-            <input type="file" id="upload-post-photo">
-            <label for="upload-post-photo"  id="upload-post-photo-button">
-                <span data-translate="Upload Photo">Upload Photo</span><i class="fas fa-upload"></i></label>
-            <button id="post-button" data-translate="Post">Post</button>
-        </div>
+        <form method="post">
+            <textarea name="post" placeholder="What's on your mind?" data-translate="What's on your mind?"></textarea>
+            <div class="post-buttons">
+                <input type="file" id="upload-post-photo">
+                <label for="upload-post-photo"  id="upload-post-photo-button">
+                    <span data-translate="Upload Photo">Upload Photo</span><i class="fas fa-upload"></i></label>
+                <button id="post-button" data-translate="Post">Post</button>
+            </div>
+        </form>
     </div>
 
     <!--Post Bar-->

@@ -18,7 +18,7 @@ attachInput.onchange = () => {
 
 sendBtn.onclick = () => {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "db_connection/chat/insert_chat.php", true);
+    xhr.open("POST", "db_connection/insert_chat.php", true);
     xhr.onload = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
@@ -43,7 +43,7 @@ let isAtBottom = true; // Track if user is at the bottom of the chat
 // Function to fetch chat messages
 function fetchChatMessages() {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "db_connection/chat/get_chat.php", true);
+    xhr.open("POST", "db_connection/get_chat.php", true);
     xhr.onload = () => {
         if(xhr.readyState === XMLHttpRequest.DONE) {
             if(xhr.status === 200) {

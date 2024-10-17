@@ -25,7 +25,7 @@ function addToCart(productId) {
     formData.append('product_id', productId);
     formData.append('quantity', quantity); // Include quantity
 
-    fetch('db_connection/cart/add_to_cart.php', {
+    fetch('db_connection/add_to_cart.php', {
         method: 'POST',
         body: formData,
     })

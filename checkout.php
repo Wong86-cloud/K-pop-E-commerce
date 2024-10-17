@@ -225,6 +225,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('hidden-cart-total').value = overallTotal.toFixed(2); // Update the hidden field with overall total
 }
 
+document.getElementById('order-form').addEventListener('submit', function (event) {
+        const selectedShippingMethod = document.querySelector('input[name="shipping-method"]:checked');
+
+        if (!selectedShippingMethod) {
+            event.preventDefault();
+            alert("Please select a shipping method.");
+        }
+    });
 });
 
 </script>

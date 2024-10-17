@@ -1,10 +1,7 @@
 <?php
 session_start();
-$conn = mysqli_connect("127.0.0.1", "root", "", "kpop_e-commerce");
+include_once('config.php');
 
-if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
-}
 $outgoing_id = $_SESSION['unique_id'];
 $SearchTerm = mysqli_real_escape_string($conn, $_POST['searchTerm']);
 $output = "";

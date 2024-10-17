@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to remove item from cart in the database via an AJAX request
     async function removeFromCart(productId) {
         try {
-            const response = await fetch('db_connection/cart/remove_cart.php', {
+            const response = await fetch('db_connection/remove_cart.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to update quantity in the database via an AJAX request
     async function updateCartQuantity(productId, quantity) {
         try {
-            const response = await fetch('db_connection/cart/update_cart.php', {
+            const response = await fetch('db_connection/update_cart.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

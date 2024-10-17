@@ -1,11 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['unique_id'])) {
-    $conn = mysqli_connect("127.0.0.1", "root", "", "kpop_e-commerce");
-
-    if (!$conn) {
-        die("Database connection failed: " . mysqli_connect_error());
-    }
+    include_once('config.php');
     $outgoing_id = mysqli_real_escape_string($conn, $_POST['outgoing_id']);
     $incoming_id = mysqli_real_escape_string($conn, $_POST['incoming_id']);
 

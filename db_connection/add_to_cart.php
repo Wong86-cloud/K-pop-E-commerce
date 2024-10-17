@@ -1,10 +1,6 @@
 <?php
 session_start();
-$conn = mysqli_connect("127.0.0.1", "root", "", "kpop_e-commerce");
-
-if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
-}
+include_once('config.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $product_id = $_POST['product_id'];
