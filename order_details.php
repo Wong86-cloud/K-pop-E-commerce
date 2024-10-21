@@ -106,11 +106,6 @@ $total_cost = 0;
 <h5>Overall Total: $<?php echo number_format($overall_total, 2); ?></h5>
 
 
-    <!-- Additional options, such as marking order as received or reporting an issue -->
-    <div class="mt-4">
-        <a href="report_issue.php?order_id=<?php echo $order_id; ?>" class="btn btn-warning">Report an Issue</a>
-        <a href="mark_received.php?order_id=<?php echo $order_id; ?>" class="btn btn-success">Mark as Received</a>
-    </div>
 </div>
 
     <script src="assets/js/header/currency.js"></script>

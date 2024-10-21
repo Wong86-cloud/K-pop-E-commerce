@@ -14,9 +14,7 @@ if (!isset($_SESSION['unique_id'])) {
     exit();
 }
 
-// Extract form data from POST
-$fname = isset($_POST['profile-name']) ? $_POST['profile-name'] : '';
-$lname = isset($_POST['profile-lastname']) ? $_POST['profile-lastname'] : '';
+// Get the logged-in user's ID
 $user_id = $_SESSION['unique_id'];
 
 // Initialize image variables
@@ -25,7 +23,7 @@ $background_img = '';
 $upload_dir = 'assets/images/profile/'; // Folder to store uploaded images
 
 // Fetch existing profile and background images from the database
-$sql = "SELECT `img`, `background_img` FROM `users` WHERE `unique_id` = ?";
+$sql = "SELECT `img`, `background_img`, `fname`, `lname` FROM `users` WHERE `unique_id` = ?";
 if ($stmt = $conn->prepare($sql)) {
     $stmt->bind_param('i', $user_id);
     $stmt->execute();
@@ -34,6 +32,8 @@ if ($stmt = $conn->prepare($sql)) {
 
     $existing_profile_img = $row['img'];
     $existing_background_img = $row['background_img'];
+    $existing_fname = $row['fname']; // Store existing first name
+    $existing_lname = $row['lname']; // Store existing last name
 
     $stmt->close();
 }
@@ -72,15 +72,13 @@ if (!empty($_FILES['upload-background-picture']['name'])) {
 
 // SQL query to update user profile in the database
 $sql = "UPDATE `users` SET 
-            `fname` = ?, 
-            `lname` = ?, 
             `img` = ?, 
             `background_img` = ? 
         WHERE `unique_id` = ?";
 
 if ($stmt = $conn->prepare($sql)) {
-    // Bind parameters (strings for names, profile images, background image, and int for user_id)
-    $stmt->bind_param('ssssi', $fname, $lname, $profile_img, $background_img, $user_id);
+    // Bind parameters (strings for profile images and int for user_id)
+    $stmt->bind_param('ssi', $profile_img, $background_img, $user_id);
 
     // Execute the query and check for success or errors
     if ($stmt->execute()) {
@@ -96,6 +94,6 @@ if ($stmt = $conn->prepare($sql)) {
 }
 
 // Redirect back to the profile page or any other page after processing (optional)
-header("Location: ../profile.php");
+header("Location: ../forum.php");
 exit();
 ?>

@@ -1,10 +1,12 @@
 <?php
     session_start();
-    // Check if the unique_id is set in the session
-    if (!isset($_SESSION['unique_id'])) {
-        echo "User is not logged in.";
-    exit; // Stop execution if the user is not logged in
-}
+    // Ensure that the user is logged in and the unique_id is set
+    if (isset($_SESSION['unique_id'])) {
+        $unique_id = $_SESSION['unique_id'];
+    } else {
+    // Handle the case where the user is not logged in (redirect or show an error)
+        die("User not logged in.");
+    }
 ?>
 
 <!--Navigation Bar-->
@@ -45,9 +47,9 @@
             <div class="navbar-options ms-auto" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-translate="Notifications">Notifications</span>
-                            <i class="far fa-bell"></i>     
+                        <a class="nav-link" href="feedback.php">
+                            <span data-translate="Customer Feedback Form">Customer Feedback Form</span>
+                            <i class="fas fa-scroll"></i>    
                         </a>
                     </li>
                     <li class="nav-item">

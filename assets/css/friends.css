@@ -1,0 +1,175 @@
+.sidebar-container {
+    height: 1450px;
+}
+
+.friend-list-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between title and icons */
+    margin: 10px 10px 10px 230px; /* Using shorthand for margin */
+    border-radius: 10px;
+    background-color: #94B3FD;
+    height: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.friend-list-title h2 {
+    margin-left:20px; /* Remove default margin from h2 */
+}
+
+.friend-icons {
+    display: flex; /* Flex container for images */
+    align-items: center; /* Center images vertically */
+    margin-right: 10px;
+}
+
+.friend-list-title img {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px; /* Space between the images */
+}
+
+.friend-list-container {
+    margin-left: 230px;
+    margin-right: 10px;
+    background-color: white;
+    height: 400px;
+    padding: 20px 10px; /* Combined padding for top/bottom and left/right */
+    border-radius: 20px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.suggestion-list-container {
+    margin-left: 230px;
+    margin-right: 10px;
+    background-color: white;
+    height: 400px;
+    padding: 20px 10px; /* Combined padding for top/bottom and left/right */
+    border-radius: 20px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+.friend-list-container table, .suggestion-list-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.friend-list-container table th, .suggestion-list-container table th,
+.friend-list-container table td, .suggestion-list-container table td {
+    text-align: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.friend-list-container table th, .suggestion-list-container table th {
+    background-color: #405d9b;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.friend-list-container table td, .suggestion-list-container table td {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Table Row Hover Effect */
+.friend-list-container table tr:hover, .suggestion-list-container table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Profile image */
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.centered-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.action-buttons button {
+    border: none;
+    padding: 8px 12px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-btn {
+    background-color: #e74c3c;
+}
+
+.remove-btn:hover {
+    background-color: #c0392b;
+}
+
+.add-btn {
+    background-color: #28a745;
+    width: 100px;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+.view-profile-btn {
+    font-size: 15px;
+    color: white;
+    background: linear-gradient(130deg, #86a9fa, #405d9b);
+    border: none;
+    padding: 5px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-profile-btn:hover {
+    background: linear-gradient(130deg, #5a6d99, #263960);
+}
+
+/* Pagination Style */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    color: #007BFF;
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.pagination a:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+/* Empty List Message */
+.empty-list {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    margin-top: 20px;
+}

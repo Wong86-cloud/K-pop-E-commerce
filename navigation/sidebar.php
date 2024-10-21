@@ -14,7 +14,7 @@
     <div class="sidebar-container">  
         <div class="sidebar">
             <span class="sidebar-title" data-translate="Profile">Profile</span>
-            <a href="profile.php">
+            <a href="forum.php">
             <div class="personal-profile">
                 <img src="assets/images/profile/<?php echo $row['img'] ?>" id="sidebar-profile-photo" alt="Profile Photo">
                 <span class="profile-name"><?php echo $row['fname'] . " " .$row['lname'] ?></span>

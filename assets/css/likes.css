@@ -1,0 +1,41 @@
+.sidebar-container {
+    height: 1110px;
+}
+
+.like-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between title and icons */
+    margin: 10px 10px 10px 230px; /* Using shorthand for margin */
+    border-radius: 10px;
+    background-color: #94B3FD;
+    height: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.like-title h2 {
+    margin-left:20px; /* Remove default margin from h2 */
+}
+
+.like-icons {
+    display: flex; /* Flex container for images */
+    align-items: center; /* Center images vertically */
+    margin-right: 10px;
+}
+
+.like-title img {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px; /* Space between the images */
+}
+
+.like-post-container {
+    margin-left: 230px;
+    margin-right: 10px;
+    background-color: #94B3FD;
+    height: 550px;
+    padding: 20px 10px; /* Combined padding for top/bottom and left/right */
+    border-radius: 20px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
