@@ -63,6 +63,7 @@
             <br>
             <!--Menu Buttons-->
             <div id="menu-buttons" onclick="location.href='forum.php'" data-translate="Forum">Forum</div>
+            <div id="menu-buttons" onclick="location.href='groups.php'" data-translate="Groups">Groups</div>
             <div id="menu-buttons" onclick="location.href='about.php'" data-translate="About">About</div>
             <div id="menu-buttons" onclick="location.href='friends.php'" data-translate="Friends">Friends</div>
             <div id="menu-buttons" onclick="location.href='likes.php'" data-translate="Likes">Likes</div>

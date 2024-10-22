@@ -1,5 +1,6 @@
 <?php
     session_start();
+    ob_start();
     // Ensure that the user is logged in and the unique_id is set
     if (isset($_SESSION['unique_id'])) {
         $unique_id = $_SESSION['unique_id'];

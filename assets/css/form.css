@@ -18,16 +18,23 @@ body {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    height: calc(140vh - 80px); /* Full height minus navbar height */
-    margin-top: 80px; /* Adjust this according to your navbar height */
-    margin-bottom: 80px;
+    height: calc(140vh - 60px); /* Full height minus navbar height */
+    margin-top: 60px; /* Adjust this according to your navbar height */
+    margin-bottom: 60px;
 }
 
 .login-form {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    height: calc(100vh - 10px); /* Full height minus navbar height */
+    height: calc(110vh - 10px); /* Full height minus navbar height */
+}
+
+.forgot-password-form{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: calc(90vh - 10px); /* Full height minus navbar height */
 }
 
 .register-form-container {
@@ -39,6 +46,14 @@ body {
 }
 
 .login-form-container {
+    background: #ffffff;
+    width: 450px;
+    border-radius: 16px;
+    box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+                0 32px 64px -48px rgba(0,0,0,0.5);
+}
+
+.forgot-password-form-container {
     background: #ffffff;
     width: 450px;
     border-radius: 16px;
@@ -239,9 +254,29 @@ body {
     text-decoration: underline;
 }
 
+/*Forgot Password*/
+.forgot-password {
+    text-align: right; /* Align the link to the right side */
+    margin-top: 10px;
+    margin-bottom: 15px; /* Add space between the password field and the submit button */
+}
+
+.forgot-password a {
+    color: #0073ff; /* Bootstrap default link color (blue) */
+    text-decoration: none; /* Remove underline */
+    font-size: 14px; /* Smaller font size to fit in a form */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.forgot-password a:hover {
+    color: #0056b3; /* Darker shade of blue on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
 /*CAPTCHA*/
 .form .captcha {
     margin: 15px 0px;
+    margin-top: -20px;
 }
 
 .form .captcha .preview {
@@ -283,6 +318,10 @@ body {
     color: white;
     cursor: pointer;
     border-radius: 0 5px 5px 0;
+}
+
+.form label {
+    text-align: left;
 }
 
 

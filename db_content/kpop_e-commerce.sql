@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2024 at 04:06 AM
+-- Generation Time: Oct 22, 2024 at 02:40 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -58,6 +58,35 @@ CREATE TABLE `cart` (
   `product_price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `unique_id`, `product_id`, `quantity`, `product_name`, `product_image`, `product_price`) VALUES
+(38, 1517014417, 15, 1, 'OFFICIAL LIGHT STICK ver.2', 'merch4.png', 31.98),
+(46, 1517014417, 4, 1, 'V (BTS) \'Layover\' LP', 'album1.png', 42.64),
+(47, 1517014417, 1, 2, 'Passport Cover', 'merch1.png', 15.58);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `friends`
+--
+
+CREATE TABLE `friends` (
+  `friend_id` int(11) NOT NULL,
+  `unique_id` int(11) NOT NULL,
+  `friend_unique_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `friends`
+--
+
+INSERT INTO `friends` (`friend_id`, `unique_id`, `friend_unique_id`) VALUES
+(7, 1655463620, 1517014417),
+(9, 1517014417, 1655463620);
+
 -- --------------------------------------------------------
 
 --
@@ -88,9 +117,7 @@ INSERT INTO `messages` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`, `
 (30, 1517014417, 1655463620, 'Yahoo', ''),
 (31, 1517014417, 1655463620, 'how\\\'s your day', ''),
 (47, 1655463620, 1517014417, 'great', NULL),
-(48, 1655463620, 1517014417, 'how about u', ''),
-(49, 1655463620, 1517014417, '@', ''),
-(50, 1655463620, 1517014417, 'e', '');
+(48, 1655463620, 1517014417, 'how about u', '');
 
 -- --------------------------------------------------------
 
@@ -118,7 +145,9 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`order_id`, `order_cost`, `order_status`, `unique_id`, `country_code`, `handphone`, `address`, `postcode`, `city`, `order_date`, `shipping_id`) VALUES
 (24, 22.51, 'Pending', 1655463620, '+81', '0335467689', 'Shibuya Ward, Jinnan 2-1-2-3 Shibuya Heights Room 101', '〒150-0041', 'Shibuya-ku, Tokyo-to', '2024-10-13 23:08:29', 3),
-(27, 34.68, 'Pending', 1655463620, '+81', '0335467689', 'Shibuya Ward, Jinnan 2-1-2-3 Shibuya Heights Room 101', '〒150-0041', 'Shibuya-ku, Tokyo-to', '2024-10-14 12:56:31', 3);
+(27, 34.68, 'Pending', 1655463620, '+81', '0335467689', 'Shibuya Ward, Jinnan 2-1-2-3 Shibuya Heights Room 101', '〒150-0041', 'Shibuya-ku, Tokyo-to', '2024-10-14 12:56:31', 3),
+(31, 116.91, 'Pending', 1655463620, '+81', '0335467689', 'Shibuya Ward, Jinnan 2-1-2-3 Shibuya Heights Room 101', '〒150-0041', 'Shibuya-ku, Tokyo-to', '2024-10-18 12:03:08', 2),
+(32, 70.04, 'Pending', 1655463620, '+81', '0335467689', 'Shibuya Ward, Jinnan 2-1-2-3 Shibuya Heights Room 101', '〒150-0041', 'Shibuya-ku, Tokyo-to', '2024-10-22 02:01:43', 2);
 
 -- --------------------------------------------------------
 
@@ -144,7 +173,35 @@ CREATE TABLE `order_details` (
 
 INSERT INTO `order_details` (`item_id`, `unique_id`, `order_id`, `order_date`, `product_id`, `product_image`, `product_name`, `quantity`, `product_price`) VALUES
 (13, 1655463620, 24, '2024-10-13 23:08:29', 1, 'merch1.png', 'Passport Cover', 1, 15.58),
-(16, 1655463620, 27, '2024-10-14 12:56:31', 9, 'photobook3.png', 'SUGA ‘Wholly or Whole me’', 1, 27.06);
+(16, 1655463620, 27, '2024-10-14 12:56:31', 9, 'photobook3.png', 'SUGA ‘Wholly or Whole me’', 1, 27.06),
+(20, 1655463620, 31, '2024-10-18 12:03:08', 1, 'merch1.png', 'Passport Cover', 1, 15.58),
+(21, 1655463620, 31, '2024-10-18 12:03:08', 7, 'photobook1.png', 'Jin ‘Sea of JIN island’', 2, 42.64),
+(22, 1655463620, 32, '2024-10-22 02:01:44', 7, 'photobook1.png', 'Jin ‘Sea of JIN island’', 1, 42.64),
+(23, 1655463620, 32, '2024-10-22 02:01:44', 10, 'photocard1.png', 'BTS V layover POB PC', 2, 7.00);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personal_photos`
+--
+
+CREATE TABLE `personal_photos` (
+  `photo_id` int(11) NOT NULL,
+  `unique_id` int(200) NOT NULL,
+  `photo_url` varchar(255) NOT NULL,
+  `upload_date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `personal_photos`
+--
+
+INSERT INTO `personal_photos` (`photo_id`, `unique_id`, `photo_url`, `upload_date`) VALUES
+(12, 1655463620, 'assets/images/uploads/anna_pic1.png', '2024-10-19 14:38:54'),
+(13, 1655463620, 'assets/images/uploads/anna_pic2.png', '2024-10-19 14:38:58'),
+(15, 1655463620, 'assets/images/uploads/anna_pic4.jpg', '2024-10-19 14:40:00'),
+(16, 1655463620, 'assets/images/uploads/anna_pic3.png', '2024-10-19 14:41:45'),
+(19, 1655463620, 'assets/images/uploads/anna_pic5.png', '2024-10-21 13:40:51');
 
 -- --------------------------------------------------------
 
@@ -153,15 +210,82 @@ INSERT INTO `order_details` (`item_id`, `unique_id`, `order_id`, `order_date`, `
 --
 
 CREATE TABLE `posts` (
-  `id` bigint(19) NOT NULL,
-  `post_id` bigint(19) NOT NULL,
+  `room_id` int(11) DEFAULT NULL,
+  `post_id` int(11) NOT NULL,
   `unique_id` int(200) NOT NULL,
   `post` text NOT NULL,
-  `post_image` varchar(500) NOT NULL,
-  `post_comments` int(11) NOT NULL,
-  `post_likes` int(11) NOT NULL,
-  `post_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `post_image` varchar(500) DEFAULT NULL,
+  `post_comments` int(11) DEFAULT 0,
+  `post_likes` int(11) DEFAULT 0,
+  `post_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `got_image` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`room_id`, `post_id`, `unique_id`, `post`, `post_image`, `post_comments`, `post_likes`, `post_date`, `got_image`) VALUES
+(1, 1, 1655463620, 'ROSÉ finally released her new song! Luv it~', 'assets/images/uploads/APT..png', 0, 0, '2024-10-22 02:41:08', 1),
+(2, 4, 1655463620, 'OMG😭! All of them looks so gorgeous✨!', 'assets/images/uploads/aespa.jpeg', 2, 2, '2024-10-22 05:01:56', 1),
+(1, 6, 1517014417, 'Congrats😍 to our unnie who takes 1st win for \"Mantra\" on M Countdown.', 'assets/images/uploads/jennie-mcountdown.jpg', 1, 2, '2024-10-22 05:05:48', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `post_comments`
+--
+
+CREATE TABLE `post_comments` (
+  `comment_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `unique_id` int(200) NOT NULL,
+  `comment` text NOT NULL,
+  `comment_date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `post_comments`
+--
+
+INSERT INTO `post_comments` (`comment_id`, `post_id`, `unique_id`, `comment`, `comment_date`) VALUES
+(24, 4, 1655463620, 'yessss😘', '2024-10-20 10:59:34'),
+(27, 4, 1517014417, 'ATE💋', '2024-10-21 18:42:08'),
+(32, 6, 1655463620, 'ATE!!', '2024-10-22 05:05:48');
+
+--
+-- Triggers `post_comments`
+--
+DELIMITER $$
+CREATE TRIGGER `decrement_post_comments` AFTER DELETE ON `post_comments` FOR EACH ROW BEGIN
+    UPDATE posts
+    SET post_comments = post_comments - 1
+    WHERE post_id = OLD.post_id;
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `post_likes`
+--
+
+CREATE TABLE `post_likes` (
+  `like_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `unique_id` int(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `post_likes`
+--
+
+INSERT INTO `post_likes` (`like_id`, `post_id`, `unique_id`) VALUES
+(31, 4, 1517014417),
+(29, 4, 1655463620),
+(32, 6, 1517014417),
+(33, 6, 1655463620);
 
 -- --------------------------------------------------------
 
@@ -199,6 +323,29 @@ INSERT INTO `products` (`product_id`, `product_category`, `celebrity`, `product_
 (13, 'Album', 'BTS', 'album_bts.png', 'RM (BTS) \'Right Place, Wrong Person\' (Set)', 48.70, ''),
 (15, 'Merchandise', 'BLACKPINK', 'merch4.png', 'OFFICIAL LIGHT STICK ver.2', 31.98, ''),
 (24, 'Photocard', 'BLACKPINK', 'photocard4.png', '[ME] JISOO PHOTO CARD DECO KIT', 9.84, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rooms`
+--
+
+CREATE TABLE `rooms` (
+  `room_id` int(11) NOT NULL,
+  `room_name` varchar(255) NOT NULL,
+  `hashtag` varchar(255) NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `creation_date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`room_id`, `room_name`, `hashtag`, `created_by`, `creation_date`) VALUES
+(1, 'Blackpink 2024', '#Blackpink', 1517014417, '2024-10-22 02:38:22'),
+(2, 'Whiplash', '#AESPA', 1517014417, '2024-10-22 04:42:53'),
+(10, '10 Anniversary', '#BTS', 1655463620, '2024-10-22 05:07:12');
 
 -- --------------------------------------------------------
 
@@ -243,6 +390,7 @@ CREATE TABLE `users` (
   `address` text DEFAULT NULL,
   `postcode` varchar(20) DEFAULT NULL,
   `city` varchar(100) DEFAULT NULL,
+  `about_me` text DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `img` varchar(400) NOT NULL,
   `background_img` varchar(400) DEFAULT NULL,
@@ -253,9 +401,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `unique_id`, `fname`, `lname`, `gender`, `dob`, `country`, `country_code`, `handphone`, `email`, `address`, `postcode`, `city`, `password`, `img`, `background_img`, `status`) VALUES
-(1, 1655463620, 'Anna', 'Tanaka', 'female', '2005-11-17', 'Japan', '+81', '0335467689', 'annajiang@gmail.com', 'Shibuya Ward, Jinnan 2-1-2-3 Shibuya Heights Room 101', '〒150-0041', 'Shibuya-ku, Tokyo-to', '$2y$10$wvbkPyqpjtGsNiInjrGrdOHvPkFl9dXHfee7rN0sGGuzVYkde/Tp2', 'anna.jpg', NULL, 'Active now'),
-(2, 1517014417, 'Ella', 'Gross', NULL, NULL, NULL, NULL, NULL, 'ellagross@gmail.com', NULL, NULL, NULL, '$2y$10$z4c4QGT1D1cEcz.QtSj5pOtq8exHdFx12vbV8ujgR7477LqE6b7IK', 'ella.jpg', NULL, 'Active now');
+INSERT INTO `users` (`user_id`, `unique_id`, `fname`, `lname`, `gender`, `dob`, `country`, `country_code`, `handphone`, `email`, `address`, `postcode`, `city`, `about_me`, `password`, `img`, `background_img`, `status`) VALUES
+(1, 1655463620, 'Anna', 'Tanaka', 'Female', '2005-11-17', 'Japan', '+81', '0335467689', 'annajiang@gmail.com', 'Shibuya Ward, Jinnan 2-1-2-3 Shibuya Heights Room 101', '〒150-0041', 'Shibuya-ku, Tokyo-to', '                        Hi! Nice to meet you! I\\\'m Anna😄. Let\\\'s make friends 👥💖~', '$2y$10$vbSuA.lItGccFHB9s1lpjus45es7rOeNbl0lG1P.8rTC5.baNm4/y', 'anna.jpg', 'anna_background.png', 'Offline now'),
+(2, 1517014417, 'Ella', 'Gross', 'Female', NULL, NULL, NULL, NULL, 'ellagross@gmail.com', NULL, NULL, NULL, 'HELLO!', '$2y$10$xwIug7rPETLcgheGO9bqEuX32K/nz0imhlKtzwU6oh8QhMNPiB/W2', 'ella.jpg', 'ella_background.png', 'Offline now');
 
 -- --------------------------------------------------------
 
@@ -280,7 +428,9 @@ INSERT INTO `wishlist` (`wishlist_id`, `unique_id`, `product_id`, `added_at`) VA
 (22, 1517014417, 5, '2024-10-04 19:51:21'),
 (24, 1517014417, 7, '2024-10-04 19:51:22'),
 (58, 1655463620, 7, '2024-10-14 04:54:03'),
-(59, 1655463620, 9, '2024-10-14 04:54:08');
+(61, 1655463620, 10, '2024-10-17 04:53:19'),
+(62, 1655463620, 1, '2024-10-18 04:02:00'),
+(64, 1517014417, 6, '2024-10-21 18:40:21');
 
 --
 -- Indexes for dumped tables
@@ -300,6 +450,14 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_id`),
   ADD KEY `unique_id` (`unique_id`),
   ADD KEY `product_id` (`product_id`);
+
+--
+-- Indexes for table `friends`
+--
+ALTER TABLE `friends`
+  ADD PRIMARY KEY (`friend_id`),
+  ADD KEY `unique_id` (`unique_id`),
+  ADD KEY `friend_unique_id` (`friend_unique_id`);
 
 --
 -- Indexes for table `messages`
@@ -324,10 +482,36 @@ ALTER TABLE `order_details`
   ADD KEY `product_id` (`product_id`);
 
 --
+-- Indexes for table `personal_photos`
+--
+ALTER TABLE `personal_photos`
+  ADD PRIMARY KEY (`photo_id`),
+  ADD KEY `unique_id` (`unique_id`);
+
+--
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`post_id`),
+  ADD KEY `unique_id` (`unique_id`),
+  ADD KEY `has_image` (`got_image`),
+  ADD KEY `fk_room` (`room_id`);
+
+--
+-- Indexes for table `post_comments`
+--
+ALTER TABLE `post_comments`
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `post_id` (`post_id`),
+  ADD KEY `unique_id` (`unique_id`);
+
+--
+-- Indexes for table `post_likes`
+--
+ALTER TABLE `post_likes`
+  ADD PRIMARY KEY (`like_id`),
+  ADD UNIQUE KEY `unique_like` (`post_id`,`unique_id`),
+  ADD KEY `post_id` (`post_id`),
   ADD KEY `unique_id` (`unique_id`);
 
 --
@@ -336,6 +520,14 @@ ALTER TABLE `posts`
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`),
   ADD KEY `celebrity` (`celebrity`);
+
+--
+-- Indexes for table `rooms`
+--
+ALTER TABLE `rooms`
+  ADD PRIMARY KEY (`room_id`),
+  ADD UNIQUE KEY `hashtag` (`hashtag`),
+  ADD KEY `created_by` (`created_by`);
 
 --
 -- Indexes for table `shipping_methods`
@@ -374,37 +566,67 @@ ALTER TABLE `artists`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
+-- AUTO_INCREMENT for table `friends`
+--
+ALTER TABLE `friends`
+  MODIFY `friend_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `personal_photos`
+--
+ALTER TABLE `personal_photos`
+  MODIFY `photo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(19) NOT NULL AUTO_INCREMENT;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `post_comments`
+--
+ALTER TABLE `post_comments`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `post_likes`
+--
+ALTER TABLE `post_likes`
+  MODIFY `like_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `rooms`
+--
+ALTER TABLE `rooms`
+  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `shipping_methods`
@@ -422,7 +644,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- Constraints for dumped tables
@@ -434,6 +656,13 @@ ALTER TABLE `wishlist`
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`unique_id`) REFERENCES `users` (`unique_id`),
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+
+--
+-- Constraints for table `friends`
+--
+ALTER TABLE `friends`
+  ADD CONSTRAINT `friends_ibfk_1` FOREIGN KEY (`unique_id`) REFERENCES `users` (`unique_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `friends_ibfk_2` FOREIGN KEY (`friend_unique_id`) REFERENCES `users` (`unique_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `orders`
@@ -450,16 +679,43 @@ ALTER TABLE `order_details`
   ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 
 --
+-- Constraints for table `personal_photos`
+--
+ALTER TABLE `personal_photos`
+  ADD CONSTRAINT `personal_photos_ibfk_1` FOREIGN KEY (`unique_id`) REFERENCES `users` (`unique_id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `posts`
 --
 ALTER TABLE `posts`
+  ADD CONSTRAINT `fk_room` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`) ON DELETE SET NULL,
   ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`unique_id`) REFERENCES `users` (`unique_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `post_comments`
+--
+ALTER TABLE `post_comments`
+  ADD CONSTRAINT `post_comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `post_comments_ibfk_2` FOREIGN KEY (`unique_id`) REFERENCES `users` (`unique_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `post_likes`
+--
+ALTER TABLE `post_likes`
+  ADD CONSTRAINT `post_likes_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `post_likes_ibfk_2` FOREIGN KEY (`unique_id`) REFERENCES `users` (`unique_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`celebrity`) REFERENCES `artists` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `rooms`
+--
+ALTER TABLE `rooms`
+  ADD CONSTRAINT `rooms_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `users` (`unique_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `wishlist`
@@ -472,3 +728,5 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+

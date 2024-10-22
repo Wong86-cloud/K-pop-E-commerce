@@ -13,34 +13,34 @@
 </head>
 <body>
 
-    <?php include_once('navigation/header.php');?>
-    <!--Search Bar-->
+    <?php include_once('navigation/header.php'); ?>
+
+    <!-- Search Bar -->
     <div id="search_bar">
         <div>
             <span class="title" data-translate="K-POP Forum">K-POP Forum</span>
-            <img src="assets/images/navbar/chatting.png" alt="Wishlist">
-            <img src="assets/images/navbar/disco.png" alt="Wishlist">
-            <img src="assets/images/navbar/chat.png" alt="Wishlist">
-            <img src="assets/images/navbar/bestfriend.png" alt="Wishlist">
-            <img src="assets/images/navbar/music2.png" alt="Wishlist">
+            <img src="assets/images/navbar/chatting.png" alt="Chat">
+            <img src="assets/images/navbar/disco.png" alt="Disco">
+            <img src="assets/images/navbar/chat.png" alt="Chat">
+            <img src="assets/images/navbar/bestfriend.png" alt="Best Friends">
+            <img src="assets/images/navbar/music2.png" alt="Music">
         </div>
     </div>
-    <?php 
-    include_once('navigation/sidebar.php');  
-    ?>
 
-    <!--Profile Container--> 
+    <?php include_once('navigation/sidebar.php'); ?>
+
+    <!-- Profile Container --> 
     <div class="profile-container">
         <form id="profile-form" action="db_connection/update_profile.php" method="POST" enctype="multipart/form-data">
             <div class="profile">
                 <div class="cover-photo">
-                    <img src="assets/images/profile/<?php echo $row['background_img'] ?>" id="background-picture" alt="Background Image" onclick="openModal('background-picture')">
-                    <input type="file" name="upload-background-picture" id="upload-background-picture" accept="assets/images/profile/*">
+                    <img src="assets/images/profile/<?php echo htmlspecialchars($row['background_img']); ?>" id="background-picture" alt="Background Image" onclick="openModal('background-picture')">
+                    <input type="file" name="upload-background-picture" id="upload-background-picture" accept="image/*">
                     <label for="upload-background-picture" id="upload-background-picture-button"><i class="fas fa-camera"></i></label>
                 </div>
                 <div class="profile-header">
-                    <img src="assets/images/profile/<?php echo $row['img'] ?>" id="profile-photo" alt="Profile Photo" onclick="openModal('profile-photo')">
-                    <input type="file" name="upload-profile-header" id="upload-profile-header" accept="assets/images/profile/*">
+                    <img src="assets/images/profile/<?php echo htmlspecialchars($row['img']); ?>" id="profile-photo" alt="Profile Photo" onclick="openModal('profile-photo')">
+                    <input type="file" name="upload-profile-header" id="upload-profile-header" accept="image/*">
                     <label for="upload-profile-header" id="upload-profile-header-button"><i class="fas fa-camera"></i></label>
                 </div>
                 <!-- Image Modal -->
@@ -60,8 +60,9 @@
     
         <div class="profile-menu">
             <br>
-            <!--Menu Buttons-->
+            <!-- Menu Buttons -->
             <div id="menu-buttons" onclick="location.href='forum.php'" data-translate="Forum">Forum</div>
+            <div id="menu-buttons" onclick="location.href='groups.php'" data-translate="Groups">Groups</div>
             <div id="menu-buttons" onclick="location.href='about.php'" data-translate="About">About</div>
             <div id="menu-buttons" onclick="location.href='friends.php'" data-translate="Friends">Friends</div>
             <div id="menu-buttons" onclick="location.href='likes.php'" data-translate="Likes">Likes</div>
@@ -86,88 +87,152 @@
 
     <!-- Friends Bar -->
     <div class="friends-bar-container">  
-    <div class="friends-title" data-translate="Friend Recommendation">Friend Recommendation</div>
-    
-    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-        <div class="friends-bar">
-            <div class="friends-info">
-                <img class="friends-img" src="assets/images/profile/<?php echo $row['img']; ?>" alt="Profile Picture">
-                <span class="friends-name"><?php echo $row['fname'] . " " . $row['lname']; ?></span>
-            </div>
+        <div class="friends-title" data-translate="Friend Recommendation">Friend Recommendation</div>
+        
+        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+            <div class="friends-bar">
+                <div class="friends-info">
+                    <img class="friends-img" src="assets/images/profile/<?php echo htmlspecialchars($row['img']); ?>" alt="Profile Picture">
+                    <span class="friends-name"><?php echo htmlspecialchars($row['fname'] . " " . $row['lname']); ?></span>
+                </div>
 
-            <div class="friends-actions">
-                <!-- Add Friend Form -->
-                <form action="db_connection/friend.php" method="POST" style="display:inline;">
-                    <input type="hidden" name="friend_unique_id" value="<?php echo $row['unique_id']; ?>">
-                    <button type="submit" name="add_friend" class="add-btn">Add<i class="fas fa-user-plus"></i></button>
-                </form>
+                <div class="friends-actions">
+                    <!-- Add Friend Form -->
+                    <form action="db_connection/friend.php" method="POST" style="display:inline;">
+                        <input type="hidden" name="friend_unique_id" value="<?php echo htmlspecialchars($row['unique_id']); ?>">
+                        <button type="submit" name="add_friend" class="add-btn">Add <i class="fas fa-user-plus"></i></button>
+                    </form>
 
-                <!-- Remove Friend Form -->
-                <form action="db_connection/friend.php" method="POST" style="display:inline;">
-                    <input type="hidden" name="friend_unique_id" value="<?php echo $row['unique_id']; ?>">
-                    <button type="submit" name="remove_friend" class="remove-btn">Remove<i class="fas fa-user-times"></i></button>
-                </form>
+                    <!-- Remove Friend Form -->
+                    <form action="db_connection/friend.php" method="POST" style="display:inline;">
+                        <input type="hidden" name="friend_unique_id" value="<?php echo htmlspecialchars($row['unique_id']); ?>">
+                        <button type="submit" name="remove_friend" class="remove-btn">Remove <i class="fas fa-user-times"></i></button>
+                    </form>
+                </div>
             </div>
-        </div>
-    <?php } ?>
-    </div>
-
-    <!--Post Area-->
-    <div class="post-area-container">
-        <form action="db_connection/create_post.php" method="POST" enctype="multipart/form-data">
-            <div class="post-buttons">
-                <h2 data-translate="Upload Post">Upload Post</h2>
-                <input type="file" name="post_image" id="upload-post-photo" accept="assets/images/uploads/*">
-                <label for="upload-post-photo"  id="upload-post-photo-button">
-                    <span data-translate="Upload Photo">Upload Photo</span><i class="fas fa-upload"></i></label>
-                <button id="post-button" name="submit" data-translate="Post">Post</button>
-            </div>     
-            <div class="custom-container">
-                <div class="col-12">
-                    <div class="text-left">
-                        <p class="lead emoji-picker-container">
-                            <textarea class="form-control textarea-control" name="post_content" rows="3" placeholder="Textarea with emoji image input" data-emojiable="true"></textarea>
-                        </p>
-                    </div>
-                </div>   
-            </div>
-        </form>
+        <?php } ?>
     </div>
 
     <div class="post-title">
-        <h2 data-translate="Post">Post</h2>
+        <h2 data-translate="Select a Room">Select a Room</h2>
         <div class="post-icons">
-            <img src="assets/images/navbar/post_icon.png" alt="Wishlist">
-            <img src="assets/images/navbar/post_icon2.webp" alt="Wishlist">
+            <img src="assets/images/navbar/room_icon.png" alt="Room Icon">
         </div>
     </div>
 
-    <!-- Post Bar Container -->
-    <div class="post-bar-container">
-        <?php 
-        $unique_id = $_SESSION['unique_id']; // Assuming the user's unique ID is stored in session
+    <!-- Room buttons for groups -->
+<div class="room-section">
+    <?php 
+    // Fetch unique rooms (groups) created by users
+    $room_query = "SELECT room_id, room_name, hashtag FROM rooms"; // Fetch room_id, room_name, and hashtag
+    $room_result = mysqli_query($conn, $room_query);
+    
+    if (mysqli_num_rows($room_result) > 0) {
+        while ($room_row = mysqli_fetch_assoc($room_result)) {
+            $room_id = htmlspecialchars($room_row['room_id']);
+            $room_name = htmlspecialchars($room_row['room_name']);
+            $room_hashtag = htmlspecialchars($room_row['hashtag']);
+            echo "<a href='forum.php?room_id=$room_id' class='room-button'>$room_name $room_hashtag</a>"; // Show room name with hashtag
+        }
+    } else {
+        echo "<h4>No rooms available yet. Be the first to create one!</h4>";
+    }
+    ?>
+</div>
 
-        // Fetch posts and check if the user has liked each post
-        $query = "SELECT p.*, 
-                         u.fname, u.lname, u.img, 
-                         (SELECT COUNT(*) FROM post_likes WHERE post_likes.post_id = p.post_id AND post_likes.unique_id = '$unique_id') AS user_liked
-                  FROM posts AS p
-                  JOIN users AS u ON p.unique_id = u.unique_id
-                  ORDER BY p.post_date DESC";
-        
-        $result = mysqli_query($conn, $query);
-        
-        // Check if the query returned results
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                // Variables to store post data
-                $post_content = $row['post'];
-                $post_image = $row['post_image'];
-                $post_date = $row['post_date']; // Assuming you have a post_date field
-                $user_name = $row['fname'] . ' ' . $row['lname'];
-                $profile_image = $row['img'];
-                $got_image = $row['got_image'];
-                $user_liked = $row['user_liked'] > 0;  // No more undefined array key issue here
+    <!-- Post Area -->
+<div class="post-area-container">
+    <form action="db_connection/create_post.php" method="POST" enctype="multipart/form-data">
+        <div class="post-buttons">
+            <h2 data-translate="Upload Post">Upload Post</h2>
+            <input type="file" name="post_image" id="upload-post-photo" accept="image/*">
+            <label for="upload-post-photo" id="upload-post-photo-button">
+                <span data-translate="Upload Photo">Upload Photo</span><i class="fas fa-upload"></i>
+            </label>
+            <button id="post-button" name="submit" data-translate="Post">Post</button>
+        </div>     
+        <div class="custom-container">
+            <div class="col-12">
+                <div class="text-left">
+                    <p class="lead emoji-picker-container">
+                        <textarea class="form-control textarea-control" name="post_content" rows="3" placeholder="Textarea with emoji image input" data-emojiable="true"></textarea>
+                    </p>
+                </div>
+            </div>   
+        </div>
+
+        <!-- Room Selection Dropdown -->
+        <div class="form-group">
+            <label for="room-select" data-translate="Select Room To Upload Post:">Select Room To Upload Post:</label>
+            <select name="room_id" id="room-select" required>
+                <option value="" disabled selected>Select a Room</option>
+                <?php 
+                // Fetch available rooms from the database
+                $room_query = "SELECT room_id, room_name FROM rooms"; 
+                $room_result = mysqli_query($conn, $room_query);
+                if (mysqli_num_rows($room_result) > 0) {
+                    while ($room_row = mysqli_fetch_assoc($room_result)) {
+                        $room_id = htmlspecialchars($room_row['room_id']);
+                        $room_name = htmlspecialchars($room_row['room_name']);
+                        echo "<option value='$room_id'>$room_name</option>";
+                    }
+                } else {
+                    echo "<option value='' disabled>No rooms available</option>";
+                }
+                ?>
+            </select>
+        </div>
+    </form>
+</div>
+
+
+
+<!-- Post Bar Container -->
+<div class="post-bar-container">
+<?php
+
+// Check if the room_id is set in the URL
+if (isset($_GET['room_id'])) {
+    $room_id = mysqli_real_escape_string($conn, $_GET['room_id']);
+
+    // Fetch the room details
+    $room_query = "SELECT room_name, hashtag FROM rooms WHERE room_id = '$room_id'";
+    $room_result = mysqli_query($conn, $room_query);
+
+    if (mysqli_num_rows($room_result) > 0) {
+        $room_row = mysqli_fetch_assoc($room_result);
+        $room_name = $room_row['room_name'];
+        $hashtag = $room_row['hashtag'];
+
+        echo "<h2>$room_name Discussion Room</h2>";
+
+        // Assuming $user_id is defined (you might retrieve it from session or another source)
+        $user_id = $_SESSION['unique_id']; // or however you obtain the user ID
+
+        // Adjusted Post Query to include user_liked
+        $post_query = "SELECT p.*, 
+                              u.fname, 
+                              u.lname, 
+                              u.img,
+                              (SELECT COUNT(*) FROM post_likes WHERE post_id = p.post_id AND unique_id = '$user_id') AS user_liked 
+                       FROM posts AS p 
+                       JOIN users AS u ON p.unique_id = u.unique_id 
+                       WHERE p.room_id = '$room_id' 
+                       ORDER BY p.post_date DESC";
+
+        // Execute the post query
+        $post_result = mysqli_query($conn, $post_query);
+
+        // Process the results
+        if (mysqli_num_rows($post_result) > 0) {
+            while ($post_row = mysqli_fetch_assoc($post_result)) {
+                $post_content = $post_row['post'];
+                $post_image = $post_row['post_image'];
+                $post_date = $post_row['post_date'];
+                $user_name = $post_row['fname'] . ' ' . $post_row['lname'];
+                $profile_image = $post_row['img'];
+                $got_image = !empty($post_image);
+                $user_liked = isset($post_row['user_liked']) && $post_row['user_liked'] > 0; // Safe check
                 ?>
                 <div class="post-bar">
                     <div class="post-header">
@@ -180,53 +245,46 @@
                             <img src="<?php echo $post_image; ?>" class="post-image" alt="Post Image" onclick="openModal(this)">
                         <?php } ?>
                     </div>
-                    <!-- Modal Structure -->
-                    <div id="image-modal" class="modal" onclick="closeModal()">
-                        <span class="close">&times;</span>
-                        <img class="modal-content" id="modal-image">
-                        <div id="caption"></div>
-                    </div>
                     <div class="post-footer">
                         <!-- Like button -->
-                        <button onclick="likeButton(this)" data-post-id="<?php echo $row['post_id']; ?>" class="post-button <?php echo $user_liked ? 'liked' : ''; ?>">
+                        <button onclick="likeButton(this)" data-post-id="<?php echo $post_row['post_id']; ?>" class="post-button <?php echo $user_liked ? 'liked' : ''; ?>">
                             <i class="fas fa-heart" style="color: <?php echo $user_liked ? 'red' : ''; ?>"></i> 
-                            <span><?php echo $row['post_likes']; ?></span>
+                            <span><?php echo $post_row['post_likes']; ?></span>
                         </button>
                         <!-- Comment button -->
-                        <button onclick="toggleCommentBox(<?php echo $row['post_id']; ?>)" class="post-button">
+                        <button onclick="toggleCommentBox(<?php echo $post_row['post_id']; ?>)" class="post-button">
                             <i class="fas fa-comment"></i> 
-                            <span><?php echo $row['post_comments']; ?></span>
+                            <span><?php echo $post_row['post_comments']; ?></span>
                         </button>
                         <!-- View Comments button with arrow -->
-                        <button onclick="toggleCommentList(<?php echo $row['post_id']; ?>)" class="post-button view-comments-button">
-                            <span id="view-comments-text-<?php echo $row['post_id']; ?>" data-translate="View Comment">View Comments</span>
-                            <i id="arrow-icon-<?php echo $row['post_id']; ?>" class="fas fa-chevron-down"></i>
+                        <button onclick="toggleCommentList(<?php echo $post_row['post_id']; ?>)" class="post-button view-comments-button">
+                            <span id="view-comments-text-<?php echo $post_row['post_id']; ?>" data-translate="View Comment">View Comments</span>
+                            <i id="arrow-icon-<?php echo $post_row['post_id']; ?>" class="fas fa-chevron-down"></i>
                         </button>
                         <!-- Post date -->
                         <span class="post-date"><?php echo $post_date; ?></span>
                     </div>
-        
-                    <!-- Comment box (initially hidden) -->
-                    <div id="comment-box-<?php echo $row['post_id']; ?>" class="comment-box" style="display: none;">
+
+                    <!-- Comment box -->
+                    <div id="comment-box-<?php echo $post_row['post_id']; ?>" class="comment-box" style="display: none;">
                         <p class="lead emoji-picker-container">
-                            <textarea id="comment-input-<?php echo $row['post_id']; ?>" class="comment-input" placeholder="Type your comment..." data-emojiable="true"></textarea>
+                            <textarea id="comment-input-<?php echo $post_row['post_id']; ?>" class="comment-input" placeholder="Type your comment..." data-emojiable="true"></textarea>
                         </p>
-                        <button onclick="submitComment(<?php echo $row['post_id']; ?>)" class="comment-submit-button">Post</button>
+                        <button onclick="submitComment(<?php echo $post_row['post_id']; ?>)" class="comment-submit-button">Post</button>
                     </div>
-        
+
                     <!-- Display comments for the post -->
-                    <div id="comment-list-<?php echo $row['post_id']; ?>" class="comment-bar-container" style="display: none;">
+                    <div id="comment-list-<?php echo $post_row['post_id']; ?>" class="comment-bar-container" style="display: none;">
                         <?php
                         // Fetch comments for the current post
-                        $post_id = $row['post_id'];
+                        $post_id = $post_row['post_id'];
                         $comments_query = "SELECT c.comment_id, c.comment, c.comment_date, u.fname, u.lname, u.img 
                                            FROM post_comments AS c 
                                            JOIN users AS u ON c.unique_id = u.unique_id 
                                            WHERE c.post_id = '$post_id' 
                                            ORDER BY c.comment_date ASC";
                         $comments_result = mysqli_query($conn, $comments_query);
-        
-                        // Check if there are comments
+
                         if (mysqli_num_rows($comments_result) > 0) {
                             while ($comment_row = mysqli_fetch_assoc($comments_result)) {
                                 $comment_content = $comment_row['comment'];
@@ -243,25 +301,30 @@
                             <div class="comment-content">
                                 <p><?php echo $comment_content; ?></p>
                             </div>
-                            <div class="comment-footer">
-                                <button onclick="deleteComment(<?php echo $comment_row['comment_id']; ?>)" class="delete-comment-button">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </div>
                         </div> 
                         <?php
                             }
                         } else {
-                            echo "<h4 id='no-comments-message-{$post_id}'>No comments yet.</h4>";
+                            echo "<h4>No comments yet.</h4>";
                         }
                         ?>
                     </div>
                 </div>
                 <?php
             }
+        } else {
+            echo "<h4>No posts found for this room yet.</h4>";
         }
-        ?>
-    </div>
+    } else {
+        echo "<h4>Room not found!</h4>";
+    }
+} else {
+    echo "<h4>No room selected.</h4>";
+}
+?>
+</div>
+
+
    
     <script src="assets/js/header/currency.js"></script>
     <script src="assets/js/header/language.js"></script>

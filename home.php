@@ -161,7 +161,7 @@
                 <img src="assets/images/footer/payment.png">
               </div>
               <div class="col-lg-3 col-md-5 col-sm-12 mb-4 text-center">
-                <p> KIVORIA &copy; 2024 All Rights Reserved</p>
+                <p> KIVORIA &copy; 2024 Wong Zi Hao. All Rights Reserved.</p>
               </div>
               <div class="col-lg-3 col-md-5 col-sm-12 mb-4 text-end">
                 <a href="#"><i class="fab fa-facebook"></i></a>

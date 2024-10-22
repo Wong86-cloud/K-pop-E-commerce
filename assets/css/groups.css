@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+.sidebar-container {
+    height: 860px;
+}
+
+.group-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between title and icons */
+    margin: 10px 10px 10px 230px; /* Using shorthand for margin */
+    border-radius: 10px;
+    background-color: #94B3FD;
+    height: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.group-title h2 {
+    margin-left:20px; /* Remove default margin from h2 */
+}
+
+.group-icons {
+    display: flex; /* Flex container for images */
+    align-items: center; /* Center images vertically */
+    margin-right: 10px;
+}
+
+.group-title img {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px; /* Space between the images */
+}
+
+.group-list-container {
+    margin-left: 230px;
+    margin-right: 10px;
+    background-color: #94B3FD; /* Light blue background */
+    border-radius: 20px; /* Rounded corners */
+    padding: 20px; /* Padding for internal spacing */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    margin-bottom: 20px; /* Space below the container */
+    height: 300px; /* Max height to control overflow */
+    overflow-y: auto; /* Scrollbar for overflow */
+}
+
+.group-form {
+    display: flex; /* Flexbox for form layout */
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Space between form elements */
+    margin-bottom: 15px; /* Space below the form */
+}
+
+.group-form input, .group-form select {
+    padding: 10px; /* Padding for input fields */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners for inputs */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Inner shadow */
+    font-size: 14px; /* Font size for inputs */
+    outline: none; /* Remove default focus outline */
+}
+
+.group-form button {
+    background-color: #ff4081; /* Bright button color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    font-weight: bold; /* Bold text */
+}
+
+.group-form button:hover {
+    background-color: #d5006d; /* Darker shade on hover */
+}
+
+.view-room-section {
+    display: flex; /* Flexbox for room buttons */
+    flex-wrap: wrap; /* Allow wrapping of buttons */
+    gap: 10px; /* Space between buttons */
+}
+
+.room-button {
+    background-color: #ff4081; /* Button background */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px; /* Padding for button */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    font-weight: bold; /* Make the text bold */
+    font-size: 16px; /* Font size */
+}
+
+.room-button:hover {
+    background-color: #d5006d; /* Darker shade on hover */
+}
+

@@ -208,7 +208,7 @@ body {
 
 .friends-bar-container {
     width: 220px;
-    height: 1290px;
+    height: 1400px;
     margin-top: 10px;
     margin-bottom: 20px;
     background-color: white; 
@@ -321,6 +321,32 @@ body {
     font-size: 14px;
 }
 
+.room-section {
+    display: flex; /* Flexbox for room buttons */
+    flex-wrap: wrap; /* Allow wrapping of buttons */
+    gap: 10px; /* Space between buttons */
+    background-color: transparent;
+    margin-top: 10px;
+    margin-left: 230px;
+    margin-right: 10px;
+    overflow-y: auto;
+}
+
+.room-button {
+    background-color: #ff4081; /* Background color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px; /* Padding for button */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+    font-weight: bold; /* Make the text bold */
+    font-size: 16px; /* Font size */
+}
+
+.room-button:hover {
+    background-color: #d5006d; /* Darker shade on hover */
+}
+
 /* General Profile Container */
 .post-area-container {
     margin-top: 10px;
@@ -406,6 +432,29 @@ h2 {
     right: 10px; /* Fix to the right side */
 }
 
+.form-group {
+    display: flex;
+    align-items: center; /* Vertically center the label and select */
+    gap: 10px; /* Space between label and select dropdown */
+}
+
+.form-group label {
+    font-size: 16px;
+    margin-right: 10px;
+    white-space: nowrap; /* Prevents the label from breaking onto a new line */
+}
+
+#room-select {
+    width: auto; /* Adjust width as per content */
+    flex-grow: 1; /* Allows the select to grow if space is available */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    font-size: 16px;
+    color: #495057;
+}
+
 .post-title {
     display: flex;
     align-items: center;
@@ -434,6 +483,7 @@ h2 {
 }
 
 .post-bar-container {
+    margin-top: 10px;
     margin-left: 230px;
     margin-right: 10px;
     background-color: #94B3FD;

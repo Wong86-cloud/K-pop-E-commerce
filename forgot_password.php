@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Forgot Password</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/form.css">
 
 </head>
-
+<body>
     <!--Navigation Bar-->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
@@ -36,43 +36,35 @@
         </div>
     </nav>
 
-    <!-- Login Container -->
-    <div class="login-form">
-        <div class="login-form-container">
-            <section class="form login">
-                <header>Login</header>
-                <form action="db_connection/login_info.php" method="POST" enctype="multipart/form-data">
-                    <div class="error-txt"></div>
-                    <div class="field input">
-                        <label>Email Address</label>
-                        <input type="text" name="email" placeholder="Enter your email">
-                    </div>
-                    <div class="field input">
-                        <label>Password</label>
-                        <input type="password" name="password" placeholder="Enter your password">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <div class="forgot-password">
-                        <a href="forgot_password.php">Forgot Password?</a>
-                    </div>
-                    <div class="captcha">
-                        <label for="captcha-input">Enter captcha</label>
-                        <div class="preview"></div>
-                        <div class="captcha-form">
-                            <input type="text" id="captcha-form" placeholder="Enter captcha text">
-                            <button class="captcha-refresh"><i class="fas fa-sync"></i></button>
+    <!-- Forgot Password Container -->
+    <div class="forgot-password-form">
+        <div class="forgot-password-form-container">
+            <section class="form forgot-password">
+                <header>Forgot Password</header>
+                    <form action="db_connection/reset_password.php" method="POST" enctype="multipart/form-data">
+                        <div class="error-txt"></div>
+                        <div class="field input">
+                            <label>Email Address</label>
+                            <input type="text" name="email" placeholder="Enter your email">
                         </div>
-                    <div class="field button">
-                        <input type="submit">
-                    </div>
-                </form>
-                <div class="link">Not yet signed up? <a href="register.php">Signup now</a></div>
+                        <div class="field input">
+                            <label>New Password</label>
+                            <input type="password" name="password" class="reset-password" placeholder="Enter your password" required>
+                            <div class="new-password-error" style="color: red; font-size: 14px;"></div> <!-- Error message for password -->
+                        </div>
+                        <div class="field input">
+                            <label>Confirm New Password</label>
+                            <input type="password" name="confirm_password"  class="confirm-reset-Password" placeholder="Confirm your password" required>
+                            <div class="confirm-new-password-error" style="color: red; font-size: 14px;"></div> <!-- Error message for confirm password -->
+                        </div>
+                        <div class="field button">
+                            <input type="submit">
+                        </div>
+                    </form>
             </section>
         </div>
     </div>
-
 </body>
 <script src="assets/js/header/language.js"></script>
-<script src="assets/js/forms/form.js"></script>
-<script src="assets/js/forms/login.js"></script>
+<script src="assets/js/forms/forgot_password.js"></script>
 </html>
