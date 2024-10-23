@@ -1,0 +1,78 @@
+body {
+    background: linear-gradient(135deg, #4b4b4b,#33363a);
+}
+
+.submit-feedback-form {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: calc(100vh - 10px); /* Full height minus navbar height */
+}
+
+/* Styling for the submit feedback container */
+.submit-feedback-container {
+    background-color: transparent;    /* White background for card-like appearance */
+    padding: 40px;             /* Padding around the content */
+    border-radius: 12px;       /* Rounded corners */
+    text-align: center;        /* Center the text inside the box */
+    max-width: 600px;          /* Maximum width of the feedback box */
+    width: 100%;               /* Take full width up to the max-width */
+}
+
+.submit-feedback-container img {
+    width: 80px;              /* Set the width of the image */
+    height: 80px;             /* Set the height of the image */
+    margin-bottom: 20px;       /* Add space between the image and the text */
+} 
+
+.navbar-brand {
+    font-size: 30px;
+    text-decoration: none;
+    margin-left: 20px;
+    background: linear-gradient(45deg, #99FEFF, #94DAFF,#B983FF); /* Define the gradient colors */
+    background-clip: text;
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text color transparent to show the gradient */
+}
+
+h3, p ,a {
+    color: white;            /* Set the text color */
+}
+
+h3 {
+    font-size: 24px;          /* Set the font size */
+    margin-bottom: 20px;      /* Add space between the heading and the text */
+}
+
+/* Styling for the button */
+.submit-feedback-container a.btn {
+    background-color: white;
+    color: #33363a;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;          /* Adds space between the text and the button */
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.submit-feedback-container a.btn:hover {
+    background-color: #e0e3e8;
+    text-decoration: none;
+    color: #33363a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .submit-feedback-container {
+        padding: 20px;
+        max-width: 90%;        /* Take up most of the screen on smaller devices */
+    }
+
+    .submit-feedback-container a.btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}

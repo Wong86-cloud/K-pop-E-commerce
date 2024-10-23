@@ -16,15 +16,37 @@ attachInput.onchange = () => {
     }
 };
 
-sendBtn.onclick = () => {
+sendBtn.onclick = (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    // Check if the input field is empty
+    if (inputField.value.trim() === "" && attachInput.files.length === 0) {
+        return; // Do not send if there's no message or file
+    }
+
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "db_connection/insert_chat.php", true);
+    xhr.open("POST", "db_connection/send_chat.php", true);
     xhr.onload = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                inputField.value = ""; // Clear input field
-                attachInput.value = ""; // Clear file input
-                fetchChatMessages(); // Fetch updated chat messages
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    
+                    if (response.status === "success") {
+                        inputField.value = ""; // Clear input field
+                        attachInput.value = ""; // Clear file input
+                        fetchChatMessages(); // Fetch updated chat messages
+                        
+                        // Use the correct input name for incoming_id
+                        const incomingId = document.querySelector('input[name="incoming_id"]').value;
+                        window.location.href = `chat.php?user_id=${incomingId}`; // Redirect correctly
+                    } else {
+                        alert(response.message); // Show error message
+                    }
+                } catch (error) {
+                    console.error("Error parsing JSON response: ", xhr.responseText); // Log response for debugging
+                    alert("An error occurred: " + xhr.responseText);
+                }
             }
         }
     };
@@ -36,7 +58,6 @@ sendBtn.onclick = () => {
     }
     xhr.send(formData);
 };
-
 
 let isAtBottom = true; // Track if user is at the bottom of the chat
 

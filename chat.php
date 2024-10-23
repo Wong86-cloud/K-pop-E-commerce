@@ -24,10 +24,20 @@
         <section class="users-content">
             <header>
                 <?php
-                $user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
-                $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$user_id}");
-                if(mysqli_num_rows($sql) > 0){
-                    $row = mysqli_fetch_assoc($sql);
+                $user_id = isset($_GET['user_id']) ? mysqli_real_escape_string($conn, $_GET['user_id']) : null;
+
+                if ($user_id) {
+                    $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '$user_id'");
+                    if (mysqli_num_rows($sql) > 0) {
+                        $row = mysqli_fetch_assoc($sql);
+                    } else {
+                        // Handle case where user is not found
+                        echo "<p>User not found.</p>";
+                        exit;
+                    }
+                } else {
+                    echo "<p>User ID is not set.</p>";
+                    exit;
                 }
                 ?>
                 <a href="message.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
@@ -42,7 +52,7 @@
             <div class="chat-box">
             <!--Compare this snippet from server/get_chat.php-->
             </div>
-            <form action="#" class="typing-area" autocomplete="off" enctype="multipart/form-data">
+            <form action="db_connection/send_chat.php" method="POST" class="typing-area" autocomplete="off" enctype="multipart/form-data">
                 <button type="button" class="attach-button">
                     <i class="fas fa-paperclip"></i>
                     <input type="file" name="attachment" class="attach-input" style="display: none;">

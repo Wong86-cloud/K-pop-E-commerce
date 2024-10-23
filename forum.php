@@ -35,12 +35,12 @@
             <div class="profile">
                 <div class="cover-photo">
                     <img src="assets/images/profile/<?php echo htmlspecialchars($row['background_img']); ?>" id="background-picture" alt="Background Image" onclick="openModal('background-picture')">
-                    <input type="file" name="upload-background-picture" id="upload-background-picture" accept="image/*">
+                    <input type="file" name="upload-background-picture" id="upload-background-picture" accept="assets/images/profile/*">
                     <label for="upload-background-picture" id="upload-background-picture-button"><i class="fas fa-camera"></i></label>
                 </div>
                 <div class="profile-header">
                     <img src="assets/images/profile/<?php echo htmlspecialchars($row['img']); ?>" id="profile-photo" alt="Profile Photo" onclick="openModal('profile-photo')">
-                    <input type="file" name="upload-profile-header" id="upload-profile-header" accept="image/*">
+                    <input type="file" name="upload-profile-header" id="upload-profile-header" accept="assets/images/profile/*">
                     <label for="upload-profile-header" id="upload-profile-header-button"><i class="fas fa-camera"></i></label>
                 </div>
                 <!-- Image Modal -->

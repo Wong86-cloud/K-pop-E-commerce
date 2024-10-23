@@ -88,22 +88,6 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-//Post Image
-function openModal(img) {
-    const modal = document.getElementById("image-modal");
-    const modalImg = document.getElementById("modal-image");
-    const captionText = document.getElementById("caption");
-
-    modal.style.display = "block";
-    modalImg.src = img.src; // Set the src of modal image to the clicked image
-    captionText.innerHTML = img.alt; // Optionally set caption from image alt text
-}
-
-function closeModal() {
-    const modal = document.getElementById("image-modal");
-    modal.style.display = "none"; // Hide the modal
-}
-
 function likeButton(button) {
     const postId = button.getAttribute('data-post-id');
 
