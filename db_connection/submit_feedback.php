@@ -27,7 +27,7 @@ if ($row[0] > 0) {
                          <a href='../home.php' class='btn btn-primary'>Back to Home Page</a>";
 } else {
     // Prepare SQL statement to insert the feedback data
-    $sql = "INSERT INTO feedback (unique_id, q1, q2, q3, q4, q5, q6, q7, q8) 
+    $sql = "INSERT INTO feedback (unique_id, question_1, question_2, question_3, question_4, question_5, question_6, question_7, question_8) 
             VALUES ('$unique_id', '$q1', '$q2', '$q3', '$q4', '$q5', '$q6', '$q7', '$q8')";
 
     // Execute the SQL query and check if data was inserted successfully

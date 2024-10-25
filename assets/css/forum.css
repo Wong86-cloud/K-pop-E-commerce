@@ -1,0 +1,563 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+.friends-bar-container {
+    width: 220px;
+    height: 1400px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: white; 
+    position: absolute;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column; /* Ensure bars stack vertically */
+    align-items: center;
+    overflow-y: auto;
+}
+
+.friends-title {
+    font-size: 24px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 300;
+    color: #01479c;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.friends-bar {
+    width: 90%;
+    border-radius: 10px;
+    border: 1px solid #ddd; /* Outline for each friend bar */
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+.friends-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Space between info and actions */
+}
+
+.friends-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+    margin-right: 10px; /* Space between image and name */
+}
+
+.friends-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #01479c;
+}
+
+.friends-actions {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    justify-content: center;
+    margin-top: 10px; /* Space above buttons */
+}
+
+.add-btn {
+    width:80px;
+    height: 30px; /* Ensures both buttons have the same height */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* Adds space between the text and icon */
+}
+
+.remove-btn {
+    height: 30px; /* Ensures both buttons have the same height */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* Adds space between the text and icon */
+}
+
+.add-btn {
+    background-color: #28a745; /* Green color for Add button */
+}
+
+.remove-btn {
+    background-color: #dc3545; /* Red color for Remove button */
+}
+
+.add-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.remove-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.add-btn i, .remove-btn i {
+    margin-left: 5px; 
+    font-size: 14px;
+}
+
+.room-section {
+    display: flex; /* Flexbox for room buttons */
+    flex-wrap: wrap; /* Allow wrapping of buttons */
+    gap: 10px; /* Space between buttons */
+    background-color: transparent;
+    margin-top: 10px;
+    margin-left: 230px;
+    margin-right: 10px;
+    overflow-y: auto;
+}
+
+.room-button {
+    background-color: #ff4081; /* Background color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px; /* Padding for button */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+    font-weight: bold; /* Make the text bold */
+    font-size: 16px; /* Font size */
+}
+
+.room-button:hover {
+    background-color: #d5006d; /* Darker shade on hover */
+}
+
+/* General Profile Container */
+.post-area-container {
+    margin-top: 10px;
+    margin-left: 230px;
+    margin-right: 10px;
+    background: transparent;
+    border-radius: 20px;
+}
+
+.custom-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -10px;
+}
+
+textarea {
+    height: 150px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    color:#33363a;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    outline: none;
+}
+
+.post-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; 
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #94B3FD;
+    height: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+h2 {
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#upload-post-photo {
+    display: none;
+}
+
+#upload-post-photo-button {
+    background-color: #33363a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    right: 80px;
+}
+
+#upload-post-photo-button i {
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+#post-button {
+    background-color: #33363a;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute; /* Position the button absolutely */
+    right: 10px; /* Fix to the right side */
+}
+
+.form-group {
+    display: flex;
+    align-items: center; /* Vertically center the label and select */
+    gap: 10px; /* Space between label and select dropdown */
+}
+
+.form-group label {
+    font-size: 16px;
+    margin-right: 10px;
+    white-space: nowrap; /* Prevents the label from breaking onto a new line */
+}
+
+#room-select {
+    width: auto; /* Adjust width as per content */
+    flex-grow: 1; /* Allows the select to grow if space is available */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    font-size: 16px;
+    color: #495057;
+}
+
+.post-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between title and icons */
+    margin: 10px 10px 10px 230px; /* Using shorthand for margin */
+    border-radius: 10px;
+    background-color: #94B3FD;
+    height: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.post-title h2 {
+    margin-left:20px; /* Remove default margin from h2 */
+}
+
+.post-icons {
+    display: flex; /* Flex container for images */
+    align-items: center; /* Center images vertically */
+    margin-right: 10px;
+}
+
+.post-title img {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px; /* Space between the images */
+}
+
+.post-bar-container {
+    margin-top: 10px;
+    margin-left: 230px;
+    margin-right: 10px;
+    background-color: #94B3FD;
+    height: 1000px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    padding-top: 20px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.post-bar {
+    width: 96%;
+    height:fit-content;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.post-header {
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.post-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.post-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    color: #405d9b;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.post-content {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #33363a;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.post-image {
+    max-width: 500px;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%; /* Image width */
+    max-width: 700px; /* Max width for larger screens */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#caption {
+    margin: auto;
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.post-button {
+    display: inline-flex;
+    align-items: center;
+    background-color:transparent;
+    font-size: 16px;
+    color: #33363a;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.post-button i {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.post-button i.liked {
+    color: red;
+}
+
+.view-comments-button {
+    display: flex; /* Align items in a row */
+    align-items: center; /* Center items vertically */
+    background-color: #405d9b; /* Background color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Padding for the button */
+    cursor: pointer; /* Cursor pointer for hover effect */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.view-comments-button:hover {
+    background-color: #2c416f; /* Darker shade on hover */
+}
+
+.view-comments-button span {
+    margin-right: 5px; /* Space between text and arrow */
+    font-family: "Popins", sans-serif; /* Font family */
+    color: #fff; /* Text color */
+}
+
+.view-comments-button i {
+    color: #fff; /* Arrow color */
+    transition: transform 0.3s ease; /* Smooth transition for rotation */
+    margin-left: 5px;
+}
+
+.post-date {
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 16px;
+    color: #33363a;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.comment-box {
+    display: grid;
+    place-items: left;
+    height: 100%;        /* Adjust height to fit container */
+    padding: 10px;
+}
+
+.comment-input {
+    width: 900px;  /* Adjust width */
+    min-height: 100px; /* Adjust height */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+}
+
+.comment-submit-button {
+    background-color: #405d9b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.comment-submit-button:hover {
+    background-color: #2c416f;
+}
+
+/* Comment Bar Container */
+.comment-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+/* Individual comment bar */
+.comment-bar {
+    width: 95%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #edf1f8;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-list p {
+    font-size: 10px;
+}
+
+/* Comment header */
+.comment-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+/* Profile image */
+.comment-profile-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Comment author name */
+.comment-name {
+    font-family: "Poppins", sans-serif;
+    color:#405d9b;
+    margin-right: auto;
+}
+
+/* Comment date */
+.comment-date {
+    font-size: 12px;
+    color: #777;
+}
+
+.comment-footer {
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-end; /* Align delete button to the right */
+}
+
+.delete-comment-button {
+    background: none; /* Remove default button background */
+    border: none; /* Remove default button border */
+    color: #e74c3c; /* Red color for delete icon */
+    font-size: 16px; /* Adjust icon size */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+.delete-comment-button:hover {
+    opacity: 0.7; /* Slightly dim the button on hover */
+}
+
+/* Comment content */
+h4 {
+    text-align: center; /* Center the text */
+    font-size: 16px; /* Font size */
+    color: #3e4044; /* Light gray color */
+    margin: 15px 0; /* Margin for spacing */
+    padding: 10px; /* Padding for space around the text */
+    background-color: #f9f9f9; /* Light background */
+    border: 1px dashed #e0e0e0; /* Dashed border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 10px;
+}

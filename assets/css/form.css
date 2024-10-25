@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 body {
-    background: linear-gradient(135deg, #99FEFF,#B983FF);
+    background-image: url('https://wallpaperaccess.com/full/2781933.png');
+    background-size: cover; /* Adjust to cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating the image */
 }
 
 .navbar-nav .nav-item .nav-link {
@@ -23,7 +26,23 @@ body {
     margin-bottom: 60px;
 }
 
+.register-admin-form {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: calc(120vh - 60px); /* Full height minus navbar height */
+    margin-top: 60px; /* Adjust this according to your navbar height */
+    margin-bottom: 60px;
+}
+
 .login-form {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: calc(110vh - 10px); /* Full height minus navbar height */
+}
+
+.login-admin-form {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */

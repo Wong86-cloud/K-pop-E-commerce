@@ -159,7 +159,7 @@
 }
 
 .shop-btn:hover {
-    background: linear-gradient(0deg, #c658cb, #1ed7e8);
+    background: linear-gradient(0deg, #B983FF,#94B3FD, #1ed7e8);
     color: white;
 }
 
@@ -271,7 +271,7 @@
 }
   
 .artist button:hover {
-    background: linear-gradient(0deg, #c658cb, #1ed7e8);
+    background: linear-gradient(0deg,#B983FF,#94B3FD, #1ed7e8);
     color: #fff;
 }
   

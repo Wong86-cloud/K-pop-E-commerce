@@ -40,15 +40,15 @@
     <div class="login-form">
         <div class="login-form-container">
             <section class="form login">
-                <header>Login</header>
+                <header data-translate="Login">Login</header>
                 <form action="db_connection/login_info.php" method="POST" enctype="multipart/form-data">
                     <div class="error-txt"></div>
                     <div class="field input">
-                        <label>Email Address</label>
+                        <label data-translate="Email Address">Email Address</label>
                         <input type="text" name="email" placeholder="Enter your email">
                     </div>
                     <div class="field input">
-                        <label>Password</label>
+                        <label data-translate="Password">Password</label>
                         <input type="password" name="password" placeholder="Enter your password">
                         <i class="fas fa-eye"></i>
                     </div>

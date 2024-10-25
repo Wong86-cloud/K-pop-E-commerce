@@ -373,6 +373,7 @@
 
 /* Styling for the message input field */
 .input-field {
+    width: 680px;
     flex-grow: 1;
     border: 1px solid #ccc;
     padding: 10px;
@@ -386,6 +387,13 @@
 
 .input-field:focus {
     border-color: #33363a;
+}
+
+/* Center the emoji picker popup horizontally */
+.emoji-picker {
+    position: absolute; 
+    left: 95%;         
+    bottom: 0%;           
 }
 
 /* Attach button styling */

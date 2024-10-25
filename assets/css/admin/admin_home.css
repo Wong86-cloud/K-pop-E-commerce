@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.sidebar-container {
+    height: 4900px;
+}
+
+#search_bar {
+    margin-bottom: 10px;
+}
+
+/* General Profile Container */
+.graph-container {
+    margin: 10px 10px 0 230px; /* Margins to separate from the sidebar */
+    width: calc(100% - 250px); /* Full width minus sidebar space */
+    max-width: 1020px; /* Max width for larger screens */
+    height: auto; /* Let the height adjust based on content */
+}
+
+/* Graph Showcase Container */
+.graph-showcases-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    height: auto; /* Adjust height automatically based on content */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+/* Graph Title and Celebrity Graph Title */
+.graph-title, .celebrity-graph-title {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    background-color: #8898fd;
+    background: linear-gradient(130deg, #8898fd, #94B3FD);
+    margin-bottom: 10px;
+    border-radius: 20px;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.5);
+    padding: 10px; /* Optional: add padding for spacing */
+}
+
+/* Title Styles */
+.graph-title h3, .celebrity-graph-title h3 {
+    margin: 0;
+    padding-right: 10px;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 15px;
+    word-spacing: 1px;
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Image Sizes */
+.graph-title img, .celebrity-graph-title img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Button Styles */
+.graph-title button, .celebrity-graph-title button {
+    margin-left: auto; /* Pushes the button to the right */
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.graph-title button i, .celebrity-graph-title button i {
+    margin-left: 5px; /* Space between text and icon */
+}
+
+/* Toggle Button */
+#toggleGraphBtn {
+    background-color: #f9402c;
+    width: 140px;
+    height: 30px; /* Ensures both buttons have the same height */
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Adds space between the text and icon */
+}
+
+/* Subheading Styles */
+h6 {
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns content to the right */
+    margin-top: 10px; /* Optional: Adds some spacing */
+}
+
+/* Generate PDF Button */
+#generatePDFReportBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none;
+}
+
+#generatePDFReportBtn i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+/* Hover Effect for Generate PDF Button */
+#generatePDFReportBtn:hover {
+    background-color: #45a049;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .graph-container {
+        margin: 10px; /* Adjust margin for smaller screens */
+        width: 100%; /* Full width on mobile */
+    }
+
+    .sidebar-container {
+        height: auto; /* Adjust sidebar height on smaller screens */
+    }
+}
