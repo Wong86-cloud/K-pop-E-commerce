@@ -18,7 +18,7 @@
             <div class="d-flex align-items-center">
                 <img src="assets/images/navbar/logo.png" class="navbar-logo">
                 <a class="navbar-brand">KIVORIA</a>
-                <h5>Admin</h5>
+                <h5 class="navbar-admin" >Admin</h5>
                 <div class="dropdown ms-4 me-2">
                     <label for="language" class="language-label">
                         <span data-translate="Language">Language</span> |
@@ -28,18 +28,6 @@
                         <option value="ko" data-translate="Korean">Korean</option>
                         <option value="zh-CN" data-translate="Chinese">Chinese</option>
                         <option value="ms" data-translate="Malay">Malay</option>
-                    </select>
-                </div>
-                <div class="dropdown ms-4 me-2">
-                    <label for="currency" class="currency-label">
-                        <span data-translate="Currency">Currency</span> |
-                    </label>
-                    <select name="currency" id="currency" class="currency-selector">
-                        <option value="USD" data-translate="US Dollar (USD)">US Dollar (USD)</option>
-                        <option value="EUR" data-translate="Euro (EUR)">Euro (EUR)</option>
-                        <option value="KRW" data-translate="Korean Won (KRW)">Korean Won (KRW)</option>
-                        <option value="CNY" data-translate="Chinese Yuan (CNY)">Chinese Yuan (CNY)</option>
-                        <option value="MYR" data-translate="Malaysian Ringgit (MYR)">Malaysian Ringgit (MYR)</option>
                     </select>
                 </div>
             </div>
@@ -67,10 +55,8 @@
                 </div>
             </a>
             <ul class="sidebar-menu">
-                <li><a href="admin_home.php"><i class="fas fa-home"></i><span data-translate="Home">Home</span></a></li>
-                <li><a href="admin_shop.php"><i class="fas fa-store"></i><span data-translate="Shop">Shop</span></a></li>
+                <li><a href="admin_home.php"><i class="fas fa-chart-line"></i><span data-translate="Graph">Graph</span></a></li>
                 <li><a href="admin_order.php"><i class="fas fa-shopping-bag"></i><span data-translate="Order">Order</span></a></li>
-                <li><a href="admin_message.php"><i class="fas fa-envelope"></i><span data-translate="Message">Message</span></a></li>
             </ul>
         </div>
     </div>

@@ -39,7 +39,7 @@ body {
         4px 4px 4px rgba(0, 0, 0, 0.15); /* Darker shadow further out */
 }
 
-h5 {
+.navbar-admin {
     font-family: 'Overlock SC', cursive;
     font-size: 20px;
     margin-left: -10px;

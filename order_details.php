@@ -49,7 +49,7 @@ $order = $order_result->fetch_assoc(); // Fetching one row for the order details
 // Calculate the total cost
 $total_cost = 0;
 ?>
-    <div class="order-details-container">
+<div class="order-details-container">
     <div id="search_bar">
         <div>
             <span class="title" data-translate="Order Details">Order Details</span>
@@ -104,8 +104,30 @@ $total_cost = 0;
 <h5>Tax (6%): $<?php echo number_format($tax, 2); ?></h5>
 <h5>Shipping Fee: $<?php echo number_format($shipping_fee, 2); ?></h5>
 <h5>Overall Total: $<?php echo number_format($overall_total, 2); ?></h5>
+</div>
 
+<div class="report-issue-container">
+    <h4>Report an Issue</h4>
+    <form method="POST" action="db_connection/report_issue.php" enctype="multipart/form-data">
+        <input type="hidden" name="order_id" value="<?php echo htmlspecialchars($order_id); ?>">
+        <div class="mb-3">
+            <label for="issue_description" class="form-label">Issue Description:</label>
+            <textarea id="issue_description" name="issue_description" class="form-control" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="issue_image" class="form-label">Upload Image (if applicable):</label>
+            <input type="file" id="issue_image" name="issue_image" class="form-control" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-danger">Report Issue</button>
+    </form>
+</div>
 
+<div class="mark-received-container">
+    <h4>Mark as Received</h4>
+    <form method="POST" action="db_connection/mark_received.php">
+        <input type="hidden" name="order_id" value="<?php echo htmlspecialchars($order_id); ?>">
+        <button type="submit" class="btn btn-success">Mark as Received</button>
+    </form>
 </div>
 
     <script src="assets/js/header/currency.js"></script>

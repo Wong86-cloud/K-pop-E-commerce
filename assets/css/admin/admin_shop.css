@@ -1,0 +1,22 @@
+#search_bar {
+    margin-bottom: 10px;
+}
+
+/* General Profile Container */
+.edit-shop-container {
+    margin: 10px 10px 0 230px; /* Margins to separate from the sidebar */
+    width: calc(100% - 250px); /* Full width minus sidebar space */
+    max-width: 1020px; /* Max width for larger screens */
+    height: auto; /* Let the height adjust based on content */
+}
+
+/* Graph Showcase Container */
+.product-showcases-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    height: auto; /* Adjust height automatically based on content */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}

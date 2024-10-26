@@ -3,11 +3,31 @@
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
 
 .sidebar-container {
-    height: 800px;
+    height: 1050px;
 }
 
 /* General Profile Container */
 .order-details-container {
+    margin: 10px 10px 0 230px;
+    width: 1020px;
+    min-height: fit-content;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.report-issue-container {
+    margin: 10px 10px 0 230px;
+    width: 1020px;
+    min-height: fit-content;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mark-received-container {
     margin: 10px 10px 0 230px;
     width: 1020px;
     min-height: fit-content;
