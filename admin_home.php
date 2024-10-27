@@ -57,6 +57,7 @@
             <ul class="sidebar-menu">
                 <li><a href="admin_home.php"><i class="fas fa-chart-line"></i><span data-translate="Graph">Graph</span></a></li>
                 <li><a href="admin_order.php"><i class="fas fa-shopping-bag"></i><span data-translate="Order">Order</span></a></li>
+                <li><a href="admin_forum.php"><i class="fas fa-icons"></i><span data-translate="Forum">Forum</span></a></li>
             </ul>
         </div>
     </div>

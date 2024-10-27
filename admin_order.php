@@ -69,6 +69,7 @@
             <ul class="sidebar-menu">
                 <li><a href="admin_home.php"><i class="fas fa-chart-line"></i><span data-translate="Graph">Graph</span></a></li>
                 <li><a href="admin_order.php"><i class="fas fa-shopping-bag"></i><span data-translate="Order">Order</span></a></li>
+                <li><a href="admin_forum.php"><i class="fas fa-icons"></i><span data-translate="Forum">Forum</span></a></li>
             </ul>
         </div>
     </div>
@@ -77,7 +78,7 @@
 <section class="edit-order-container">
     <div id="search_bar">
         <div>
-            <span class="title">Edit Order</span>
+            <span class="title">View Order Issues</span>
             <h2><img src="assets/images/navbar/order_icon.png" alt="Feedback"></h2>
         </div>
     </div>

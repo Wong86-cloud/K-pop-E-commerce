@@ -454,6 +454,24 @@ document.getElementById('generatePDFReportBtn').addEventListener('click', functi
             
     // Function to generate the PDF report
     async function generateReport() {
+        // Title Page
+        pdf.setFontSize(40); // Font size for main title
+        pdf.setFont("helvetica", "bold");
+        pdf.text("KIVORIA Report", pageWidth / 2, pageHeight / 2 - 50, { align: "center" });
+    
+        pdf.setFontSize(18); // Font size for subtitle
+        pdf.setFont("helvetica", "italic");
+        pdf.text("Created by Zi Hao", pageWidth / 2, pageHeight / 2, { align: "center" });
+    
+        pdf.setFontSize(12); // Font size for date
+        pdf.setFont("helvetica", "normal");
+        pdf.text(`Date: ${new Date().toLocaleDateString()}`, pageWidth / 2, pageHeight / 2 + 50, { align: "center" });
+    
+        pdf.addPage(); // Add a new page after the title page
+        currentYPosition = topMargin; // Reset Y position for the content on the new page
+    
+        addPageNumber(); // Add page number on the new page (Page 1 after title page)
+    
         for (let section of sections) {
             checkPageLimit(); // Check if a new page is needed before each section
             

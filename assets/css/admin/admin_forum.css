@@ -1,0 +1,102 @@
+#search_bar {
+    margin-bottom: 10px;
+}
+
+.sidebar-container {
+    height: 1100px;
+}
+
+/* General Profile Container */
+.forum-container {
+    margin: 10px 10px 0 230px; /* Margins to separate from the sidebar */
+    width: calc(100% - 250px); /* Full width minus sidebar space */
+    max-width: 1020px; /* Max width for larger screens */
+    height: auto; /* Let the height adjust based on content */
+}
+
+/* Graph Showcase Container */
+.forum-showcases-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    height: auto; /* Adjust height automatically based on content */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+/* Graph Title and Celebrity Graph Title */
+.forum-title {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    background-color: #8898fd;
+    background: linear-gradient(130deg, #8898fd, #94B3FD);
+    margin-bottom: 10px;
+    border-radius: 20px;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.5);
+    padding: 10px; /* Optional: add padding for spacing */
+}
+
+/* Title Styles */
+.forum-title h3 {
+    margin: 0;
+    padding-right: 10px;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 15px;
+    word-spacing: 1px;
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Image Sizes */
+.forum-title img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Table Wrapper with Scroll */
+.table-wrapper {
+    max-height: 400px; /* Adjust height as needed */
+    overflow-y: auto; /* Adds vertical scrollbar */
+    margin-bottom: 20px; /* Space between tables */
+    border: 1px solid #ccc; /* Optional: add border for separation */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+td img {
+    max-width: 100px;
+    border-radius: 4px; /* Optional: rounded images */
+}
+
+td button {
+    padding: 5px 10px;
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: #d5006d;
+}
+

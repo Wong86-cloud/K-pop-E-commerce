@@ -325,7 +325,7 @@ if (isset($_GET['room_id'])) {
 ?>
 </div>
 
-
+</body>
    
     <script src="assets/js/header/currency.js"></script>
     <script src="assets/js/header/language.js"></script>
@@ -356,5 +356,5 @@ if (isset($_GET['room_id'])) {
         });
     </script>
 
-</body>
+
 </html>
