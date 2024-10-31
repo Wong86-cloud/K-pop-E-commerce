@@ -50,7 +50,6 @@
                     <div class="field input">
                         <label>Password</label>
                         <input type="password" name="password" placeholder="Enter your password" required>
-                        <i class="fas fa-eye"></i>
                     </div>
                     <div class="forgot-password">
                         <a href="admin_forgot_password.php">Forgot Password?</a>

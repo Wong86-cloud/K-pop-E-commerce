@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
 
 .sidebar-container {
-    height: 1050px;
+    height: 1100px;
 }
 
 /* General Profile Container */
@@ -15,6 +15,34 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-line {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Optional: Adjust spacing between the label and value */
+}
+
+.order-line h3 {
+    margin: 0;
+    font-size: 22px;
+    color: #333;
+}
+
+.order-line h5 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.order-line span {
+    font-size: 16px;
+    color: #333;
+}
+
+.order-details p {
+    font-size: 18px;
+    color: #555;
 }
 
 .report-issue-container {

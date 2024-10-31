@@ -57,16 +57,16 @@ $result = $conn->query($sql);
     </div>
     <div class="container">
         <form id="order-form" method="POST" action="db_connection/place_order.php">
-            <h3>Customer Information</h3>
+            <h3 data-translate="Customer Information">Customer Information</h3>
             <div class="col-md-12">
-                <label for="name">Name:</label>
+                <label for="name" data-translate="Name:">Name:</label>
                 <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($row['fname'] . " " . $row['lname']); ?>" placeholder="Your Full Name" required>
 
-                <label for="email">Email:</label>
+                <label for="email"data-translate="Email:">Email:</label>
                 <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($row['email']); ?>" placeholder="Your Email" required>
 
                 <div class="phone-input-container">
-                    <label for="country-code">Country Code:</label>
+                    <label for="country-code" data-translate="Country Code:">Country Code:</label>
                     <select id="country_code" name="country_code" required>
                         <option value="+1" <?php echo ($row['country_code'] === '+1') ? 'selected' : ''; ?>>US (+1)</option>
                         <option value="+44" <?php echo ($row['country_code'] === '+44') ? 'selected' : ''; ?>>UK (+44)</option>
@@ -76,24 +76,24 @@ $result = $conn->query($sql);
                         <option value="+60" <?php echo ($row['country_code'] === '+60') ? 'selected' : ''; ?>>Malaysia (+60)</option>
                     </select>
 
-                    <label for="phone-number">Phone Number:</label>
+                    <label for="phone-number" data-translate="Phone Number:">Phone Number:</label>
                     <input type="tel" id="phone-number" name="phone_number" value="<?php echo htmlspecialchars($row['handphone']); ?>" placeholder="Enter your phone number" required>
                 </div>
             </div>
 
-            <h3>Shipping Address</h3>
+            <h3 data-translate="Shipping Address">Shipping Address</h3>
             
             <div class="col-md-12">
-                <label for="address">Street Address:</label>
+                <label for="address"data-translate="Street Address:">Street Address:</label>
                 <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($row['address']); ?>" placeholder="1234 Main St" required>
 
-                <label for="postcode">Postcode:</label>
+                <label for="postcode"data-translate="Postcode:">Postcode:</label>
                 <input type="text" id="postcode" name="postcode" value="<?php echo htmlspecialchars($row['postcode']); ?>" placeholder="Postcode" required>
 
-                <label for="city">City:</label>
+                <label for="city" data-translate="City:">City:</label>
                 <input type="text" id="city" name="city" value="<?php echo htmlspecialchars($row['city']); ?>" placeholder="City" required>
 
-                <label for="country-region">Country/Region:</label>
+                <label for="country-region"data-translate="Country/Region:">Country/Region:</label>
                 <select id="country-region" name="country-region" required>
                     <option value="China" <?php echo ($row['country'] === 'China') ? 'selected' : ''; ?>>China</option>
                     <option value="South Korea" <?php echo ($row['country'] === 'South Korea') ? 'selected' : ''; ?>>South Korea</option>
@@ -104,16 +104,16 @@ $result = $conn->query($sql);
                 </select>
             </div>
 
-            <h3 class="shipping-options-title">Shipping Options</h3>
+            <h3 class="shipping-options-title" data-translate="Shipping Options">Shipping Options</h3>
             <div class="shipping-options">
             <table>
                 <thead>
                     <tr>
-                        <th>Logo</th>
-                        <th>Shipping Type</th>
-                        <th>Expected Shipping Period</th>
-                        <th>Shipping Fee</th>
-                        <th>Select</th>
+                        <th data-translate="Logo">Logo</th>
+                        <th data-translate="Shipping Type">Shipping Type</th>
+                        <th data-translate="Expected Shipping Period">Expected Shipping Period</th>
+                        <th data-translate="Shipping Fee">Shipping Fee</th>
+                        <th data-translate="Select">Select</th>
                     </tr>
                 </thead>
         <tbody>
@@ -122,10 +122,10 @@ $result = $conn->query($sql);
             while ($shipping_row = $result->fetch_assoc()) {
                 echo '<tr>';
                 echo '<td><img src="' . htmlspecialchars($shipping_row['shipping_logo']) . '" alt="' . htmlspecialchars($shipping_row['shipping_name']) . ' Logo" width="50"></td>';
-                echo '<td>' . htmlspecialchars($shipping_row['shipping_name']) . '</td>';
-                echo '<td>' . htmlspecialchars($shipping_row['shipping_period']) . '</td>';
-                echo '<td>$' . number_format($shipping_row['shipping_fee'], 2) . '</td>'; // Display shipping fee
-                echo '<td><input type="radio" id="shipping-method' . $shipping_row['shipping_id'] . '" name="shipping-method" value="' . $shipping_row['shipping_fee'] . '"' . ($shipping_row['shipping_id'] == 1 ? ' checked' : '') . ' required></td>';
+                echo '<td data-translate="' . htmlspecialchars($shipping_row['shipping_name']) . '">' . htmlspecialchars($shipping_row['shipping_name']) . '</td>';
+                echo '<td data-translate="' . htmlspecialchars($shipping_row['shipping_period']) . '">' . htmlspecialchars($shipping_row['shipping_period']) . '</td>';
+                echo '<td><span data-price="' . $shipping_row['shipping_fee'] . '">' . number_format($shipping_row['shipping_fee'], 2) . '</span></td>';
+                echo '<td><input type="radio" id="shipping-method' . $shipping_row['shipping_id'] . '" name="shipping-method" value="' . $shipping_row['shipping_fee'] . '" onchange="updateOrderSummary()" ' . ($shipping_row['shipping_id'] == 1 ? ' checked' : '') . ' required></td>';
                 echo '</tr>';
             }
         } else {
@@ -137,14 +137,14 @@ $result = $conn->query($sql);
 </div>
 
 <div class="cart-items">
-    <h3>Your Cart</h3>
+    <h3 data-translate="Your Cart" >Your Cart</h3>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
+                <th data-translate="Product Name">Product Name</th>
+                <th data-translate="Price">Price</th>
+                <th data-translate="Quantity">Quantity</th>
+                <th data-translate="Total">Total</th>
             </tr>
         </thead>
         <tbody>
@@ -157,24 +157,37 @@ $result = $conn->query($sql);
                         <img src="assets/images/shop/<?php echo htmlspecialchars($cart_row['product_image']); ?>" alt="<?php echo htmlspecialchars($cart_row['product_name']); ?>" width="50">
                         <?php echo htmlspecialchars($cart_row['product_name']); ?>
                     </td>
-                    <td>$<?php echo number_format($cart_row['product_price'], 2); ?></td>
+                    <td data-price="<?php echo $cart_row['product_price']; ?>" >USD <?php echo number_format($cart_row['product_price'], 2); ?></td>
                     <td><?php echo htmlspecialchars($cart_row['quantity']); ?></td>
-                    <td>$<?php echo number_format($item_total, 2); ?></td>
+                    <td data-price="<?php echo $item_total; ?>" >USD <?php echo number_format($item_total, 2); ?></td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
     <div class="order-summary">
-        <h4>Order Summary</h4>
-        <p>Cart Total: $<span id="cart-total-display"><?php echo number_format($cart_total, 2); ?></span></p>
-        <p>Shipping Fee: $<span id="shipping-fee-display">0.00</span></p>
-        <p>Tax (<?php echo $tax * 100; ?>%): $<span id="tax-display"><?php echo number_format($cart_total * $tax, 2); ?></span></p>
-        <p>Overall Total: $<span id="overall-total-display"><?php echo number_format($cart_total, 2); ?></span></p>
-        <input type="hidden" id="hidden-shipping-method" name="shipping_id" value="<?php echo $shipping_row['shipping_id']; ?>"> 
-        <input type="hidden" id="hidden-cart-total" name="order_cost" value="<?php echo $cart_total; ?>">
+    <h4 data-translate="Order Summary">Order Summary</h4>
+    <div class="order-summary-row">
+        <p data-translate="Cart Total:">Cart Total:</p>
+        <span id="cart-total-display" data-price="<?php echo $cart_total; ?>"><?php echo number_format($cart_total, 2); ?></span>
     </div>
+    <div class="order-summary-row">
+        <p data-translate="Shipping Fee:">Shipping Fee:</p>
+        <span id="shipping-fee-display" data-price="<?php echo $shipping_row['shipping_fee']; ?>"><?php echo number_format($shipping_row['shipping_fee'], 2); ?></span>
+    </div>
+    <div class="order-summary-row">
+        <p data-translate="Tax:">Tax (<?php echo $tax * 100; ?>%):</p>
+        <span id="tax-display" data-price="<?php echo $cart_total * $tax; ?>"><?php echo number_format($cart_total * $tax, 2); ?></span>
+    </div>
+    <div class="order-summary-row">
+        <p data-translate="Overall Total:">Overall Total:</p>
+        <span id="overall-total-display" data-price="<?php echo $cart_total; ?>"><?php echo number_format($cart_total, 2); ?></span>
+    </div>
+    <input type="hidden" id="hidden-shipping-method" name="shipping_id" value="<?php echo $shipping_row['shipping_id']; ?>"> 
+    <input type="hidden" id="hidden-cart-total" name="order_cost" value="<?php echo $cart_total; ?>">
 </div>
-<h3>Payment Options</h3>
+
+</div>
+<h3 data-translate="Payment Options">Payment Options</h3>
 <div class="payment-options">
     <label class="payment-option">
         <input type="radio" name="payment" value="credit_card" required>
@@ -187,7 +200,7 @@ $result = $conn->query($sql);
     </label>
 </div>
 
-            <button type="submit">Place Order</button>
+            <button type="submit" data-translate="Place Order">Place Order</button>
         </form>
     </div>
 </section>
@@ -197,44 +210,45 @@ $result = $conn->query($sql);
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const shippingMethods = document.querySelectorAll('input[name="shipping-method"]');
-    const shippingFeeDisplay = document.getElementById('shipping-fee-display');
+    const cartTotal = parseFloat(document.getElementById('cart-total-display').getAttribute('data-price'));
+    const taxRate = <?php echo $tax; ?>;
 
+    // Function to update the order summary
+    function updateOrderSummary() {
+        const selectedShippingMethod = document.querySelector('input[name="shipping-method"]:checked');
+        const shippingFee = selectedShippingMethod ? parseFloat(selectedShippingMethod.value) : 0;
+        
+        // Calculate tax and overall total
+        const taxAmount = cartTotal * taxRate;
+        const overallTotal = cartTotal + shippingFee + taxAmount;
+
+        // Update displayed values
+        document.getElementById('shipping-fee-display').textContent = 'USD ' + shippingFee.toFixed(2);
+        document.getElementById('tax-display').textContent = 'USD ' + taxAmount.toFixed(2);
+        document.getElementById('overall-total-display').textContent = 'USD ' + overallTotal.toFixed(2);
+
+        // Update hidden input values
+        document.getElementById('hidden-shipping-method').value = selectedShippingMethod ? selectedShippingMethod.id.replace('shipping-method', '') : '';
+        document.getElementById('hidden-cart-total').value = overallTotal.toFixed(2);
+    }
+
+    // Event listener for each shipping method radio button
     shippingMethods.forEach(method => {
-        method.addEventListener('change', function () {
-            // Parse the selected shipping fee directly from the radio button value
-            const selectedFee = parseFloat(this.value); // this.value now contains the shipping fee
-
-            // Update the hidden input value for shipping method
-            document.getElementById('hidden-shipping-method').value = this.id.replace('shipping-method', ''); // Get the shipping_id
-
-            // Update the shipping fee display
-            shippingFeeDisplay.textContent = selectedFee.toFixed(2);
-            updateOverallTotal(selectedFee); // Update the overall total with the new shipping fee
-        });
+        method.addEventListener('change', updateOrderSummary);
     });
 
-    function updateOverallTotal(shippingFee) {
-    const cartTotal = parseFloat(document.getElementById('cart-total-display').textContent);
-    const taxAmount = cartTotal * <?php echo $tax; ?>;
-    const overallTotal = cartTotal + shippingFee + taxAmount;
+    // Run calculation on page load to set initial values
+    updateOrderSummary();
 
-    // Update the overall total display
-    document.getElementById('overall-total-display').textContent = overallTotal.toFixed(2);
-    
-    // Update the hidden input for order cost (which is the overall total)
-    document.getElementById('hidden-cart-total').value = overallTotal.toFixed(2); // Update the hidden field with overall total
-}
-
-document.getElementById('order-form').addEventListener('submit', function (event) {
+    // Form submission validation for shipping selection
+    document.getElementById('order-form').addEventListener('submit', function (event) {
         const selectedShippingMethod = document.querySelector('input[name="shipping-method"]:checked');
-
         if (!selectedShippingMethod) {
             event.preventDefault();
             alert("Please select a shipping method.");
         }
     });
 });
-
 </script>
     
 </body>

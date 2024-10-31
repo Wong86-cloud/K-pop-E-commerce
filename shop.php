@@ -58,20 +58,20 @@
         </div>
        <!-- Price Filter -->
         <div class="filter-price">
-            <span class="filter-price-title">Filter Prices</span>
+            <span class="filter-price-title" data-translate="Filter Prices">Filter Prices</span>
             <ul class="price-items">
                 <li>
                     <label>
                         <input type="radio" name="price_order" value="Default">
-                        <span>Default</span>
+                        <span data-translate="Default">Default</span>
                     </label>
                     <label>
                         <input type="radio" name="price_order" value="LowToHigh" >
-                        <span>Low to High</span>
+                        <span data-translate="Low to High">Low to High</span>
                     </label>
                     <label>
                         <input type="radio" name="price_order" value="HighToLow" >
-                        <span>High to Low</span>
+                        <span data-translate="High to Low">High to Low</span>
                     </label>
                 </li>
             </ul>
@@ -158,9 +158,9 @@
                             <i class="fas fa-cart-plus"></i>
                         </span>
                     </div>
-                    <strong><?php echo htmlspecialchars($item['product_name']); ?></strong>
+                    <strong data-translate="<?php echo htmlspecialchars($item['product_name']); ?>"><?php echo htmlspecialchars($item['product_name']); ?></strong>
                     <span class="product-price" data-price="<?php echo htmlspecialchars($item['product_price']); ?>">USD <?php echo htmlspecialchars($item['product_price']); ?></span>
-                    <small class="buy-now-text"><a href="single_product.php?id=<?php echo $item['product_id']; ?>">View Product</a></small>
+                    <small class="buy-now-text"><a href="single_product.php?id=<?php echo $item['product_id']; ?>" data-translate="View Product">View Product</a></small>
                 </div>
             </li>
         <?php endwhile; ?>
@@ -170,7 +170,7 @@
     <!-- Pagination -->
     <div class="pagination">
         <?php if ($currentPage > 1): ?>
-            <a href="?page=<?php echo $currentPage - 1; ?>&celebrity=<?php echo urlencode($celebrityFilter); ?>&category=<?php echo urlencode($categoryFilter); ?>&price_order=<?php echo urlencode($priceOrderFilter); ?>">Previous</a>
+            <a href="?page=<?php echo $currentPage - 1; ?>&celebrity=<?php echo urlencode($celebrityFilter); ?>&category=<?php echo urlencode($categoryFilter); ?>&price_order=<?php echo urlencode($priceOrderFilter); ?>" data-translate="Previous">Previous</a>
         <?php endif; ?>
 
         <?php for ($i = 1; $i <= $totalPages; $i++): ?>
@@ -179,7 +179,7 @@
         <?php endfor; ?>
 
         <?php if ($currentPage < $totalPages): ?>
-            <a href="?page=<?php echo $currentPage + 1; ?>&celebrity=<?php echo urlencode($celebrityFilter); ?>&category=<?php echo urlencode($categoryFilter); ?>&price_order=<?php echo urlencode($priceOrderFilter); ?>">Next</a>
+            <a href="?page=<?php echo $currentPage + 1; ?>&celebrity=<?php echo urlencode($celebrityFilter); ?>&category=<?php echo urlencode($categoryFilter); ?>&price_order=<?php echo urlencode($priceOrderFilter); ?>" data-translate="Next">Next</a>
         <?php endif; ?>
     </div>
 

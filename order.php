@@ -54,11 +54,11 @@ if ($order_id) {
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Order ID</th>
-                    <th>Order Date</th>
-                    <th>Order Cost</th>
-                    <th>Order Status</th>
-                    <th>View Details</th>
+                    <th data-translate="Order ID">Order ID</th>
+                    <th data-translate="Order Date">Order Date</th>
+                    <th data-translate="Order Cost">Order Cost</th>
+                    <th data-translate="Order Status">Order Status</th>
+                    <th data-translate="View Details">View Details</th>
                 </tr>
             </thead>
             <tbody>
@@ -66,10 +66,10 @@ if ($order_id) {
                     <tr>
                         <td><?php echo htmlspecialchars($order['order_id']); ?></td>
                         <td><?php echo htmlspecialchars($order['order_date']); ?></td>
-                        <td>$<?php echo number_format($order['order_cost'], 2); ?></td>
-                        <td><?php echo htmlspecialchars($order['order_status']); ?></td>
+                        <td data-price="<?php echo($order['order_cost']);?>"><?php echo number_format($order['order_cost'], 2); ?></td>
+                        <td data-translate="<?php echo($order['order_status']);?>"><?php echo htmlspecialchars($order['order_status']); ?></td>
                         <td>
-                            <a href="order_details.php?order_id=<?php echo $order['order_id']; ?>" class="btn btn-primary">View</a>
+                            <a href="order_details.php?order_id=<?php echo $order['order_id']; ?>" class="btn btn-primary" data-translate="View">View</a>
                         </td>
                     </tr>
                 <?php endwhile; ?>

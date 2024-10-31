@@ -35,31 +35,23 @@
               <button class="carousel-slide-btn left-btn" onclick="prevSlideHome()"><i class="fas fa-chevron-left"></i></button>
               <div class="carousel-slides">
                   <div class="carousel-slide">
-                      <img src="assets/images/artists/kpop.jpg" alt="Promotion 1" class="banner-image">
-                      <div class="banner-content1">
-                          <h1>Summer Sale - Up to 50% Off!</h1>
-                          <p>Exclusive deals on all K-pop merchandise.</p>
-                          <button class="btn shop-btn">Shop Now</button>
+                      <img src="assets/images/artists/blacpink.jpg" alt="Promotion 1" class="banner-image">
+                      <div class="banner-content3">
+                          <h1 data-translate="Exclusive Blacpink">Exclusive Blacpink</h1>
+                          <h1 data-translate="Merchandise">Merchandise</h1>
+                          <p data-translate="Limited-edition items available now!">Limited-edition items available now!</p>
+                          <button class="btn shop-btn" onclick="window.location.href='shop.php?celebrity=blackpink'" data-translate="Buy Now">Buy Now</button>
+                      </div>
+                      <div class="album-cover">
+                          <img src="assets/images/shop/album4.jpg" alt="album" class="album-image">
                       </div>
                   </div>
                   <div class="carousel-slide">
                       <img src="assets/images/artists/aespa.jfif" alt="Promotion 2" class="banner-image">
                       <div class="banner-content2">
-                          <h1>New Arrivals</h1>
-                          <p>Check out the latest collections from your favorite AESPA group.</p>
-                          <button class="btn shop-btn">Explore</button>
-                      </div>
-                  </div>
-                  <div class="carousel-slide">
-                      <img src="assets/images/artists/blacpink.jpg" alt="Promotion 3" class="banner-image">
-                      <div class="banner-content3">
-                          <h1>Exclusive Blacpink</h1>
-                          <h1>Merchandise</h1>
-                          <p>Limited-edition items available now!</p>
-                          <button class="btn shop-btn" onclick="window.location.href='shop.php?celebrity=blackpink'">Buy Now</button>
-                      </div>
-                      <div class="album-cover">
-                          <img src="assets/images/shop/album4.jpg" alt="album" class="album-image">
+                          <h1 data-translate="New Arrivals">New Arrivals</h1>
+                          <p data-translate="Check out the latest collections from your favorite AESPA group.">Check out the latest collections from your favorite AESPA group.</p>
+                          <button class="btn shop-btn" data-translate="Explore">Explore</button>
                       </div>
                   </div>
               </div>
@@ -96,7 +88,7 @@
                   <div class="artist">
                     <img src="assets/images/artists/<?php echo $artist['image_url'] ?>" alt="">
                     <h4><?php echo $artist['name']; ?></h4>
-                    <button class="btn artist-btn" onclick="window.location.href='shop.php?celebrity=<?php echo urlencode($artist['name']); ?>'">Shop Now</button>
+                    <button class="btn artist-btn" onclick="window.location.href='shop.php?celebrity=<?php echo urlencode($artist['name']); ?>'"data-translate="Shop Now">Shop Now</button>
                   </div>
                 <?php endwhile; ?>
               </div>

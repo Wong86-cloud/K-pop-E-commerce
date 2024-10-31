@@ -11,9 +11,10 @@
 </head>
 <body>
 
-    <?php include_once('navigation/header.php'); ?>
-    <?php include_once('navigation/sidebar.php'); ?>
-    <?php
+    <?php 
+    include_once('navigation/header.php'); 
+    include_once('navigation/sidebar.php'); 
+
     $user_id = $_SESSION['unique_id']; // Assuming unique_id is stored in session
 
     // Fetch cart items for the logged-in user
@@ -45,9 +46,10 @@
         
         // Insert into cart table with product details
         $insert_query = "INSERT INTO cart (unique_id, product_id, product_name, product_image, product_price, quantity)
-        VALUES (?, ?, ?, ?, ?, ?)";
+                            VALUES (?, ?, ?, ?, ?, ?)";
         $insert_stmt = $conn->prepare($insert_query);
-        $insert_stmt->bind_param('iissdi', $user_id, $product_id, $product['product_name'], $product['product_image'], $product['product_price'], $quantity);
+        $insert_stmt->bind_param('iissdi', $user_id, $product_id, $product['product_name'], $product['product_image'], 
+                        $product['product_price'], $quantity);
         $insert_stmt->execute();
 
         } else {
@@ -67,10 +69,10 @@
         <table class="cart-items" id="cart-items">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Total</th>
+                    <th data-translate="Product">Product</th>
+                    <th data-translate="Quantity">Quantity</th>
+                    <th data-translate="Price">Price</th>
+                    <th data-translate="Total">Total</th>
                 </tr>
             </thead>
             <tbody>
@@ -86,14 +88,14 @@
                 <tr data-id="<?php echo $item['product_id']; ?>">
                     <td>
                         <img src="assets/images/shop/<?php echo $item['product_image']; ?>" alt="<?php echo htmlspecialchars($item['product_name']); ?>">
-                        <p><?php echo htmlspecialchars($item['product_name']); ?></p>
+                        <p data-translate="<?php echo htmlspecialchars($item['product_name']); ?>"><?php echo htmlspecialchars($item['product_name']); ?></p>
                     </td>
                     <td>
                         <input type="number" value="<?php echo $itemQuantity; ?>" min="1" class="quantity-input">
-                        <a class="remove-button" href="#" onclick="removeFromCart('<?php echo $item['product_id']; ?>'); return false;">Remove</a>
+                        <a class="remove-button" href="#" onclick="removeFromCart('<?php echo $item['product_id']; ?>'); return false;" data-translate="Remove">Remove</a>
                     </td>
-                    <td>USD <?php echo number_format($itemPrice, 2); ?></td>
-                    <td>USD <?php echo number_format($itemTotal, 2); ?></td>
+                    <td data-price="<?php echo $itemPrice; ?>">USD <?php echo number_format($itemPrice, 2); ?></td>
+                    <td data-price="<?php echo $itemTotal; ?>">USD <?php echo number_format($itemTotal, 2); ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -102,19 +104,19 @@
         <!-- Cart Footer showing the subtotal, tax, and overall total -->
         <div class="cart-footer">
             <table>
-                <tr>
-                    <td>Subtotal</td>
-                    <td>USD <?php echo number_format($subtotal, 2); ?></td>
-                </tr>
-                <tr>
-                    <td>Tax</td>
-                    <?php $tax = $subtotal * $taxRate; ?>
-                    <td>USD <?php echo number_format($tax, 2); ?></td>
-                </tr>
-                <tr>
-                    <td>Total</td>
-                    <td>USD <?php echo number_format($subtotal + $tax, 2); ?></td>
-                </tr>
+            <tr>
+                <td data-translate="Subtotal">Subtotal</td>
+                <td class="subtotal-price" data-price="<?php echo $subtotal; ?>">USD <?php echo number_format($subtotal, 2); ?></td>
+            </tr>
+            <tr>
+                <td data-translate="Tax">Tax</td>
+                <?php $tax = $subtotal * $taxRate; ?>
+                <td class="tax-price" data-price="<?php echo $tax; ?>">USD <?php echo number_format($tax, 2); ?></td>
+            </tr>
+            <tr>
+                <td data-translate="Total">Total</td>
+                <td class="total-price" data-price="<?php echo $subtotal + $tax; ?>">USD <?php echo number_format($subtotal + $tax, 2); ?></td>
+            </tr>
             </table>
             <form action="checkout.php" method="POST">
                 <input type="hidden" name="cart_total" value="<?php echo $subtotal + $tax; ?>">

@@ -1,23 +1,22 @@
-const form = document.querySelector('.login form'),
-continueBtn = form.querySelector('.button input'),
-errorText = form.querySelector('.error-txt');
-
+const form = document.querySelector('.login form');
+const continueBtn = form.querySelector('.button input');
+const errorText = form.querySelector('.error-txt');
 let captchaValue = "";
 
 form.onsubmit = (e) => {
-    e.preventDefault(); // preventing form from submitting
+    e.preventDefault(); // Prevent form from submitting
 }
 
-// Captcha
+// Captcha generation and validation
 (function() {
     const fonts = ['cursive', 'fantasy', 'monospace', 'sans-serif', 'serif'];
 
     function generateCaptcha() {
-        let value = btoa(Math.random() * 1000000000);
-        value = value.substr(0, 4 + Math.random() * 3);
+        // Generate a 4-digit numeric captcha
+        let value = Math.floor(1000 + Math.random() * 9000).toString();
         captchaValue = value;
     }
-
+    
     function setCaptcha() {
         let html = captchaValue.split('').map((char) => {
             const rotate = -20 + Math.trunc(Math.random() * 30);
@@ -26,7 +25,7 @@ form.onsubmit = (e) => {
         }).join('');
         document.querySelector('.form .captcha .preview').innerHTML = html;
     }
-
+    
     function initCaptcha() {
         document.querySelector('.form .captcha .captcha-refresh')
             .addEventListener('click', function() {
@@ -36,42 +35,39 @@ form.onsubmit = (e) => {
         generateCaptcha();
         setCaptcha();
     }
-
+    
     initCaptcha();
 })();
 
 continueBtn.onclick = () => {
     let inputCaptchaValue = document.querySelector('.form .captcha .captcha-form input').value;
 
-    // Validate the input captcha value against the generated captcha value
     if (inputCaptchaValue === "") {
         errorText.textContent = "Please enter the captcha.";
         errorText.style.display = "block";
-        return; // Stop execution if captcha is not filled
+        return;
     } else if (inputCaptchaValue !== captchaValue) {
         errorText.textContent = "Invalid captcha.";
         errorText.style.display = "block";
-        return; // Stop execution if captcha is incorrect
+        return;
     }
 
-    // Create XMLHttpRequest object for login
-    let xhr = new XMLHttpRequest(); // creating XML object
+    // Send login data via AJAX
+    let xhr = new XMLHttpRequest();
     xhr.open("POST", "db_connection/login_info.php", true);
     xhr.onload = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 let data = xhr.response.trim();
-                console.log(data);
                 if (data == "success") {
-                    location.href = "home.php"; // Redirect to home after successful login
+                    location.href = "home.php";
                 } else {
                     errorText.textContent = data;
-                    errorText.style.display = "block";    
+                    errorText.style.display = "block";
                 }
             }
         }
     };
-
-    let formData = new FormData(form); // creating new formData object
-    xhr.send(formData); // sending form data to PHP
+    let formData = new FormData(form);
+    xhr.send(formData);
 }

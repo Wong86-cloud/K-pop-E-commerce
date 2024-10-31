@@ -48,6 +48,9 @@
 
         if ($result->num_rows > 0) {
             while ($item = $result->fetch_assoc()) {
+                if (!isset($item['product_price'])) {
+                    echo "Price missing for product ID: " . $item['product_id'];
+                }
                 ?>
                 <li data-category="<?php echo htmlspecialchars($item['product_category']); ?>" data-product-id="<?php echo $item['product_id']; ?>">
                     <picture>
@@ -62,9 +65,11 @@
                                 <i class="fas fa-cart-plus"></i>
                             </span>
                         </div>
-                        <strong><?php echo htmlspecialchars($item['product_name']); ?></strong>
-                        <span class="product-price">USD <?php echo htmlspecialchars($item['product_price']); ?></span>
-                        <small><a href="single_product.php?id=<?php echo $item['product_id']; ?>">View Product</a></small>
+                        <strong data-translate="<?php echo htmlspecialchars($item['product_name']); ?>"><?php echo htmlspecialchars($item['product_name']);?></strong>
+                        <span class="product-price" data-price="<?php echo htmlspecialchars($item['product_price']); ?>">
+                            USD <?php echo htmlspecialchars($item['product_price']); ?>
+                        </span>
+                        <small class="buy-now-text"><a href="single_product.php?id=<?php echo $item['product_id']; ?>" data-translate="View Product">View Product</a></small>
                     </div>
                 </li>
                 <?php

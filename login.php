@@ -45,28 +45,27 @@
                     <div class="error-txt"></div>
                     <div class="field input">
                         <label data-translate="Email Address">Email Address</label>
-                        <input type="text" name="email" placeholder="Enter your email">
+                        <input type="text" name="email" placeholder="Enter your email"  data-translate="Enter your email">
                     </div>
                     <div class="field input">
                         <label data-translate="Password">Password</label>
-                        <input type="password" name="password" placeholder="Enter your password">
-                        <i class="fas fa-eye"></i>
+                        <input type="password" name="password" placeholder="Enter your password" data-translate="Enter your password">
                     </div>
                     <div class="forgot-password">
-                        <a href="forgot_password.php">Forgot Password?</a>
+                        <a href="forgot_password.php" data-translate="Forgot Password?">Forgot Password?</a>
                     </div>
                     <div class="captcha">
-                        <label for="captcha-input">Enter captcha</label>
+                        <label for="captcha-input" data-translate="Enter captcha">Enter captcha</label>
                         <div class="preview"></div>
                         <div class="captcha-form">
-                            <input type="text" id="captcha-form" placeholder="Enter captcha text">
+                            <input type="text" id="captcha-form" placeholder="Enter captcha text" data-translate="Enter captcha text">
                             <button class="captcha-refresh"><i class="fas fa-sync"></i></button>
                         </div>
                     <div class="field button">
                         <input type="submit">
                     </div>
                 </form>
-                <div class="link">Not yet signed up? <a href="register.php">Signup now</a></div>
+                <div class="link">Not yet signed up? <a href="register.php" data-translate="Signup now">Signup now</a></div>
             </section>
         </div>
     </div>

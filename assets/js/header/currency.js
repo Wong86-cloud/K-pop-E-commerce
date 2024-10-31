@@ -1,76 +1,48 @@
-// Your API key from Open Exchange Rates or other currency API
-const apiKey = ''; // Replace with your actual API key
-const baseCurrency = 'USD'; // The base currency for the prices
+document.addEventListener('DOMContentLoaded', () => {
+    const currencySelect = document.getElementById('currency');
+    const convertedValueElement = document.getElementById('converted-value');
 
-// Function to fetch exchange rates from the API
-async function fetchExchangeRates() {
-    const url = `https://openexchangerates.org/api/latest.json?app_id=${apiKey}&base=${baseCurrency}`;
-    
-    try {
-        const response = await fetch(url);
+    const fetchExchangeRate = async (baseCurrency, targetCurrency) => {
+        const apiKey = '82e5380e6fe63e2030a861f6'; // Replace with your actual API key
+        const response = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${baseCurrency}`);
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const data = await response.json();
-        return data.rates; // Return the exchange rates
-    } catch (error) {
-        console.error('Error fetching exchange rates:', error);
-        return null;
-    }
-}
+        return data.conversion_rates[targetCurrency];
+    };
 
-async function updatePriceDisplay() {
-    const selectedCurrency = document.getElementById('currency').value;
-
-    // Fetch the latest exchange rates
-    const exchangeRates = await fetchExchangeRates();
-
-    if (exchangeRates && exchangeRates[selectedCurrency]) {
-        const conversionRate = exchangeRates[selectedCurrency];
+    const updateCurrency = async (selectedCurrency) => {
+        const baseCurrency = 'USD'; // Base currency
+        const exchangeRate = await fetchExchangeRate(baseCurrency, selectedCurrency);
 
         // Update product prices
-        const productPriceElements = document.querySelectorAll('.product-price');
+        const productPriceElements = document.querySelectorAll('[data-price]');
         productPriceElements.forEach((priceElement) => {
-            const originalPrice = parseFloat(priceElement.getAttribute('data-price'));
-            const convertedPrice = (originalPrice * conversionRate).toFixed(2);
+            const originalPrice = Number(priceElement.getAttribute('data-price'));
+            const convertedPrice = (originalPrice * exchangeRate).toFixed(2);
             priceElement.innerText = `${selectedCurrency} ${convertedPrice}`;
         });
 
-        // Update row total prices
-        const rowTotalPriceElements = document.querySelectorAll('.total-price');
-        rowTotalPriceElements.forEach((priceElement) => {
-            const originalPrice = parseFloat(priceElement.getAttribute('data-price'));
-            const convertedPrice = (originalPrice * conversionRate).toFixed(2);
-            priceElement.innerText = `${selectedCurrency} ${convertedPrice}`;
-        });
-
-        // Update footer prices
+        // Update subtotal, tax, and total prices
         const subtotalElement = document.querySelector('.subtotal-price');
         const taxElement = document.querySelector('.tax-price');
-        const totalFooterElement = document.querySelector('.total-price');
 
         if (subtotalElement) {
-            const subtotal = parseFloat(subtotalElement.getAttribute('data-price'));
-            const convertedSubtotal = (subtotal * conversionRate).toFixed(2);
-            subtotalElement.innerText = `${selectedCurrency} ${convertedSubtotal}`;
+            const subtotal = Number(subtotalElement.getAttribute('data-price'));
+            subtotalElement.innerText = `${selectedCurrency} ${(subtotal * exchangeRate).toFixed(2)}`;
         }
 
         if (taxElement) {
-            const tax = parseFloat(taxElement.getAttribute('data-price'));
-            const convertedTax = (tax * conversionRate).toFixed(2);
-            taxElement.innerText = `${selectedCurrency} ${convertedTax}`;
+            const tax = Number(taxElement.getAttribute('data-price'));
+            taxElement.innerText = `${selectedCurrency} ${(tax * exchangeRate).toFixed(2)}`;
         }
+    };
 
-        if (totalFooterElement) {
-            const totalFooter = parseFloat(totalFooterElement.getAttribute('data-price'));
-            const convertedTotalFooter = (totalFooter * conversionRate).toFixed(2);
-            totalFooterElement.innerText = `${selectedCurrency} ${convertedTotalFooter}`;
-        }
-    } else {
-        console.error(`No conversion rate found for ${selectedCurrency}`);
-    }
-}
+    // Event listener for currency change
+    currencySelect.addEventListener('change', (event) => {
+        const selectedCurrency = event.target.value;
+        updateCurrency(selectedCurrency);
+    });
 
-// Event listener for currency change
-document.getElementById('currency').addEventListener('change', updatePriceDisplay);
-
-// Initialize the display with the default selected currency
-updatePriceDisplay();
-
+    // Initial load
+    updateCurrency(currencySelect.value);
+});

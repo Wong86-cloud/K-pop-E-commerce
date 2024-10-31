@@ -63,20 +63,20 @@
             </div>
             <div class="product-info-column"> 
                 <h6><?php echo htmlspecialchars($product['celebrity']); ?></h6> <!-- Assuming there's a celebrity field -->
-                <h3 id="product-title" class="py-4"><?php echo htmlspecialchars($product['product_name']); ?></h3>
-                <h2 id="product-price">$<?php echo htmlspecialchars($product['product_price']); ?></h2>
+                <h3 id="product-title" class="py-4" data-translate="<?php echo htmlspecialchars($product['product_name']); ?>"><?php echo htmlspecialchars($product['product_name']); ?></h3>
+                <h2 id="product-price" data-price="<?php echo htmlspecialchars($product['product_price']); ?>">USD <?php echo htmlspecialchars($product['product_price']); ?></h2>
                 <!-- Quantity Section -->
                 <div class="quantity-section">
                     <input type="number" id="quantity-<?php echo $product['product_id']; ?>" value="1" min="1" max="10"/>
                     <!-- Pass both product ID and quantity to addToCart -->
-                    <button class="buy-button" onclick="addToCart(<?php echo $product['product_id']; ?>)">Add To Cart</button>
+                    <button class="buy-button" onclick="addToCart(<?php echo $product['product_id']; ?>)" data-translate="Add To Cart">Add To Cart</button>
                 </div>
-                <h4>Product details</h4>
-                <span id="product-details"><?php echo htmlspecialchars($product['product_description']); ?></span>
+                <h4 data-translate="Product details">Product details</h4>
+                <span id="product-details" data-translate="<?php echo htmlspecialchars($product['product_description']); ?> "><?php echo htmlspecialchars($product['product_description']); ?></span>
             </div>
             <?php $celebrityFilter = isset($_GET['celebrity']) ? $_GET['celebrity'] : ''; ?>
             <div class="return-to-shop">
-                <a href="shop.php?celebrity=<?php echo urlencode($celebrityFilter); ?>" class="return-button">
+                <a href="shop.php?celebrity=<?php echo urlencode($celebrityFilter); ?>" class="return-button" data-translate="Return to Shop">
                     <i class="fas fa-chevron-left"></i> Return to Shop
                 </a>
             </div>

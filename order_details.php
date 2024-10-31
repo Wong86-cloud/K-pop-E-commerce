@@ -56,19 +56,31 @@ $total_cost = 0;
             <h2><img src="assets/images/navbar/notes.png" alt="Order"></h2>
         </div>
     </div>
-    <h3>Order ID: <?php echo htmlspecialchars($order_id); ?></h3>
-    <p>Order Date: <?php echo htmlspecialchars($order['order_date']); ?></p>
-    <p>Order Status: <?php echo htmlspecialchars($order['order_status']); ?></p>
-    <p>Shipping Method: <?php echo htmlspecialchars($order['shipping_name']); ?> (Fee: $<?php echo number_format($order['shipping_fee'], 2); ?>)</p>
-
+    <div class="order-line">
+        <h3 data-translate="Order ID:">Order ID:</h3>
+        <h5><?php echo htmlspecialchars($order_id); ?></h5>
+    </div>
+    <div class="order-line">
+        <p data-translate="Order Date:">Order Date:</p>
+        <span><?php echo htmlspecialchars($order['order_date']); ?></span>
+    </div>
+    <div class="order-line">
+        <p data-translate="Order Status:">Order Status: </p>
+        <span data-translate="<?php echo htmlspecialchars($order['order_status']); ?>" ><?php echo htmlspecialchars($order['order_status']); ?></span>
+    </div>
+    <div class="order-line">
+        <p data-translate="Shipping Method:" >Shipping Method:</p>
+        <span data-translate="<?php echo htmlspecialchars($order['shipping_name']); ?>"><?php echo htmlspecialchars($order['shipping_name']); ?></span>
+    </div>
+    
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Product Image</th>
-                <th>Product Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Total</th>
+                <th data-translate="Product Image">Product Image</th>
+                <th data-translate="Product Name">Product Name</th>
+                <th data-translate="Quantity">Quantity</th>
+                <th data-translate="Price">Price</th>
+                <th data-translate="Total">Total</th>
             </tr>
         </thead>
         <tbody>
@@ -83,10 +95,10 @@ $total_cost = 0;
                 ?>
                 <tr>
                     <td><img src="assets/images/shop/<?php echo htmlspecialchars($item['product_image']); ?>" width="100"></td>
-                    <td><?php echo htmlspecialchars($item['product_name']); ?></td>
+                    <td data-translate="<?php echo htmlspecialchars($item['product_name']); ?>"><?php echo htmlspecialchars($item['product_name']); ?></td>
                     <td><?php echo htmlspecialchars($item['quantity']); ?></td>
-                    <td>$<?php echo number_format($item['product_price'], 2); ?></td>
-                    <td>$<?php echo number_format($item_total, 2); ?></td>
+                    <td data-price="<?php echo $item['product_price']; ?>" >USD <?php echo number_format($item['product_price'], 2); ?></td>
+                    <td data-price="<?php echo $item_total; ?>">USD <?php echo number_format($item_total, 2); ?></td>
                 </tr>
             <?php } ?>
         </tbody>
@@ -99,34 +111,46 @@ $total_cost = 0;
     $overall_total = $total_cost + $tax + $shipping_fee; // Overall total calculation
     ?>
 
-<!-- Display Total Costs, Tax, and Overall Total -->
-<h5>Total Cost: $<?php echo number_format($total_cost, 2); ?></h5>
-<h5>Tax (6%): $<?php echo number_format($tax, 2); ?></h5>
-<h5>Shipping Fee: $<?php echo number_format($shipping_fee, 2); ?></h5>
-<h5>Overall Total: $<?php echo number_format($overall_total, 2); ?></h5>
+    <!-- Display Total Costs, Tax, and Overall Total -->
+    <div class="order-line">
+        <h5 data-translate="Total Cost:">Total Cost:</h5>
+        <span data-price="<?php echo $total_cost; ?>">USD <?php echo number_format($total_cost, 2); ?></span>
+    </div>
+    <div class="order-line">
+        <h5 data-translate="Tax (6%):">Tax (6%):</h5>
+        <span data-price="<?php echo $tax; ?>">USD <?php echo number_format($tax, 2); ?></span>
+    </div>
+    <div class="order-line">
+        <h5 data-translate="Shipping Fee:">Shipping Fee:</h5> 
+        <span data-price="<?php echo $shipping_fee; ?>">USD <?php echo number_format($shipping_fee, 2); ?></span>
+    </div>
+    <div class="order-line">
+        <h5 data-translate="Overall Total:">Overall Total:</h5>
+        <span data-price="<?php echo $overall_total; ?>">USD <?php echo number_format($overall_total, 2); ?></span>
+    </div>
 </div>
 
 <div class="report-issue-container">
-    <h4>Report an Issue</h4>
+    <h4 data-translate="Report an Issue">Report an Issue</h4>
     <form method="POST" action="db_connection/report_issue.php" enctype="multipart/form-data">
         <input type="hidden" name="order_id" value="<?php echo htmlspecialchars($order_id); ?>">
         <div class="mb-3">
-            <label for="issue_description" class="form-label">Issue Description:</label>
+            <label for="issue_description" class="form-label" data-translate="Issue Description:">Issue Description:</label>
             <textarea id="issue_description" name="issue_description" class="form-control" required></textarea>
         </div>
         <div class="mb-3">
-            <label for="issue_image" class="form-label">Upload Image (if applicable):</label>
+            <label for="issue_image" class="form-label" data-translate="Upload Image (if applicable):">Upload Image (if applicable):</label>
             <input type="file" id="issue_image" name="issue_image" class="form-control" accept="image/*">
         </div>
-        <button type="submit" class="btn btn-danger">Report Issue</button>
+        <button type="submit" class="btn btn-danger" data-translate="Report Issue">Report Issue</button>
     </form>
 </div>
 
 <div class="mark-received-container">
-    <h4>Mark as Received</h4>
+    <h4 data-translate="Mark as Received">Mark as Received</h4>
     <form method="POST" action="db_connection/mark_received.php">
         <input type="hidden" name="order_id" value="<?php echo htmlspecialchars($order_id); ?>">
-        <button type="submit" class="btn btn-success">Mark as Received</button>
+        <button type="submit" class="btn btn-success" data-translate="Mark as Received">Mark as Received</button>
     </form>
 </div>
 
