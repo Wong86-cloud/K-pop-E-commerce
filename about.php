@@ -54,7 +54,7 @@
                     <div class="discussion-profile-name" id="profile-name"><?php echo htmlspecialchars($row['fname'] . " " . $row['lname']); ?></div>
                 </div>
                 <div class="save-button">
-                    <button type="submit" id="save-changes">Save Changes</button>
+                    <button type="submit" id="save-changes" data-translate="Save Changes">Save Changes</button>
                 </div>
             </div>
         </form>
@@ -101,7 +101,7 @@
     <div class="profile-info-container">
     <!-- Left Side: Post Photo Section -->
     <div class="post-photo-section">
-        <h2>Your Photos</h2>
+        <h2 data-translate="Your Photos">Your Photos</h2>
         <div class="photo-frame">
             <!-- Add Picture Grid -->
             <div class="photo-grid">
@@ -153,30 +153,30 @@
 
     <!-- Right Side: Personal Information Section -->
     <div class="personal-info-section">
-        <h2>Personal Information</h2>
+        <h3 data-translate="Personal Information" >Personal Information</h3>
         <form id="personal-info-form" action="db_connection/update_personal_info.php" method="POST">
-            <div>
-                <label for="fname"><i class="fas fa-user"></i> First Name:</label>
+            <div class="form-group">
+                <label for="fname" data-translate="First Name:">First Name:</label>
                 <input type="text" id="fname" name="fname" value="<?php echo $fname; ?>" placeholder="Your First Name" required>
             </div>
-            <div>
-                <label for="lname"><i class="fas fa-user"></i> Last Name:</label>
+            <div class="form-group">
+                <label for="lname" data-translate="Last Name:">Last Name:</label>
                 <input type="text" id="lname" name="lname" value="<?php echo $lname; ?>" placeholder="Your Last Name" required>
             </div>          
-            <div>
-                <label for="gender"><i class="fas fa-venus-mars"></i> Gender:</label>
+            <div class="form-group">
+                <label for="gender" data-translate="Gender:">Gender:</label>
                 <select name="gender" id="gender">
                     <option value="Male" <?php echo ($gender == 'Male') ? 'selected' : ''; ?>>Male</option>
                     <option value="Female" <?php echo ($gender == 'Female') ? 'selected' : ''; ?>>Female</option>
                     <option value="Other" <?php echo ($gender == 'Other') ? 'selected' : ''; ?>>Other</option>
                 </select>
             </div>
-            <div>
-                <label for="dob"><i class="fas fa-calendar-alt"></i> Date of Birth:</label>
+            <div class="form-group">
+                <label for="dob" data-translate="Date of Birth:" >Date of Birth:</label>
                 <input type="date" name="dob" id="dob" value="<?php echo $dob; ?>">
             </div>
-            <div>
-                <label for="country"><i class="fas fa-globe"></i> Country:</label>
+            <div class="form-group">
+                <label for="country" data-translate="Country:">Country:</label>
                 <select id="country-region" name="country-region" required>
                     <option value="China" <?php echo ($country === 'China') ? 'selected' : ''; ?>>China</option>
                     <option value="South Korea" <?php echo ($country === 'South Korea') ? 'selected' : ''; ?>>South Korea</option>
@@ -187,7 +187,7 @@
                 </select>
             </div>
             <div>
-                <label for="about_me"><i class="fas fa-user-edit"></i> About Me:</label>
+                <label for="about_me" data-translate="About Me:">About Me:</label>
                 <p class="lead emoji-picker-container">
                     <textarea class="form-control textarea-control" name="about_me" id="about_me" rows="3" placeholder="Textarea with emoji image input" data-emojiable="true">
                         <?php echo $about_me; ?>

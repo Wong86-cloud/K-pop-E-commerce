@@ -76,7 +76,7 @@
     <div class="profile-info-container">
         <!-- Left Side: Post Photo Section - Displaying Photos of the Profile Being Viewed -->
         <div class="post-photo-section">
-            <h2>Photos by <?php echo $fname; ?></h2>
+            <h2 data-translate="Photos by <?php echo $fname; ?>">Photos by <?php echo $fname; ?></h2>
             <div class="photo-frame">
                 <div class="photo-grid">
                     <?php
@@ -103,38 +103,38 @@
 
         <!-- Right Side: Personal Information Section -->
         <div class="personal-info-section">
-            <h2>Personal Information</h2>
+            <h3 data-translate="Personal Information">Personal Information</h3>
             <form id="personal-info-form" action="db_connection/update_personal_info.php" method="POST">
-                <div>
-                    <label for="fname"><i class="fas fa-user"></i> First Name:</label>
+                <div class="form-group">
+                    <label for="fname" data-translate="First Name:">First Name:</label>
                     <input type="text" id="fname" name="fname" value="<?php echo $fname; ?>" placeholder="Your First Name" readonly>
                 </div>
-                <div>
-                    <label for="lname"><i class="fas fa-user"></i> Last Name:</label>
+                <div class="form-group">
+                    <label for="lname" data-translate="Last Name:">Last Name:</label>
                     <input type="text" id="lname" name="lname" value="<?php echo $lname; ?>" placeholder="Your Last Name" readonly>
                 </div>
-                <div>
-                    <label for="gender"><i class="fas fa-venus-mars"></i> Gender:</label>
+                <div class="form-group">
+                    <label for="gender" data-translate="Gender:">Gender:</label>
                     <input type="text" id="gender" value="<?php echo $gender; ?>" readonly>
                 </div>
-                <div>
-                    <label for="dob"><i class="fas fa-calendar-alt"></i> Date of Birth:</label>
+                <div class="form-group">
+                    <label for="dob" data-translate="Date of Birth:">Date of Birth:</label>
                     <input type="text" id="dob" value="<?php echo $dob; ?>" readonly>
                 </div>
-                <div>
-                    <label for="country"><i class="fas fa-globe"></i> Country:</label>
+                <div class="form-group">
+                    <label for="country" data-translate="Country:">Country:</label>
                     <input type="text" id="country" value="<?php echo $country; ?>" readonly>
                 </div>
-                <div>
-                    <label for="about_me"><i class="fas fa-user-edit"></i> About Me:</label>
+                <div class="form-group">
+                    <label for="about_me" data-translate="About Me:">About Me:</label>
                     <p class="lead emoji-picker-container">
-                        <textarea class="form-control textarea-control" name="about_me" id="about_me" rows="3" placeholder="Textarea with emoji image input" data-emojiable="true" readonly><?php echo $about_me; ?></textarea>
+                        <textarea><?php echo $about_me; ?></textarea>
                     </p>
                 </div>
                 <!-- Back Button -->
                 <div style="margin-top: auto; text-align: right; width: 100%;">
-                    <button type="button" class="btn btn-secondary mb-3" onclick="window.history.back();">
-                        <i class="fas fa-arrow-left"></i> Back
+                    <button type="button" class="btn btn-secondary mb-3" onclick="window.history.back();"data-translate="Back" >
+                        Back
                     </button>
                 </div>
             </form>

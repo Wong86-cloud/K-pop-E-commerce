@@ -23,6 +23,15 @@ h2 {
     margin-bottom: 20px;
 }
 
+h3 {
+    color: #405d9b;
+    font-family: 'Kanit', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
 .post-photo-section {
     width: 60%;
     background-color: #ffffff;
@@ -195,6 +204,20 @@ h2 {
 
 .personal-info-section textarea {
     height: 80px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    margin-right: 10px; /* Adjusts spacing between label and input */
+}
+
+.form-group input[type="text"] {
+    flex: 1; /* Makes the input take available width */
 }
 
 .submit-button {

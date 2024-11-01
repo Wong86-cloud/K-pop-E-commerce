@@ -54,7 +54,7 @@
                     <div class="discussion-profile-name" id="profile-name"><?php echo htmlspecialchars($row['fname'] . " " . $row['lname']); ?></div>
                 </div>
                 <div class="save-button">
-                    <button type="submit" id="save-changes">Save Changes</button>
+                    <button type="submit" id="save-changes" data-translate="Save Changes">Save Changes</button>
                 </div>
             </div>
         </form>
@@ -166,7 +166,7 @@
         <div class="form-group">
             <label for="room-select" data-translate="Select Room To Upload Post:">Select Room To Upload Post:</label>
             <select name="room_id" id="room-select" required>
-                <option value="" disabled selected>Select a Room</option>
+                <option value="" disabled selected data-translate="Select a Room">Select a Room</option>
                 <?php 
                 // Fetch available rooms from the database
                 $room_query = "SELECT room_id, room_name FROM rooms"; 
@@ -205,7 +205,7 @@ if (isset($_GET['room_id'])) {
         $room_name = $room_row['room_name'];
         $hashtag = $room_row['hashtag'];
 
-        echo "<h2>$room_name Discussion Room</h2>";
+        echo '<h2 data-translate="' . htmlspecialchars($room_name) . '">' . htmlspecialchars($room_name) . '</h2>';
 
         // Assuming $user_id is defined (you might retrieve it from session or another source)
         $user_id = $_SESSION['unique_id']; // or however you obtain the user ID
@@ -241,7 +241,7 @@ if (isset($_GET['room_id'])) {
                         <span class="post-name"><?php echo $user_name; ?></span>
                     </div>
                     <div class="post-content">
-                        <p><?php echo $post_content; ?></p>
+                        <p data-translate="<?php echo $post_content; ?>"><?php echo $post_content; ?></p>
                         <?php if ($got_image) { ?>
                             <img src="<?php echo $post_image; ?>" class="post-image" alt="Post Image" onclick="openModal(this)">
                         <?php } ?>

@@ -40,22 +40,22 @@
     <div class="login-admin-form">
         <div class="login-form-container">
             <section class="form login">
-                <header>Admin Login</header>
+                <header data-translate="Admin Login">Admin Login</header>
                 <form action="db_connection/admin_login_info.php" method="POST" enctype="multipart/form-data">
                     <div class="error-txt"></div>
                     <div class="field input">
-                        <label>Email Address</label>
+                        <label data-translate="Email Address">Email Address</label>
                         <input type="text" name="email" placeholder="Enter your email" required>
                     </div>
                     <div class="field input">
-                        <label>Password</label>
+                        <label data-translate="Password">Password</label>
                         <input type="password" name="password" placeholder="Enter your password" required>
                     </div>
                     <div class="forgot-password">
-                        <a href="admin_forgot_password.php">Forgot Password?</a>
+                        <a href="admin_forgot_password.php" data-translate="Forgot Password?">Forgot Password?</a>
                     </div>
                     <div class="captcha">
-                        <label for="captcha-input">Enter captcha</label>
+                        <label for="captcha-input" data-translate="Enter captcha">Enter captcha</label>
                         <div class="preview"></div>
                         <div class="captcha-form">
                             <input type="text" id="captcha-form" placeholder="Enter captcha text">
@@ -65,7 +65,7 @@
                         <input type="submit" value="Login">
                     </div>
                 </form>
-                <div class="link">Not yet signed up? <a href="admin_register.php">Signup now</a></div>
+                <div class="link">Not yet signed up? <a href="admin_register.php" data-translate="Signup now">Signup now</a></div>
             </section>
         </div>
     </div>

@@ -28,7 +28,7 @@ if (mysqli_num_rows($result) > 0) {
                 <span class="post-name"><?php echo $user_name; ?></span>
             </div>
             <div class="post-content">
-                <p><?php echo $post_content; ?></p>
+                <p data-translate="<?php echo $post_content; ?>"><?php echo $post_content; ?></p>
                 <?php if ($got_image) { ?>
                     <img src="<?php echo $post_image; ?>" class="post-image" alt="Post Image">
                 <?php } ?>

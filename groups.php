@@ -52,7 +52,7 @@
                     <div class="discussion-profile-name" id="profile-name"><?php echo htmlspecialchars($row['fname'] . " " . $row['lname']); ?></div>
                 </div>
                 <div class="save-button">
-                    <button type="submit" id="save-changes">Save Changes</button>
+                    <button type="submit" id="save-changes" data-translate="Save Changes">Save Changes</button>
                 </div>
             </div>
         </form>
@@ -108,9 +108,9 @@ ob_end_flush();
 <div class="group-list-container">
     <!-- Group creation form -->
     <form action="" method="GET" class="group-form"> <!-- Ensure this is pointing to the correct processing file -->
-        <input type="text" name="room_name" placeholder="Enter Room Name" required> 
+        <input type="text" name="room_name" placeholder="Enter Room Name" data-translate="Enter Room Name" required> 
         <select name="celebrity_hashtag" required>
-            <option value="" disabled selected>Select a Celebrity</option>
+            <option value="" disabled selected data-translate="Select a Celebrity">Select a Celebrity</option>
             <option value="#BTS">#BTS</option>
             <option value="#BLACKPINK">#BLACKPINK</option>
             <option value="#EXO">#EXO</option>
@@ -119,7 +119,7 @@ ob_end_flush();
             <option value="#SEVENTEEN">#SEVENTEEN</option>
             <!-- Add more options as needed -->
         </select>
-        <button type="submit">Create or Join Room</button>
+        <button type="submit" data-translate="Create or Join Room">Create or Join Room</button>
     </form>
 
     <!-- Room buttons section -->
@@ -145,4 +145,6 @@ ob_end_flush();
 
 
 </body>
+    <script src="assets/js/header/currency.js"></script>
+    <script src="assets/js/header/language.js"></script>
 </html>

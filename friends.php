@@ -53,7 +53,7 @@
                     <div class="discussion-profile-name" id="profile-name"><?php echo htmlspecialchars($row['fname'] . " " . $row['lname']); ?></div>
                 </div>
                 <div class="save-button">
-                    <button type="submit" id="save-changes">Save Changes</button>
+                    <button type="submit" id="save-changes" data-translate="Save Changes">Save Changes</button>
                 </div>
             </div>
         </form>
@@ -107,11 +107,11 @@ $result_suggestions = mysqli_query($conn, $sql_suggestions);
     <table class="friend-list">
         <thead>
             <tr>
-                <th>No</th>
-                <th>Image</th>
-                <th>Name</th>
-                <th>View Profile</th>
-                <th>Action</th>
+                <th data-translate="No.">No.</th>
+                <th data-translate="Image">Image</th>
+                <th data-translate="Name">Name</th>
+                <th data-translate="View Profile">View Profile</th>
+                <th data-translate="Action">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -130,7 +130,7 @@ $result_suggestions = mysqli_query($conn, $sql_suggestions);
                         <!-- Remove Friend Form -->
                         <form action="db_connection/friend.php" method="POST" style="display:inline;">
                             <input type="hidden" name="friend_unique_id" value="<?php echo $row['unique_id']; ?>">
-                            <button type="submit" name="remove_friend" class="remove-btn">Remove</button>
+                            <button type="submit" name="remove_friend" class="remove-btn" data-translate="Remove">Remove</button>
                         </form>
                     </td>
                 </tr>
@@ -152,10 +152,10 @@ $result_suggestions = mysqli_query($conn, $sql_suggestions);
     <table class="suggestion-list">
         <thead>
             <tr>
-                <th>No</th>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Action</th>
+                <th data-translate="No.">No.</th>
+                <th data-translate="Image">Image</th>
+                <th data-translate="Name">Name</th>
+                <th data-translate="Action">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -171,7 +171,7 @@ $result_suggestions = mysqli_query($conn, $sql_suggestions);
                         <!-- Add Friend Form -->
                         <form action="db_connection/friend.php" method="POST" style="display:inline;">
                             <input type="hidden" name="friend_unique_id" value="<?php echo $row['unique_id']; ?>">
-                            <button type="submit" name="add_friend" class="add-btn">Add Friend</button>
+                            <button type="submit" name="add_friend" class="add-btn" data-translate="Add Friend">Add Friend</button>
                         </form>
                     </td>
                 </tr>

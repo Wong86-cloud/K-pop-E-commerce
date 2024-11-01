@@ -54,7 +54,7 @@
                     <div class="discussion-profile-name" id="profile-name"><?php echo htmlspecialchars($row['fname'] . " " . $row['lname']); ?></div>
                 </div>
                 <div class="save-button">
-                    <button type="submit" id="save-changes">Save Changes</button>
+                    <button type="submit" id="save-changes" data-translate="Save Changes">Save Changes</button>
                 </div>
             </div>
         </form>

@@ -43,7 +43,7 @@
                     <img src="assets/images/profile/<?php echo $row['img'] ?>" alt="">
                     <div class="details">
                         <span><?php echo $row['fname'] . " " .$row['lname'] ?></span>
-                        <p><?php echo $row['status'] ?></p>
+                        <p data-translate="<?php echo $row['status'] ?>"><?php echo $row['status'] ?></p>
                     </div>
                 </div> 
             </header>

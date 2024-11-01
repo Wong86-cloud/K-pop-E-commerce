@@ -6,3 +6,21 @@
     max-height: 460px;
 }
 
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    margin-right: 10px; /* Adjusts spacing between label and input */
+}
+
+.form-group input[type="text"] {
+    flex: 1; /* Makes the input take available width */
+}
+
+.form-group textarea {
+    width: 290px;
+}
+

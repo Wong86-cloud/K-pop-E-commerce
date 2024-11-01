@@ -37,21 +37,21 @@
     <div class="register-admin-form">
         <div class="register-form-container">
             <section class="form register">
-                <header>Admin Register</header>
+                <header data-translate="Admin Register">Admin Register</header>
                 <form action="db_connection/admin_register_info.php" method="POST" enctype="multipart/form-data">
                     <div class="error-txt"></div>
                     <div class="name-details">
                         <div class="field input">
-                            <label>First Name</label>
+                            <label data-translate="First Name">First Name</label>
                             <input type="text" name="fname" placeholder="First Name" required>
                         </div>
                         <div class="field input">
-                            <label>Last Name</label>
+                            <label data-translate="Last Name">Last Name</label>
                             <input type="text" name="lname" placeholder="Last Name" required>
                         </div>
                     </div>
                     <div class="field input">
-                        <label>Gender</label>
+                        <label data-translate="Gender">Gender</label>
                         <select name="gender" class="form-select" required>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
@@ -59,25 +59,25 @@
                         </select>
                     </div>
                     <div class="field input">
-                        <label>Email Address</label>
+                        <label data-translate="Email Address">Email Address</label>
                         <input type="email" name="email" placeholder="Enter your email" required>
                     </div>
                     <div class="field input">
-                        <label>Admin Work Code</label>
+                        <label data-translate="Admin Work Code">Admin Work Code</label>
                         <input type="text" name="admin_work_code" placeholder="Enter your admin work code" required>
                     </div>
                     <div class="field image">
-                        <label>Select Image</label>
+                        <label data-translate="Select Image">Select Image</label>
                         <input type="file" name="image" required>
                     </div>
                     <div class="password-details">
                         <div class="field input">
-                            <label>Password</label>
+                            <label data-translate="Password">Password</label>
                             <input type="password" name="password" class="password" placeholder="Enter your password" required>
                             <div class="password-error" style="color: red; font-size: 14px;"></div> 
                         </div>
                         <div class="field input">
-                            <label>Confirm Password</label>
+                            <label data-translate="Confirm Password">Confirm Password</label>
                             <input type="password" name="confirm_password" class="confirmPassword" placeholder="Confirm your password" required>
                             <div class="confirm-password-error" style="color: red; font-size: 14px;"></div>
                         </div>
@@ -86,7 +86,7 @@
                         <button type="submit" class="submitButton">Submit</button>
                     </div>
                 </form>
-                <div class="link">Already registered? <a href="admin_login.php">Login now</a></div>
+                <div class="link">Already registered? <a href="admin_login.php" data-translate="Login now">Login now</a></div>
             </section>
         </div>
     </div>

@@ -37,22 +37,22 @@
     <div class="register-form">
         <div class="register-form-container">
             <section class="form register">
-                <header>Register</header>
+                <header data-translate="Register">Register</header>
                 <form action="db_connection/register_info.php" method="POST" enctype="multipart/form-data">
                     <div class="error-txt"></div>
                     <div class="name-details">
                         <div class="field input">
-                            <label>First Name</label>
+                            <label data-translate="First Name">First Name</label>
                             <input type="text" name="fname" placeholder="First Name" required>
                         </div>
                         <div class="field input">
-                            <label>Last Name</label>
+                            <label data-translate="Last Name">Last Name</label>
                             <input type="text" name="lname" placeholder="Last Name" required>
                         </div>
                     </div>
                     <div class="user-details">
                         <div class="field input">
-                            <label>Gender</label>
+                            <label data-translate="Gender">Gender</label>
                             <select name="gender" class="form-select" required>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -60,11 +60,11 @@
                             </select>
                         </div>
                         <div class="field input">
-                            <label>Date of Birth</label>
+                            <label data-translate="Date of Birth">Date of Birth</label>
                             <input type="date" name="dob" required>
                         </div>
                         <div class="field input">
-                            <label>Country</label>
+                            <label data-translate="Country">Country</label>
                             <select id="country" name="country" class="form-select" required>
                                 <option value="China">China</option>
                                 <option value="Korea">Korea</option>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="user-details">
                         <div class="field input">
-                            <label>Country Code</label>
+                            <label data-translate="Country Code">Country Code</label>
                             <select id="country_code" name="country_code" class="form-select" required>
                                 <option value="+1">United States (+1)</option>
                                 <option value="+44">United Kingdom (+44)</option>
@@ -88,49 +88,49 @@
                             </select>
                         </div>
                         <div class="field input">
-                            <label>Handphone Number</label>
+                            <label data-translate="Handphone Number">Handphone Number</label>
                             <input type="text" name="handphone" placeholder="Enter your handphone number" required>
                         </div>
                         <div class="field input">
-                            <label>Email Address</label>
+                            <label data-translate="Email Address">Email Address</label>
                             <input type="email" name="email" placeholder="Enter your email" required>
                         </div>
                     </div>
                     <div class="field input">
-                        <label>Address</label>
+                        <label data-translate="Address">Address</label>
                         <input type="text" name="address" placeholder="Enter your address" required>
                     </div>
                     <div class="address-details">
                         <div class="field input">
-                            <label for="postcode">Postcode</label>
+                            <label for="postcode" data-translate="Postcode">Postcode</label>
                             <input type="text" id="postcode" name="postcode" placeholder="Postcode" required>
                         </div>
                         <div class="field input">
-                            <label for="city">City</label>
+                            <label for="city" data-translate="City">City</label>
                             <input type="text" id="city" name="city" placeholder="City" required>
                         </div>
                     </div>
                     <div class="password-details">
                         <div class="field input">
-                            <label>Password</label>
+                            <label data-translate="Password">Password</label>
                             <input type="password" name="password" class="password" placeholder="Enter your password" required>
                             <div class="password-error" style="color: red; font-size: 14px;"></div> <!-- Error message for password -->
                         </div>
                         <div class="field input">
-                            <label>Confirm Password</label>
+                            <label data-translate="Confirm Password">Confirm Password</label>
                             <input type="password" name="confirm_password"  class="confirmPassword" placeholder="Confirm your password" required>
                             <div class="confirm-password-error" style="color: red; font-size: 14px;"></div> <!-- Error message for confirm password -->
                         </div>
                     </div>
                     <div class="field image">
-                        <label>Select Image</label>
+                        <label data-translate="Select Image">Select Image</label>
                         <input type="file" name="image" required>
                     </div>
                     <div class="field button">
                         <button type="button" class="submitButton">Submit</button>
                     </div>
                 </form>
-                <div class="link">Already signed up? <a href="login.php">Login now</a></div>
+                <div class="link">Already signed up? <a href="login.php" data-translate="Login now">Login now</a></div>
             </section>
         </div>
     </div>
