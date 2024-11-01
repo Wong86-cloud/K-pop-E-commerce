@@ -70,8 +70,8 @@ $result_comments = mysqli_query($conn, $query_comments);
             </a>
             <ul class="sidebar-menu">
                 <li><a href="admin_home.php"><i class="fas fa-chart-line"></i><span data-translate="Graph">Graph</span></a></li>
-                <li><a href="admin_order.php"><i class="fas fa-shopping-bag"></i><span data-translate="Order">Order</span></a></li>
-                <li><a href="admin_forum.php"><i class="fas fa-icons"></i><span data-translate="Forum">Forum</span></a></li>
+                <li><a href="admin_order.php"><i class="fas fa-shopping-bag"></i><span data-translate="Order Issues">Order</span></a></li>
+                <li><a href="admin_forum.php"><i class="fas fa-icons"></i><span data-translate="Edit Forum">Edit Forum</span></a></li>
             </ul>
         </div>
     </div>
@@ -92,28 +92,28 @@ $result_comments = mysqli_query($conn, $query_comments);
         <div class="table-wrapper">
             <table border="1">
                 <tr>
-                    <th>Post ID</th>
-                    <th>User</th>
-                    <th>Content</th>
-                    <th>Image</th>
-                    <th>Comments</th>
-                    <th>Likes</th>
-                    <th>Date</th>
-                    <th>Action</th>
+                    <th data-translate="Post ID">Post ID</th>
+                    <th data-translate="User">User</th>
+                    <th data-translate="Content">Content</th>
+                    <th data-translate="Image">Image</th>
+                    <th data-translate="Comments">Comments</th>
+                    <th data-translate="Likes">Likes</th>
+                    <th data-translate="Date">Date</th>
+                    <th data-translate="Action">Action</th>
                 </tr>
                 <?php while ($post = mysqli_fetch_assoc($result_posts)) { ?>
                 <tr>
                     <td><?php echo $post['post_id']; ?></td>
                     <td><?php echo $post['fname'] . " " . $post['lname']; ?></td>
-                    <td><?php echo $post['post']; ?></td>
+                    <td data-translate="<?php echo $post['post']; ?>"><?php echo $post['post']; ?></td>
                     <td><?php echo $post['post_image'] ? "<img src='" . $post['post_image'] . "' width='100'>" : "No Image"; ?></td>
-                    <td><?php echo $post['post_comments']; ?></td>
+                    <td data-translate="<?php echo $post['post_comments']; ?>"><?php echo $post['post_comments']; ?></td>
                     <td><?php echo $post['post_likes']; ?></td>
                     <td><?php echo $post['post_date']; ?></td>
                     <td>
                         <form method="POST" action="db_connection/delete_post.php">
                             <input type="hidden" name="post_id" value="<?php echo $post['post_id']; ?>">
-                            <button type="submit" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
+                            <button type="submit" onclick="return confirm('Are you sure you want to delete this post?')" data-translate="Delete">Delete</button>
                         </form>
                     </td>
                 </tr>
@@ -129,24 +129,24 @@ $result_comments = mysqli_query($conn, $query_comments);
         <div class="table-wrapper">
             <table border="1">
                 <tr>
-                    <th>Comment ID</th>
-                    <th>Post</th>
-                    <th>User</th>
-                    <th>Comment</th>
-                    <th>Date</th>
-                    <th>Action</th>
+                    <th data-translate="Comment ID">Comment ID</th>
+                    <th data-translate="Post">Post</th>
+                    <th data-translate="User">User</th>
+                    <th data-translate="Comment">Comment</th>
+                    <th data-translate="Date">Date</th>
+                    <th data-translate="Action">Action</th>
                 </tr>
                 <?php while ($comment = mysqli_fetch_assoc($result_comments)) { ?>
                 <tr>
                     <td><?php echo $comment['comment_id']; ?></td>
-                    <td><?php echo $comment['post']; ?></td>
+                    <td data-translate="<?php echo $comment['post']; ?>"><?php echo $comment['post']; ?></td>
                     <td><?php echo $comment['fname'] . " " . $comment['lname']; ?></td>
-                    <td><?php echo $comment['comment']; ?></td>
+                    <td data-translate="<?php echo $comment['comment']; ?>"><?php echo $comment['comment']; ?></td>
                     <td><?php echo $comment['comment_date']; ?></td>
                     <td>
                         <form method="POST" action="db_connection/delete_comment.php">
                             <input type="hidden" name="comment_id" value="<?php echo $comment['comment_id']; ?>">
-                            <button type="submit" onclick="return confirm('Are you sure you want to delete this comment?')">Delete</button>
+                            <button type="submit" onclick="return confirm('Are you sure you want to delete this comment?')" data-translate="Delete">Delete</button>
                         </form>
                     </td>
                 </tr>

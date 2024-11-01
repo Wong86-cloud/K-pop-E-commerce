@@ -18,7 +18,7 @@
             <div class="d-flex align-items-center">
                 <img src="assets/images/navbar/logo.png" class="navbar-logo">
                 <a class="navbar-brand">KIVORIA</a>
-                <h5 class="navbar-admin" >Admin</h5>
+                <h5 class="navbar-admin">Admin</h5>
                 <div class="dropdown ms-4 me-2">
                     <label for="language" class="language-label">
                         <span data-translate="Language">Language</span> |
@@ -28,18 +28,6 @@
                         <option value="ko" data-translate="Korean">Korean</option>
                         <option value="zh-CN" data-translate="Chinese">Chinese</option>
                         <option value="ms" data-translate="Malay">Malay</option>
-                    </select>
-                </div>
-                <div class="dropdown ms-4 me-2">
-                    <label for="currency" class="currency-label">
-                        <span data-translate="Currency">Currency</span> |
-                    </label>
-                    <select name="currency" id="currency" class="currency-selector">
-                        <option value="USD" data-translate="US Dollar (USD)">US Dollar (USD)</option>
-                        <option value="EUR" data-translate="Euro (EUR)">Euro (EUR)</option>
-                        <option value="KRW" data-translate="Korean Won (KRW)">Korean Won (KRW)</option>
-                        <option value="CNY" data-translate="Chinese Yuan (CNY)">Chinese Yuan (CNY)</option>
-                        <option value="MYR" data-translate="Malaysian Ringgit (MYR)">Malaysian Ringgit (MYR)</option>
                     </select>
                 </div>
             </div>
@@ -68,8 +56,8 @@
             </a>
             <ul class="sidebar-menu">
                 <li><a href="admin_home.php"><i class="fas fa-chart-line"></i><span data-translate="Graph">Graph</span></a></li>
-                <li><a href="admin_order.php"><i class="fas fa-shopping-bag"></i><span data-translate="Order">Order</span></a></li>
-                <li><a href="admin_forum.php"><i class="fas fa-icons"></i><span data-translate="Forum">Forum</span></a></li>
+                <li><a href="admin_order.php"><i class="fas fa-shopping-bag"></i><span data-translate="Order Issues">Order</span></a></li>
+                <li><a href="admin_forum.php"><i class="fas fa-icons"></i><span data-translate="Edit Forum">Edit Forum</span></a></li>
             </ul>
         </div>
     </div>
@@ -78,7 +66,7 @@
 <section class="edit-order-container">
     <div id="search_bar">
         <div>
-            <span class="title">View Order Issues</span>
+            <span class="title" data-translate="View Order Issues">View Order Issues</span>
             <h2><img src="assets/images/navbar/order_icon.png" alt="Feedback"></h2>
         </div>
     </div>
@@ -103,12 +91,12 @@ $result = $conn->query($query);
 <table>
     <thead>
         <tr>
-            <th>Order ID</th>
-            <th>User</th>
-            <th>Issue Description</th>
-            <th>Issue Image</th>
-            <th>Date Reported</th>
-            <th>Actions</th>
+            <th data-translate="Order ID">Order ID</th>
+            <th data-translate="User">User</th>
+            <th data-translate="Issue Description">Issue Description</th>
+            <th data-translate="Issue Image">Issue Image</th>
+            <th data-translate="Date Reported">Date Reported</th>
+            <th data-translate="Actions">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -116,13 +104,13 @@ $result = $conn->query($query);
             <tr>
                 <td><?php echo htmlspecialchars($issue['order_id']); ?></td>
                 <td><?php echo htmlspecialchars($issue['fname'] . ' ' . $issue['lname']); ?></td>
-                <td><?php echo htmlspecialchars($issue['issue_description']); ?></td>
+                <td data-translate="<?php echo htmlspecialchars($issue['issue_description']); ?>"><?php echo htmlspecialchars($issue['issue_description']); ?></td>
                 <td><img src="assets/images/uploads/<?php echo htmlspecialchars($issue['issue_image']); ?>" width="100"></td>
                 <td><?php echo htmlspecialchars($issue['created_at']); ?></td>
                 <td>
                     <form method="POST" action="db_connection/resolve_issue.php">
                         <input type="hidden" name="issue_id" value="<?php echo $issue['issue_id']; ?>">
-                        <button type="submit" class="btn btn-primary">Resolve</button>
+                        <button type="submit" class="btn btn-primary" data-translate="Resolve">Resolve</button>
                     </form>
                 </td>
             </tr>

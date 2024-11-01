@@ -56,8 +56,8 @@
             </a>
             <ul class="sidebar-menu">
                 <li><a href="admin_home.php"><i class="fas fa-chart-line"></i><span data-translate="Graph">Graph</span></a></li>
-                <li><a href="admin_order.php"><i class="fas fa-shopping-bag"></i><span data-translate="Order">Order</span></a></li>
-                <li><a href="admin_forum.php"><i class="fas fa-icons"></i><span data-translate="Forum">Forum</span></a></li>
+                <li><a href="admin_order.php"><i class="fas fa-shopping-bag"></i><span data-translate="Order Issues">Order</span></a></li>
+                <li><a href="admin_forum.php"><i class="fas fa-icons"></i><span data-translate="Edit Forum">Edit Forum</span></a></li>
             </ul>
         </div>
     </div>
@@ -66,38 +66,38 @@
     <section class="graph-container">
         <div id="search_bar">
             <div>
-                <span class="title">Graphs</span>
+                <span class="title" data-translate="Graphs">Graphs</span>
                 <h2><img src="assets/images/navbar/graph_icon.png" alt="Feedback"></h2>
             </div>
         </div>
         <div class="graph-showcases-container">
             <div class="graph-title">
-                <h3>Sales Statistic</h3>
+                <h3 data-translate="Sales Statistic">Sales Statistic</h3>
                 <h3><img src="assets/images/navbar/sales.png" alt="Sales"></h3>
             </div>
             <div class="graph-question">
-                <h6>Average Price of Purchased Products</h6>
+                <h6 data-translate="Average Price of Purchased Products">Average Price of Purchased Products</h6>
                 <div style="width: 80%; height:200px; max-width: 600px; margin: auto;">
                     <canvas id="averagePriceChart" width="400" height="200"></canvas>
                 </div>
-                <h6>Best-Selling Products</h6>
+                <h6 data-translate="Best-Selling Products">Best-Selling Products</h6>
                 <div style="width: 80%; height: 200px;; max-width: 600px; margin: auto;">
                     <canvas id="bestSellersChart" width="400" height="200"></canvas>
                 </div>
-                <h6>Best-Selling Products by Celebrity</h6>
+                <h6 data-translate="Best-Selling Products by Celebrity">Best-Selling Products by Celebrity</h6>
                 <div id="bestSellingCelebrities" style="width: 80%; height:200px; max-width: 600px; margin: auto;">
                     <canvas id="bestSellingChart" width="400" height="200"></canvas>
                 </div>
             </div>
             <div class="graph-title">
-                <h3>Customer Feedback Statistic</h3>
+                <h3 data-translate="Customer Feedback Statistic">Customer Feedback Statistic</h3>
                 <h3><img src="assets/images/navbar/feedback2.png" alt="Feedback"></h3>
             </div>
 
             <!-- Feedback Questions -->
             <?php for ($i = 1; $i <= 8; $i++): ?>
                 <div class="graph-question">
-                    <h6>Question <?php echo $i; ?>: <?php echo getFeedbackQuestion($i); ?></h6>
+                    <h6 data-translate="Question <?php echo $i; ?>: <?php echo getFeedbackQuestion($i); ?>">Question <?php echo $i; ?>: <?php echo getFeedbackQuestion($i); ?></h6>
                     <div style="width: 40%; height:auto; max-width: 300px; margin:auto;">
                         <canvas id="q<?php echo $i; ?>Chart" width="400" height="200"></canvas>
                     </div>
@@ -105,26 +105,26 @@
             <?php endfor; ?>
 
             <div class="graph-title">
-                <h3>Most Popular Celebrity</h3>
+                <h3 data-translate="Most Popular Celebrity">Most Popular Celebrity</h3>
                 <h3><img src="assets/images/navbar/celebrity.png" alt="Celebrity"></h3>
             </div>
             <div class="graph-question">
-                <h6>Popularity of Celebrity Hashtags Based on User-Created Rooms</h6>
+                <h6 data-translate="Popularity of Celebrity Hashtags Based on User-Created Rooms">Popularity of Celebrity Hashtags Based on User-Created Rooms</h6>
                 <div style="width: 80%; height: 200px;; max-width: 600px; margin: auto;">
                     <canvas id="popularityChart" width="400" height="200"></canvas>
                 </div>
-                <h6>Most Liked Posts</h6>
+                <h6 data-translate="Most Liked Posts">Most Liked Posts</h6>
                 <div style="width: 80%; height: 400px;; max-width: 800px; margin: auto;">
                     <canvas id="likedPostsChart" width="400" height="200"></canvas>
                 </div>
-                <h6>Most Commented Posts</h6>
+                <h6 data-translate="Most Commented Posts">Most Commented Posts</h6>
                 <div style="width: 80%; height: 400px;; max-width: 800px; margin: auto;">
                     <canvas id="commentedPostsChart" width="400" height="200"></canvas>
                 </div>
         </div>
         <div class="button-container">
-            <button id="generatePDFReportBtn">
-                <i class="fas fa-file-pdf"></i> Generate PDF Report
+            <button id="generatePDFReportBtn" data-translate="Generate PDF Report">
+                 Generate PDF Report
             </button>
         </div>
     </section>

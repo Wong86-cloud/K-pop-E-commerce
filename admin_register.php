@@ -17,7 +17,7 @@
             <div class="d-flex align-items-center">
                 <img src="assets/images/navbar/logo.png" class="navbar-logo">
                 <a class="navbar-brand">KIVORIA</a>
-                <h5>Admin</h5>
+                <h5 class="navbar-admin">Admin</h5>
                 <div class="dropdown ms-4">
                     <label for="language" class="language-label">
                         <span data-translate="Language">Language</span> |

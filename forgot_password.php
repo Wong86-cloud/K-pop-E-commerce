@@ -40,20 +40,20 @@
     <div class="forgot-password-form">
         <div class="forgot-password-form-container">
             <section class="form forgot-password">
-                <header>Forgot Password</header>
+                <header data-translate="Forgot Password">Forgot Password</header>
                     <form action="db_connection/reset_password.php" method="POST" enctype="multipart/form-data">
                         <div class="error-txt"></div>
                         <div class="field input">
-                            <label>Email Address</label>
+                            <label data-translate="Email Address">Email Address</label>
                             <input type="text" name="email" placeholder="Enter your email">
                         </div>
                         <div class="field input">
-                            <label>New Password</label>
+                            <label data-translate="New Password">New Password</label>
                             <input type="password" name="password" class="reset-password" placeholder="Enter your password" required>
                             <div class="new-password-error" style="color: red; font-size: 14px;"></div> <!-- Error message for password -->
                         </div>
                         <div class="field input">
-                            <label>Confirm New Password</label>
+                            <label data-translate="Confirm New Password">Confirm New Password</label>
                             <input type="password" name="confirm_password"  class="confirm-reset-Password" placeholder="Confirm your password" required>
                             <div class="confirm-new-password-error" style="color: red; font-size: 14px;"></div> <!-- Error message for confirm password -->
                         </div>
