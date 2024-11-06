@@ -88,6 +88,10 @@
                 <div id="bestSellingCelebrities" style="width: 80%; height:200px; max-width: 600px; margin: auto;">
                     <canvas id="bestSellingChart" width="400" height="200"></canvas>
                 </div>
+                <h6 data-translate="Top Purchasing Countries">Top Purchasing Countries</h6>
+                <div style="width: 80%; height: 200px; max-width: 600px; margin: auto;">
+                    <canvas id="countryPurchasesChart" width="400" height="200"></canvas>
+                </div>
             </div>
             <div class="graph-title">
                 <h3 data-translate="Customer Feedback Statistic">Customer Feedback Statistic</h3>
@@ -112,6 +116,10 @@
                 <h6 data-translate="Popularity of Celebrity Hashtags Based on User-Created Rooms">Popularity of Celebrity Hashtags Based on User-Created Rooms</h6>
                 <div style="width: 80%; height: 200px;; max-width: 600px; margin: auto;">
                     <canvas id="popularityChart" width="400" height="200"></canvas>
+                </div>
+                <h6 data-translate="Rooms with the Most Posts">Rooms with the Most Posts</h6>
+                <div style="width: 80%; height: 200px; max-width: 600px; margin: auto;">
+                    <canvas id="postCountChart" width="400" height="200"></canvas>
                 </div>
                 <h6 data-translate="Most Liked Posts">Most Liked Posts</h6>
                 <div style="width: 80%; height: 400px;; max-width: 800px; margin: auto;">

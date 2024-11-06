@@ -178,6 +178,40 @@ function createPieChart(ctx, data, labels) {
     });
 }
 
+// Fetch the country purchases data from the server
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('graphs/fetch_country_purchases.php')
+        .then(response => response.json())
+        .then(data => {
+            const countries = data.map(item => item.country);
+            const purchases = data.map(item => parseInt(item.total_purchases, 10));
+
+            const ctx = document.getElementById('countryPurchasesChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: countries,
+                    datasets: [{
+                        label: 'Total Purchases',
+                        data: purchases,
+                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+});
+
 // Fetch the feedback data from the server
 fetch('graphs/fetch_feedback.php')
 .then(response => response.json())
@@ -214,6 +248,40 @@ document.addEventListener('DOMContentLoaded', () => {
                         data: counts,
                         backgroundColor: 'rgba(54, 162, 235, 0.6)',
                         borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+});
+
+//Rooms with the Most Posts
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('graphs/fetch_post_counts.php')
+        .then(response => response.json())
+        .then(data => {
+            const labels = data.map(item => item.room);
+            const postCounts = data.map(item => parseInt(item.post_count, 10)); // Convert post count to integers
+
+            const ctx = document.getElementById('postCountChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Number of Posts',
+                        data: postCounts,
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
                         borderWidth: 1
                     }]
                 },
