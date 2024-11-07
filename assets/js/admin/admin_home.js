@@ -433,6 +433,7 @@ document.getElementById('generatePDFReportBtn').addEventListener('click', functi
                     { title: 'Sales Statistic', subtitle: 'Average Price of Purchased Products', canvasId: 'averagePriceChart', width: 310, height: 180 },
                     { title: '', subtitle: 'Best-Selling Products', canvasId: 'bestSellersChart', width: 310, height: 180 },
                     { title: '', subtitle: 'Best-Selling Products by Celebrity', canvasId: 'bestSellingChart', width: 310, height: 180 },
+                    { title: '', subtitle: 'Top Purchasing Countries', canvasId: 'countryPurchasesChart', width: 300, height: 160 },
                     { title: 'Customer Feedback Statistic', subtitle: 'Question 1: How satisfied are you with the overall shopping experience on KIVORIA?', canvasId: 'q1Chart', width: 200, height: 180 },
                     { title: '', subtitle: 'Question 2: How would you rate the variety of K-pop merchandise available?', canvasId: 'q2Chart', width: 200, height: 180 },
                     { title: '', subtitle: 'Question 3: Which categories of K-pop products do you frequently purchase?', canvasId: 'q3Chart', width: 200, height: 180 },
@@ -442,6 +443,7 @@ document.getElementById('generatePDFReportBtn').addEventListener('click', functi
                     { title: '', subtitle: 'Question 7: Which feature do you find most useful on KIVORIA?', canvasId: 'q7Chart', width: 200, height: 180 },
                     { title: '', subtitle: 'Question 8: How likely are you to recommend KIVORIA to a friend?', canvasId: 'q8Chart', width: 200, height: 180 },
                     { title: 'Most Popular Celebrity', subtitle: 'Popularity of Celebrity Hashtags Based on User-Created Rooms', canvasId: 'popularityChart', width: 280, height: 150 },
+                    { title: '', subtitle: 'Rooms with the Most Posts', canvasId: 'postCountChart', width: 310, height: 180 },
                     { title: '', subtitle: 'Most Liked Posts', canvasId: 'likedPostsChart', width: 360, height: 210 },
                     { title: '', subtitle: 'Most Commented Posts', canvasId: 'commentedPostsChart', width: 370, height: 210 },
     ];
