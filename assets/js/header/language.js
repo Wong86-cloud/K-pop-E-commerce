@@ -3,7 +3,7 @@ const languageSelect = document.getElementById('language');
 const elementsToTranslate = document.querySelectorAll('[data-translate]');
 
 const translateText = async (targetLanguage) => {
-    const apiKey = 'AIzaSyCk4m2zzX_MzmK3j53ITjrgAifMsLPohs0';
+    const apiKey = 'AIzaSyDy33O2S9n9F2WVGC3yJBQOwRNfRUQd1ok';
     
     elementsToTranslate.forEach(async (element) => {
         const textToTranslate = element.getAttribute('data-translate');

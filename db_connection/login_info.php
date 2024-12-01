@@ -16,12 +16,12 @@ if (!isset($_SESSION['last_attempt_time'])) {
 
 // Rate limiting parameters
 $max_attempts = 3;
-$lockout_time = 60; // Lockout period in seconds (1 minutes)
+$lockout_time = 30; // Lockout period in seconds (30 seconds)
 
 // Check if the user is currently locked out
 if ($_SESSION['login_attempts'] >= $max_attempts) {
     if (time() - $_SESSION['last_attempt_time'] < $lockout_time) {
-        echo "You have been temporarily locked out. Please try again in 1 minute.";
+        echo "You have been temporarily locked out. Please try again after 30 seconds.";
         exit;
     } else {
         // Reset attempts after lockout period
@@ -42,6 +42,12 @@ if (!empty($email) && !empty($password)) {
             // Reset login attempts on successful login
             $_SESSION['login_attempts'] = 0;
             $_SESSION['unique_id'] = $row['unique_id'];
+
+            // Update the 'status' column to 'Active now'
+            $updateStatus = $conn->prepare("UPDATE users SET status = 'Active now' WHERE unique_id = ?");
+            $updateStatus->bind_param("s", $row['unique_id']);
+            $updateStatus->execute();
+
             echo "success";
         } else {
             $_SESSION['login_attempts'] += 1;

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const convertedValueElement = document.getElementById('converted-value');
 
     const fetchExchangeRate = async (baseCurrency, targetCurrency) => {
-        const apiKey = '82e5380e6fe63e2030a861f6'; // Replace with your actual API key
+        const apiKey = ''; // Replace with your actual API key
         const response = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${baseCurrency}`);
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const data = await response.json();

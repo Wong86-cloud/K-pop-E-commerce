@@ -37,7 +37,7 @@
                   <div class="carousel-slide">
                       <img src="assets/images/artists/blacpink.jpg" alt="Promotion 1" class="banner-image">
                       <div class="banner-content3">
-                          <h1 data-translate="Exclusive Blacpink">Exclusive Blacpink</h1>
+                          <h1 data-translate="Exclusive Blackpink">Exclusive Blackpink</h1>
                           <h1 data-translate="Merchandise">Merchandise</h1>
                           <p data-translate="Limited-edition items available now!">Limited-edition items available now!</p>
                           <button class="btn shop-btn" onclick="window.location.href='shop.php?celebrity=blackpink'" data-translate="Buy Now">Buy Now</button>
@@ -51,7 +51,7 @@
                       <div class="banner-content2">
                           <h1 data-translate="New Arrivals">New Arrivals</h1>
                           <p data-translate="Check out the latest collections from your favorite AESPA group.">Check out the latest collections from your favorite AESPA group.</p>
-                          <button class="btn shop-btn" data-translate="Explore">Explore</button>
+                          <button class="btn shop-btn" onclick="window.location.href='shop.php?celebrity=aespa'" data-translate="Explore">Explore</button>
                       </div>
                   </div>
               </div>

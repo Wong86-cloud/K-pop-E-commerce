@@ -175,9 +175,6 @@ function submitComment(postId) {
                             <div class="comment-content">
                                 <p>${response.comment}</p>
                             </div>
-                            <button onclick="deleteComment(${response.comment_id})" class="delete-comment-button">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
                         </div>
                     `;
 

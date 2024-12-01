@@ -64,7 +64,13 @@ fetch('graphs/fetch_average_price.php')
 fetch('graphs/fetch_best_sellers.php')
     .then(response => response.json())
     .then(data => {
-        const labels = data.map(item => item.product_name);
+        const maxLength = 25; // Maximum length of product name for display
+        const labels = data.map(item => {
+            // Truncate product names longer than maxLength
+            return item.product_name.length > maxLength 
+                ? item.product_name.slice(0, maxLength) + '...' 
+                : item.product_name;
+        });
         const sales = data.map(item => item.total_sold);
 
         const ctx = document.getElementById('bestSellersChart').getContext('2d');
@@ -303,7 +309,13 @@ fetch('graphs/fetch_popular_posts.php') // Adjust the path to your PHP script
     .then(response => response.json())
     .then(data => {
         // Most Liked Posts
-        const likedLabels = data.mostLikedPosts.map(post => post.post);
+        const maxLength = 40; // Maximum length for label display
+        // Most Liked Posts
+        const likedLabels = data.mostLikedPosts.map(post => 
+            post.post.length > maxLength 
+                ? post.post.slice(0, maxLength) + '...' 
+                : post.post
+        );
         const likedCounts = data.mostLikedPosts.map(post => post.post_likes);
 
         const ctxLiked = document.getElementById('likedPostsChart').getContext('2d');
@@ -340,7 +352,11 @@ fetch('graphs/fetch_popular_posts.php') // Adjust the path to your PHP script
             });
 
         // Most Commented Posts
-        const commentedLabels = data.mostCommentedPosts.map(post => post.post);
+        const commentedLabels = data.mostCommentedPosts.map(post => 
+            post.post.length > maxLength 
+                ? post.post.slice(0, maxLength) + '...' 
+                : post.post
+        );
         const commentedCounts = data.mostCommentedPosts.map(post => post.post_comments);
 
         const ctxCommented = document.getElementById('commentedPostsChart').getContext('2d');

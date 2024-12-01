@@ -113,10 +113,8 @@ ob_end_flush();
             <option value="" disabled selected data-translate="Select a Celebrity">Select a Celebrity</option>
             <option value="#BTS">#BTS</option>
             <option value="#BLACKPINK">#BLACKPINK</option>
-            <option value="#EXO">#EXO</option>
-            <option value="#TWICE">#TWICE</option>
             <option value="#AESPA">#AESPA</option>
-            <option value="#SEVENTEEN">#SEVENTEEN</option>
+            <option value="#NEW JEANS">#NEW JEANS</option>
             <!-- Add more options as needed -->
         </select>
         <button type="submit" data-translate="Create or Join Room">Create or Join Room</button>
