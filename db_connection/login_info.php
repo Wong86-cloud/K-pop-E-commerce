@@ -30,6 +30,7 @@ if ($_SESSION['login_attempts'] >= $max_attempts) {
     }
 }
 
+// Check if the email and password fields are not empty
 if (!empty($email) && !empty($password)) {
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);

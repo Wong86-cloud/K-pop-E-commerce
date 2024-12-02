@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const currencySelect = document.getElementById('currency');
     const convertedValueElement = document.getElementById('converted-value');
 
+    // Fetch exchange rate data
     const fetchExchangeRate = async (baseCurrency, targetCurrency) => {
         const apiKey = '82e5380e6fe63e2030a861f6'; // Replace with your actual API key
         const response = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${baseCurrency}`);
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return data.conversion_rates[targetCurrency];
     };
 
+    // Update product prices based on the selected currency
     const updateCurrency = async (selectedCurrency) => {
         const baseCurrency = 'USD'; // Base currency
         const exchangeRate = await fetchExchangeRate(baseCurrency, selectedCurrency);

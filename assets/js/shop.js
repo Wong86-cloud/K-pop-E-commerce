@@ -8,6 +8,7 @@ function fetchProducts(page = 1) {
     const celebrity = new URLSearchParams(window.location.search).get('celebrity');
     const category = new URLSearchParams(window.location.search).get('category');
 
+    // Define shopItemsContainer at this level for wider access
     fetch(`fetch_products.php?page=${page}&celebrity=${encodeURIComponent(celebrity)}&category=${encodeURIComponent(category)}`)
         .then(response => response.json())
         .then(data => {
@@ -40,7 +41,7 @@ function fetchProducts(page = 1) {
                             <small class="buy-now-text"><a href="single_product.php?id=${item.product_id}">Buy Now</a></small>
                         </div>
                     `;
-
+                    
                     shopItemsContainer.appendChild(itemElement);
                 });
             } else {
@@ -50,7 +51,7 @@ function fetchProducts(page = 1) {
         .catch(error => console.error('Error fetching products:', error));
 }
 
-//Filter Price
+//Filter Product Category and Price
 document.addEventListener('DOMContentLoaded', function() {
     const filterProductCheckboxes = document.querySelectorAll('input[type="checkbox"][name="filter"]');
     const filterPriceRadios = document.querySelectorAll('input[type="radio"][name="price_order"]');

@@ -2,13 +2,16 @@
 const languageSelect = document.getElementById('language');
 const elementsToTranslate = document.querySelectorAll('[data-translate]');
 
+// Function to translate text
 const translateText = async (targetLanguage) => {
     const apiKey = 'AIzaSyDy33O2S9n9F2WVGC3yJBQOwRNfRUQd1ok';
     
+    // Loop through each element to translate
     elementsToTranslate.forEach(async (element) => {
         const textToTranslate = element.getAttribute('data-translate');
         const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
 
+        // Make a POST request to the Google Translate API
         try {
             const response = await fetch(url, {
                 method: 'POST',
@@ -21,10 +24,12 @@ const translateText = async (targetLanguage) => {
                 }),
             });
 
+            // Throw an error if the response is not successful
             if (!response.ok) {
                 throw new Error(`Error: ${response.statusText}`);
             }
 
+            // Parse the JSON response
             const data = await response.json();
             const translatedText = data.data.translations[0].translatedText;
 

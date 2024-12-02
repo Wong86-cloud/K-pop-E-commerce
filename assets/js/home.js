@@ -2,6 +2,7 @@
 let currentSlideHome = 0;
 const slidesHome = document.querySelectorAll('.carousel-slide');
 
+// Make the slides visible or hidden based on the index
 function showSlideHome(index) {
     slidesHome.forEach((slide, i) => {
         slide.style.display = (i === index) ? 'block' : 'none';

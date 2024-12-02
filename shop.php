@@ -109,6 +109,7 @@
         // Initialize filters from the GET request
         $celebrityFilter = isset($_GET['celebrity']) ? urldecode($_GET['celebrity']) : null;
         $categoryFilter = isset($_GET['category']) ? $_GET['category'] : 'all';
+        $priceOrderFilter = isset($_GET['price_order']) ? $_GET['price_order'] : 'Default';
 
         // Build the count query
         $countQuery = "SELECT COUNT(*) as total FROM products WHERE 1";

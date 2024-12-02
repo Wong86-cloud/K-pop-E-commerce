@@ -115,7 +115,7 @@
             <li><a href="home.php" data-translate="Home">Home</a></li>
             <li><a href="shop.php" data-translate="Shop">Shop</a></li>
             <li><a href="wishlist.php" data-translate="Wishlist">Wishlist</a></li>
-            <li><a href="delivery.php" data-translate="Delivery">Delivery</a></li>
+            <li><a href="order.php" data-translate="Order">Order</a></li>
             <li><a href="message.php" data-translate="Message">Message</a></li>
           </ul>
         </div>
