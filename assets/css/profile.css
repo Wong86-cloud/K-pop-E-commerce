@@ -164,6 +164,7 @@ body {
     border-radius: 10px; /* Rounded corners */
     background-color: #e6f0ff; /* Background color */
     color: #405d9b; /* Text color */
+    overflow-y: auto;
 }
 
 .save-button {

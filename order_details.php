@@ -106,7 +106,7 @@ $total_cost = 0;
 
     <?php
     // Assuming $total_cost and $order['shipping_fee'] are already defined
-    $tax = $total_cost * 0.06; // 6% tax
+    $tax = $total_cost * 0.05; // 5% tax
     $shipping_fee = $order['shipping_fee']; // Shipping fee from the order
     $overall_total = $total_cost + $tax + $shipping_fee; // Overall total calculation
     ?>
@@ -117,7 +117,7 @@ $total_cost = 0;
         <span data-price="<?php echo $total_cost; ?>">USD <?php echo number_format($total_cost, 2); ?></span>
     </div>
     <div class="order-line">
-        <h5 data-translate="Tax (6%):">Tax (6%):</h5>
+        <h5 data-translate="Tax (5%):">Tax (5%):</h5>
         <span data-price="<?php echo $tax; ?>">USD <?php echo number_format($tax, 2); ?></span>
     </div>
     <div class="order-line">

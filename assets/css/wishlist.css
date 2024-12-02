@@ -1,5 +1,5 @@
 .sidebar-container {
-    height: 1000px; /* Set a fixed height for the sidebar */
+    height: 1400px; /* Set a fixed height for the sidebar */
 }
 
 .wishlist-container {
@@ -7,7 +7,7 @@
     background: #F6EACB; 
     width: calc(100% - 250px); 
     max-width: 1020px; 
-    min-height: 800px; 
+    height: 1300px; 
     padding: 20px; 
 }
 

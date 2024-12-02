@@ -27,7 +27,7 @@
     $cart_items = $result->fetch_all(MYSQLI_ASSOC); // Fetch all cart items as an associative array
 
     $subtotal = 0;
-    $taxRate = 0.07; // Example tax rate
+    $taxRate = 0.05; // Example tax rate
 
     // Check if the form has been submitted and values exist
     if (isset($_POST['product_id']) && isset($_POST['quantity'])) {

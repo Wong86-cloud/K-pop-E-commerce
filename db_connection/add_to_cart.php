@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $productStmt->execute();
     $productResult = $productStmt->get_result();
 
+    // Check if the product exists
     if ($productResult->num_rows > 0) {
         $product = $productResult->fetch_assoc();
         $product_name = $product['product_name'];

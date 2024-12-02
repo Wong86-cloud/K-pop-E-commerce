@@ -40,7 +40,7 @@ $cart_result = $cart_stmt->get_result();
 
 // Initialize variables
 $cart_total = 0;
-$tax = 0.06; // 6% tax for example
+$tax = 0.05; // 5% tax for example
 $shipping_fee = 0;
     
 // Fetch shipping methods

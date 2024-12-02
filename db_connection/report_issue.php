@@ -22,9 +22,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare($query);
     $stmt->bind_param("iiss", $order_id, $user_id, $issue_description, $issue_image);
     if ($stmt->execute()) {
-        echo "Issue reported successfully.";
+        $issue_message = "<h3>Thank you! Your issue has been submitted successfully.</h3>
+        <p>We will fix the problems and reply to you through the e-mail.</p>
+        <a href='../order.php' class='btn btn-primary'>Back to Order Page</a>";
     } else {
         echo "Error reporting issue: " . $stmt->error;
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Issue</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/submit_feedback.css">
+</head>
+<body>
+    <div class="submit-feedback-form">
+        <section class="submit-feedback-container">
+            <img src="../assets/images/navbar/logo.png" class="navbar-logo">
+            <a class="navbar-brand">KIVORIA</a>
+            <?php echo $issue_message; ?>
+        </section>
+    </div>
+</body>
+</html>

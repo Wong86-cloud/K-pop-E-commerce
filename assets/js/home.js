@@ -22,14 +22,16 @@ function prevSlideHome() {
 // Initialize the home carousel by showing the first slide
 showSlideHome(currentSlideHome);
 
-// Recommended Artist Carousel
+// Scroll the carousel left by a fixed amount
 function prevSlideArtist() {
     const carouselInner = document.querySelector('.carousel-inner');
-    carouselInner.scrollLeft -= carouselInner.clientWidth / 3; // Scroll by a portion of the container width
+    const scrollAmount = carouselInner.clientWidth / 3; // Scroll by 1/3 of the width of the carousel
+    carouselInner.scrollLeft -= scrollAmount; // Scroll left
 }
 
+// Scroll the carousel right by a fixed amount
 function nextSlideArtist() {
     const carouselInner = document.querySelector('.carousel-inner');
-    carouselInner.scrollLeft += carouselInner.clientWidth / 3; // Scroll by a portion of the container width
+    const scrollAmount = carouselInner.clientWidth / 3; // Scroll by 1/3 of the width of the carousel
+    carouselInner.scrollLeft += scrollAmount; // Scroll right
 }
-

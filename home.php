@@ -83,7 +83,6 @@
             <!-- Carousel Inner -->
             <?php $artists = $conn->query("SELECT * FROM artists"); ?>
             <div class="carousel-inner">
-              <div class="artist-carousel">
                 <?php while($artist = $artists->fetch_assoc()): ?>
                   <div class="artist">
                     <img src="assets/images/artists/<?php echo $artist['image_url'] ?>" alt="">
@@ -91,7 +90,6 @@
                     <button class="btn artist-btn" onclick="window.location.href='shop.php?celebrity=<?php echo urlencode($artist['name']); ?>'"data-translate="Shop Now">Shop Now</button>
                   </div>
                 <?php endwhile; ?>
-              </div>
             </div>
 
             <!-- Right Button -->
