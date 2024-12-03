@@ -102,7 +102,7 @@
             <?php for ($i = 1; $i <= 8; $i++): ?>
                 <div class="graph-question">
                     <h6 data-translate="Question <?php echo $i; ?>: <?php echo getFeedbackQuestion($i); ?>">Question <?php echo $i; ?>: <?php echo getFeedbackQuestion($i); ?></h6>
-                    <div style="width: 40%; height:auto; max-width: 300px; margin:auto;">
+                    <div style="width: 50%; height:300px; max-width: 400px; margin:auto;">
                         <canvas id="q<?php echo $i; ?>Chart" width="400" height="200"></canvas>
                     </div>
                 </div>

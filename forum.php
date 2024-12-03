@@ -243,7 +243,7 @@ if (isset($_GET['room_id'])) {
                     <div class="post-content">
                         <p data-translate="<?php echo $post_content; ?>"><?php echo $post_content; ?></p>
                         <?php if ($got_image) { ?>
-                            <img src="<?php echo $post_image; ?>" class="post-image" alt="Post Image" onclick="openModal(this)">
+                            <img src="<?php echo $post_image; ?>" class="post-image" alt="Post Image">
                         <?php } ?>
                     </div>
                     <div class="post-footer">

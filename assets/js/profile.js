@@ -200,27 +200,3 @@ function submitComment(postId) {
     }
 }
 
-function deleteComment(commentId) {
-    $.ajax({
-        url: 'db_connection/delete_comment.php',
-        type: 'POST',
-        data: { comment_id: commentId },
-        dataType: 'json', // Expect a JSON response
-        success: function(response) {
-            if (response.success) {
-                // Remove the comment from the DOM
-                $(`#comment-${commentId}`).remove();
-
-                // Optionally update the comment count displayed
-                const postId = response.post_id; // Ensure you return post_id in response
-                const commentCountSpan = $(`#comment-button-${postId} span`);
-                commentCountSpan.text(parseInt(commentCountSpan.text()) - 1);
-            } else {
-                alert("Failed to delete comment: " + response.error); // Show error if available
-            }
-        },
-        error: function(xhr, status, error) {
-            alert("AJAX error: " + error); // Handle AJAX errors
-        }
-    });
-}
