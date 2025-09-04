@@ -24,8 +24,11 @@ The backend is powered by a **custom SQL database (`kpop_ecommerce.sql`)**, whic
 - 📦 **Order Tracking**  
   Customers can check the status of their orders (e.g., Processing, Shipped, Delivered).  
 
-- ⭐ **Review System**  
-  After receiving products, users can leave ratings and reviews, which are stored in the database and displayed on product pages.  
+- 💬 **Messenger**  
+  Users can send private messages to friends for direct communication within the platform.  
+
+- 📝 **Discussion Forum**  
+  Fans can create posts, like, comment, and add friends to engage in community discussions.  
 
 - 👤 **User Accounts**  
   Users can register, log in, and manage their profiles. Login details are validated through the SQL database.  
