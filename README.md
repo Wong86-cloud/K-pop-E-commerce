@@ -50,7 +50,55 @@ First, download the project source code to your computer. You can do this by clo
 git clone https://github.com/yourusername/kpop-ecommerce.git
 cd kpop-ecommerce
 
-### 2. Set up the database
-```bash
+---
+2. Set up the database
+
+This project uses a MySQL database. A preconfigured SQL file (kpop_ecommerce.sql) is included to make setup easier.
+
+Open phpMyAdmin or your MySQL command line tool.
+
+Create a new database named kpop_ecommerce:
+
+CREATE DATABASE kpop_ecommerce;
 
 
+Import the provided SQL file into the database:
+
+USE kpop_ecommerce;
+SOURCE ./database/kpop_ecommerce.sql;
+
+
+After completing this step, your database will contain all required tables such as users, products, orders, and reviews.
+
+3. Configure environment variables
+
+Next, create a file named .env in the root directory of the project.
+This file will store your local database connection details. For example:
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=your_password
+DB_NAME=kpop_ecommerce
+
+
+Replace your_password with your actual MySQL root password (or leave it empty if you don’t have one).
+
+4. Install project dependencies
+
+The project requires Node.js packages to run. Install all dependencies by running:
+
+npm install
+
+
+This will download and set up all the required libraries listed in the package.json file.
+
+5. Start the development server
+
+Finally, launch the development server with:
+
+npm run dev
+
+
+Once the server is running, open your browser and go to:
+
+👉 http://localhost:3000
