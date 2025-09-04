@@ -1,92 +1,56 @@
-🛒 K-pop E-commerce (Final Year Project)
-📌 Overview
+# 🛒 K-pop E-commerce (Final Year Project)  
 
-This project is a full-cycle K-pop e-commerce platform built as my Final Year Project. It demonstrates the entire online shopping journey for K-pop fans, including product browsing, cart management, order placement, order tracking, and customer reviews.
+## 📌 Overview  
+This project is a **K-pop e-commerce platform** developed as my Final Year Project.  
+It aims to provide K-pop fans with an engaging online shopping experience that covers every step of the customer journey.  
 
-The project is powered by a custom SQL database (kpop_ecommerce.sql), ensuring structured management of users, products, orders, and reviews.
+From browsing albums and merchandise to completing purchases, tracking orders, and leaving reviews, the system demonstrates a practical implementation of **UI/UX design, backend logic, and SQL database management**.  
 
-✨ Features
+The backend is powered by a **custom SQL database (`kpop_ecommerce.sql`)**, which ensures efficient and structured handling of users, products, orders, and reviews.  
 
-🏠 Homepage – Showcases promotions and featured albums/merch
+---
 
-🔍 Product Browsing – Search and filter K-pop albums, lightsticks, and other items
+## ✨ Features  
 
-🛒 Shopping Cart & Checkout – Add/remove products and simulate order checkout
+- 🏠 **Homepage**  
+  Showcases featured products, promotions, and newly released albums to engage users immediately.  
 
-📦 Order Tracking – Track shipping and delivery status
+- 🔍 **Product Browsing**  
+  Users can browse albums, lightsticks, and other K-pop merchandise with options to filter and search.  
 
-⭐ Review System – Submit product ratings and feedback after purchase
+- 🛒 **Shopping Cart & Checkout**  
+  Add/remove items from the cart and simulate the checkout process. This includes order confirmation and saving order details into the database.  
 
-👤 User Accounts – Registration, login, and profile management
+- 📦 **Order Tracking**  
+  Customers can check the status of their orders (e.g., Processing, Shipped, Delivered).  
 
-🛠️ Tech Stack
+- ⭐ **Review System**  
+  After receiving products, users can leave ratings and reviews, which are stored in the database and displayed on product pages.  
 
-Frontend: React / Next.js / Tailwind CSS (adjust to what you used)
+- 👤 **User Accounts**  
+  Users can register, log in, and manage their profiles. Login details are validated through the SQL database.  
 
-Backend: Node.js / Express.js (or PHP/Laravel, depending on your actual stack)
+---
 
-Database: MySQL (via kpop_ecommerce.sql)
+## 🛠️ Tech Stack  
 
-Authentication: Basic login system (username/password)
+- **Frontend**: React.js / Next.js with Tailwind CSS for responsive UI  
+- **Backend**: Node.js with PHP
+- **Database**: MySQL (imported from `kpop_ecommerce.sql`)  
+- **Authentication**: Basic login and session handling  
+- **Deployment**: Runs locally (development). Can be deployed using platforms like Vercel or Heroku in the future.  
 
-Deployment: Localhost (development) / optional deployment on Vercel/Heroku
+---
 
-🚀 Installation & Setup
-1. Clone the repository
+## 🚀 Installation & Setup  
+
+### 1. Clone the repository  
+First, download the project source code to your computer. You can do this by cloning the GitHub repository using the following command:  
+```bash
 git clone https://github.com/yourusername/kpop-ecommerce.git
 cd kpop-ecommerce
 
-2. Import the database
-
-Open phpMyAdmin or MySQL CLI
-
-Create a new database (e.g., kpop_ecommerce)
-
-Import the provided kpop_ecommerce.sql file
-
-CREATE DATABASE kpop_ecommerce;
-USE kpop_ecommerce;
-SOURCE ./database/kpop_ecommerce.sql;
-
-3. Configure environment (if needed)
-
-Create a .env file and set database credentials:
-
-DB_HOST=localhost
-DB_USER=root
-DB_PASS=your_password
-DB_NAME=kpop_ecommerce
+### 2. Set up the database
+```bash
 
 
-(Skip Stripe or API keys since this project uses only local SQL.)
-
-4. Install dependencies
-npm install
-
-5. Start the server
-npm run dev
-
-
-Visit: http://localhost:3000
-
-📸 Screenshots
-
-(Add images of your homepage, cart, checkout, and order tracking here.)
-
-🔮 Future Improvements
-
-Add secure password hashing & JWT authentication
-
-Real payment gateway integration (Stripe/PayPal)
-
-Admin dashboard for managing products and orders
-
-AI-powered recommendation system for K-pop merch
-
-👩‍💻 Author
-
-Zi Hao Wong
-
-📧 Email: zhwong8806@gmail.com
-
-🔗 LinkedIn: www.linkedin.com/in/zi-hao-wong-814242328
